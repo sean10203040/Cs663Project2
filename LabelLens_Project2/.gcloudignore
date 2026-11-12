@@ -1,0 +1,9 @@
+# Upload only backend code, dependencies and the verified prompt.
+**
+!Dockerfile
+!.gcloudignore
+!.dockerignore
+!backend/
+!backend/*.py
+!backend/requirements.txt
+!backend/qa_prompt.json

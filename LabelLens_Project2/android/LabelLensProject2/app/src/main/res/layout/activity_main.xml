@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root" android:layout_width="match_parent" android:layout_height="match_parent"
+    android:fillViewport="true" android:background="#F4F7F5">
+    <LinearLayout android:id="@+id/page_content" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="24dp" android:focusable="true" android:focusableInTouchMode="true">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="LABEL LENS / PROJECT 02" android:textSize="12sp" android:textStyle="bold"
+            android:letterSpacing="0.12" android:textColor="#176859" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:text="Read your label."
+            android:textSize="32sp" android:textStyle="bold" android:textColor="#172E27" android:accessibilityHeading="true" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:text="Take a clear photo, then read the text on your device."
+            android:textSize="17sp" android:textColor="#40594F" />
+        <ImageView android:id="@+id/preview" android:layout_width="match_parent" android:layout_height="220dp"
+            android:layout_marginTop="20dp" android:background="@drawable/panel" android:scaleType="fitCenter"
+            android:contentDescription="Selected product label photo" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="12dp">
+            <Button android:id="@+id/camera" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                android:minHeight="56dp" android:text="Take a photo" android:textAllCaps="false" />
+            <Button android:id="@+id/import_photo" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                android:layout_marginStart="8dp" android:minHeight="56dp" android:text="Choose photo" android:textAllCaps="false" />
+        </LinearLayout>
+        <Button android:id="@+id/scan" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:minHeight="60dp" android:text="Read label" android:textAllCaps="false" android:textSize="18sp"
+            android:backgroundTint="#176859" android:textColor="#FFFFFF" android:enabled="false" />
+        <Button android:id="@+id/full_photo" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:minHeight="52dp" android:text="Read full photo" android:textAllCaps="false" android:enabled="false" />
+        <ProgressBar android:id="@+id/progress" style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent" android:layout_height="4dp" android:indeterminate="true" android:visibility="gone" />
+        <TextView android:id="@+id/status" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:text="Choose a photo to begin." android:textSize="15sp"
+            android:textColor="#40594F" android:accessibilityLiveRegion="polite" />
+        <Button android:id="@+id/toggle_options" style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp"
+            android:text="Scan options" android:textAllCaps="false" android:textColor="#176859" />
+        <LinearLayout android:id="@+id/scan_options" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:visibility="gone" android:background="@drawable/panel">
+            <CheckBox android:id="@+id/higher_contrast" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:minHeight="48dp" android:text="Try higher contrast" android:textSize="16sp" />
+            <CheckBox android:id="@+id/context_crop" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:minHeight="48dp" android:text="Include surrounding label text" android:textSize="16sp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Package surface"
+                android:labelFor="@id/surface" android:textSize="16sp" />
+            <Spinner android:id="@+id/surface" android:layout_width="match_parent" android:layout_height="56dp" />
+            <Button android:id="@+id/corrected_scan" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:minHeight="56dp" android:text="Read with correction" android:textAllCaps="false" android:enabled="false" />
+            <TextView android:id="@+id/crop_info" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" android:textSize="14sp" android:textColor="#40594F" android:visibility="gone" />
+            <ImageView android:id="@+id/crop_preview" android:layout_width="match_parent" android:layout_height="140dp"
+                android:layout_marginTop="8dp" android:scaleType="fitCenter" android:contentDescription="Image read by OCR" android:visibility="gone" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/local_section" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:orientation="vertical" android:background="@drawable/panel">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Label text" android:textSize="22sp" android:textStyle="bold" android:textColor="#172E27" android:accessibilityHeading="true" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp"
+                android:text="Read on your device" android:textSize="13sp" android:textColor="#40594F" />
+            <TextView android:id="@+id/result" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" android:text="Your label text will appear here." android:textIsSelectable="true"
+                android:textSize="20sp" android:textColor="#172E27" />
+            <Button android:id="@+id/speak" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" android:minHeight="56dp" android:text="Read aloud" android:textAllCaps="false" android:enabled="false" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/gemini_section" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="28dp" android:orientation="vertical" android:background="@drawable/gemini_panel">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="OPTIONAL ASSISTANT" android:textSize="11sp" android:letterSpacing="0.1" android:textStyle="bold" android:textColor="#375DA1" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp"
+                android:text="Ask Gemini" android:textSize="26sp" android:textStyle="bold" android:textColor="#233A61" android:accessibilityHeading="true" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp"
+                android:text="Need more detail? Ask a question about the photo after reading your label. Uses an internet connection."
+                android:textSize="16sp" android:textColor="#435777" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp"
+                android:text="Your question" android:labelFor="@id/label_question" android:textSize="16sp" android:textStyle="bold" android:textColor="#233A61" />
+            <EditText android:id="@+id/label_question" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:minHeight="56dp" android:inputType="textCapSentences|textMultiLine" android:textSize="17sp"
+                android:text="What is the name of this product?" android:hint="Ask about the label" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp"
+                android:text="Image to ask about" android:labelFor="@id/gemini_image" android:textColor="#435777" />
+            <Spinner android:id="@+id/gemini_image" android:layout_width="match_parent" android:layout_height="52dp" />
+            <Button android:id="@+id/ask_gemini" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" android:minHeight="56dp" android:text="Ask Gemini" android:textAllCaps="false"
+                android:backgroundTint="#375DA1" android:textColor="#FFFFFF" android:enabled="false" />
+            <ProgressBar android:id="@+id/gemini_progress" style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent" android:layout_height="4dp" android:indeterminate="true" android:visibility="gone" />
+            <TextView android:id="@+id/gemini_status" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" android:text="Optional. Read a label above, then ask a question."
+                android:textSize="14sp" android:textColor="#435777" android:accessibilityLiveRegion="polite" />
+            <TextView android:id="@+id/gemini_result" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" android:text="Your Gemini answer will appear here." android:textSize="20sp"
+                android:textColor="#233A61" android:textIsSelectable="true" />
+            <Button android:id="@+id/speak_gemini" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" android:minHeight="52dp" android:text="Read answer aloud" android:textAllCaps="false" android:enabled="false" />
+            <Button android:id="@+id/backend_settings" style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp"
+                android:text="Connection settings" android:textAllCaps="false" android:textColor="#375DA1" />
+        </LinearLayout>
+        <Button android:id="@+id/cancel" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:minHeight="52dp" android:text="Cancel current request" android:textAllCaps="false" android:visibility="gone" android:enabled="false" />
+        <Button android:id="@+id/toggle_study" style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp"
+            android:minHeight="48dp" android:text="Evaluation tools" android:textAllCaps="false" android:textColor="#40594F" />
+        <LinearLayout android:id="@+id/study_options" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:visibility="gone" android:background="@drawable/panel">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="For project evaluation" android:textSize="20sp" android:textStyle="bold" android:accessibilityHeading="true" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp"
+                android:text="These fields are optional. Export saves the scan images and any Gemini answer." android:textSize="15sp" />
+            <Button android:id="@+id/compare" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:minHeight="56dp" android:text="Compare full, cropped and corrected reading" android:textAllCaps="false" android:enabled="false" />
+            <EditText android:id="@+id/product_group" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:minHeight="56dp" android:hint="Product group ID" android:inputType="text" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Capture condition" android:labelFor="@id/condition" />
+            <Spinner android:id="@+id/condition" android:layout_width="match_parent" android:layout_height="56dp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Dataset split" android:labelFor="@id/dataset_split" />
+            <Spinner android:id="@+id/dataset_split" android:layout_width="match_parent" android:layout_height="56dp" />
+            <EditText android:id="@+id/reference_text" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:minHeight="100dp" android:hint="Manually transcribed reference text" android:inputType="textMultiLine" />
+            <CheckBox android:id="@+id/reference_reviewed" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:minHeight="48dp" android:text="I checked this reference against the photo" />
+            <Button android:id="@+id/export_scan" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:minHeight="56dp" android:text="Export scan record" android:textAllCaps="false" android:enabled="false" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

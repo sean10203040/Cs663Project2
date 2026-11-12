@@ -1,0 +1,30 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'edu.cs663.labellens.project2'
+    compileSdk 35
+    defaultConfig {
+        applicationId 'edu.cs663.labellens.project2'
+        minSdk 28
+        targetSdk 35
+        versionCode 1
+        versionName '0.1.0'
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    androidResources { noCompress += 'tflite' }
+    buildFeatures { buildConfig true }
+}
+
+dependencies {
+    implementation 'androidx.activity:activity:1.10.1'
+    implementation 'androidx.core:core:1.15.0'
+    implementation 'com.google.mlkit:text-recognition:16.0.1'
+    implementation 'com.google.ai.edge.litert:litert:1.0.1'
+    implementation 'org.opencv:opencv:4.12.0'
+    androidTestImplementation 'androidx.test:runner:1.6.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+}

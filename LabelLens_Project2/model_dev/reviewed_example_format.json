@@ -1,0 +1,19 @@
+{
+  "example_id": "REPLACE_WITH_EXPORTED_SCAN_ID",
+  "product_group": "REPLACE_WITH_REAL_PRODUCT_GROUP",
+  "split": "train",
+  "condition": "curved",
+  "crop": "images/REPLACE_WITH_REAL_CROP.jpg",
+  "context": "images/REPLACE_WITH_REAL_CONTEXT.jpg",
+  "ocr_text": "REPLACE_WITH_ACTUAL_RAW_OCR",
+  "reviewed": false,
+  "target": {
+    "product_name": null,
+    "brand": null,
+    "key_attributes": {"size": null, "best_by": null},
+    "confidence": "low",
+    "guidance": "REPLACE_WITH_GUIDANCE_APPROPRIATE_TO_THE_ACTUAL_IMAGE",
+    "evidence": {}
+  },
+  "review_notes": "Format template only. Replace fields using the actual image. This is not a training example."
+}
