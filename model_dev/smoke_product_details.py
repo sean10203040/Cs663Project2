@@ -20,6 +20,8 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--check-comparison-unconfigured", action="store_true",
                         help="Check comparison availability without running model inference")
+    parser.add_argument("--check-comparison-ready",action="store_true",
+                        help="Invoke both extraction models once and verify the paired response")
     args = parser.parse_args()
     url = args.url.rstrip("/")
     if not url.startswith("https://"): parser.error("Use an HTTPS service URL")
@@ -45,6 +47,17 @@ def main():
             report["comparison"] = comparison.json()
             assert comparison.status_code == 200, report["comparison"]
             assert report["comparison"]["available"] is False and report["comparison"]["inference_requests"] == 0
+        if args.check_comparison_ready:
+            comparison=client.post(url+"/v1/compare",json=payload,headers={"Authorization":"Bearer "+token})
+            report["comparison_status"]=comparison.status_code;report["comparison"]=comparison.json()
+            assert comparison.status_code==200,report["comparison"]
+            paired=report["comparison"]
+            assert paired["available"] is True and paired["inference_requests"]==2
+            for variant in ("base","tuned"):
+                assert paired[variant]["status"]=="ok",paired[variant]
+                result=paired[variant]["response"]
+                assert result["model_variant"]==variant and result["prompt_version"]==PROMPT_VERSION
+                parse_reading(json.dumps(result["reading"]),args.ocr_text)
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(json.dumps(report, indent=2), encoding="utf-8")
         response.raise_for_status()

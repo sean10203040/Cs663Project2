@@ -2,6 +2,20 @@
 import re
 
 
+def generation_settings(family):
+    """One fixed inference policy for the extraction baseline and tuned endpoint."""
+    config={"temperature":0,"max_output_tokens":1600,"media_resolution":"MEDIA_RESOLUTION_HIGH"}
+    if "gemini-2.5" in family:config["thinking_config"]={"thinking_budget":0}
+    elif "gemini-3" in family:config["thinking_config"]={"thinking_level":"MINIMAL"}
+    # The training prompt teaches JSON. No controlled schema/JSON mode is added
+    # to either side of the comparison, avoiding a training/inference mismatch.
+    return config
+
+
+def api_base_url(location):
+    return f"https://aiplatform.{location}.rep.googleapis.com" if location in ("us","eu") else None
+
+
 def field_values(reading):
     return {"product_name": reading.product_name, "brand": reading.brand,
             "size": reading.key_attributes.size, "best_by": reading.key_attributes.best_by}

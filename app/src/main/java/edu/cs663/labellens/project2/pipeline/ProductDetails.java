@@ -67,7 +67,8 @@ public final class ProductDetails {
         java.util.Iterator<String> keys=evidence.keys();
         while(keys.hasNext()) {
             JSONObject support=evidence.getJSONObject(keys.next());
-            if("ocr".equals(support.getString("source"))&&!normalize(ocr).contains(normalize(support.getString("quote"))))
+            if("ocr".equals(support.getString("source"))&&!java.util.regex.Pattern.compile("(?<![\\p{L}\\p{N}_])"
+                +java.util.regex.Pattern.quote(normalize(support.getString("quote")))+"(?![\\p{L}\\p{N}_])").matcher(normalize(ocr)).find())
                 throw new IOException("An OCR quote must appear in the OCR text. Use image text for a correction read from the photo.");
         }
     }

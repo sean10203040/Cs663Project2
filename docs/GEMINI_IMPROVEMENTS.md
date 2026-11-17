@@ -33,7 +33,7 @@ must be assigned a training, validation or test split before SFT export.
 
 ## Base versus fine-tuned comparison
 
-**Compare base and fine-tuned details** calls authenticated `/v1/compare`.
+**Compare product extraction models** calls authenticated `/v1/compare`.
 Both model requests receive the same encoded image bytes, OCR, extraction
 prompt and generation settings. Responses include model IDs, prompt version,
 timing and a shared input hash. Per-model failures remain visible. The app
@@ -41,12 +41,14 @@ shows fields side by side, followed by each model's evidence and guidance.
 
 Matching values are **agreement**, including shared missing values; they are
 not an accuracy score. Correctness requires independently checked references.
-The existing fine-tuned model was trained for image-question answering and is
+The original fine-tuned model was trained for image-question answering and is
 kept on `/v1/answer`. It must not be presented as a product-extraction model.
-Until a separate `LABELLENS_TUNED_MODEL` endpoint exists, comparison returns an
-explicit explanation and performs zero model inference requests.
+The separate product model completed one epoch on 400 examples and paired
+validation on 155 examples. See the [measured results](PRODUCT_VALIDATION_20261115.md).
+When `LABELLENS_TUNED_MODEL` is absent, comparison returns an explicit explanation
+and performs zero model inference requests.
 
-## Improving fine-tuning after the new data arrives
+## Improving subsequent fine-tuning
 
 First choose the task. Improve the existing QA model with image/question/checked
 answer examples matching its training prompt. For this product card, prepare a
@@ -81,7 +83,8 @@ well: valid JSON and a supporting quote do not prove the field is correct.
 Use the final frozen test set once the experiment is selected. Report actual
 results, including regressions; a benefit from tuning cannot be guaranteed.
 
-No fine-tuning was started for this update. The Android debug app and device-test
-APK compile, lint has zero errors, and backend/export unit tests cover input
+The approved product-extraction epoch is complete; the original QA model remains
+separate. The Android debug app and device-test APK compile, lint has zero errors,
+and backend/export unit tests cover input
 pairing, missing-field guidance, absent configuration, human-reference export,
 unreviewed drafts and split leakage. Device interaction remains to be checked.

@@ -137,11 +137,45 @@
             <LinearLayout android:id="@+id/tuned_gemini_section" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
                 <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp"
                     android:text="Fine-tuned Gemini" android:textSize="21sp" android:textStyle="bold" android:textColor="#233A61" android:accessibilityHeading="true" />
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp"
+                    android:text="New product model" android:textSize="18sp" android:textStyle="bold" android:textColor="#233A61" />
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp"
+                    android:text="Use the product-extraction fine-tune with the reading crop, original OCR, and the optional whole-photo setting above."
+                    android:textSize="14sp" android:textColor="#435777" />
+                <Button android:id="@+id/analyze_tuned_details" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp" android:minHeight="56dp" android:text="Analyze with fine-tuned model" android:textAllCaps="false"
+                    android:backgroundTint="#375DA1" android:textColor="#FFFFFF" android:enabled="false" />
+                <TextView android:id="@+id/tuned_details_status" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp"
+                    android:text="Checks whether the product model is connected before analyzing." android:textSize="14sp" android:textColor="#435777" android:accessibilityLiveRegion="polite" />
+                <TextView android:id="@+id/tuned_details_result" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp"
+                    android:text="Your fine-tuned product details will appear here." android:textSize="19sp" android:textColor="#233A61" android:textIsSelectable="true" />
+            <LinearLayout android:id="@+id/tuned_details_card" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:layout_marginTop="12dp" android:background="@drawable/panel" android:visibility="gone">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Product name" android:textStyle="bold" android:textColor="#435777" android:labelFor="@id/tuned_detail_product" />
+                <TextView android:id="@+id/tuned_detail_product" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="21sp" android:textColor="#233A61" android:textIsSelectable="true" />
+                <TextView android:id="@+id/tuned_evidence_product" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:textSize="14sp" android:textColor="#435777" android:textIsSelectable="true" />
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="Brand" android:textStyle="bold" android:textColor="#435777" android:labelFor="@id/tuned_detail_brand" />
+                <TextView android:id="@+id/tuned_detail_brand" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="19sp" android:textColor="#233A61" android:textIsSelectable="true" />
+                <TextView android:id="@+id/tuned_evidence_brand" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:textSize="14sp" android:textColor="#435777" android:textIsSelectable="true" />
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="Size / net weight" android:textStyle="bold" android:textColor="#435777" android:labelFor="@id/tuned_detail_size" />
+                <TextView android:id="@+id/tuned_detail_size" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="19sp" android:textColor="#233A61" android:textIsSelectable="true" />
+                <TextView android:id="@+id/tuned_evidence_size" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:textSize="14sp" android:textColor="#435777" android:textIsSelectable="true" />
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="Best-by date" android:textStyle="bold" android:textColor="#435777" android:labelFor="@id/tuned_detail_date" />
+                <TextView android:id="@+id/tuned_detail_date" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="19sp" android:textColor="#233A61" android:textIsSelectable="true" />
+                <TextView android:id="@+id/tuned_evidence_date" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:textSize="14sp" android:textColor="#435777" android:textIsSelectable="true" />
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Image quotes are Gemini’s transcription, not independent verification. Check them against the photo." android:textSize="13sp" android:textColor="#435777" />
+                <TextView android:id="@+id/tuned_details_guidance" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:textSize="16sp" android:textColor="#435777" />
+                <TextView android:id="@+id/tuned_details_certainty" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:textSize="13sp" android:textColor="#435777" />
+            </LinearLayout>
+                <Button android:id="@+id/speak_tuned_details" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp" android:minHeight="52dp" android:text="Read fine-tuned details aloud" android:textAllCaps="false" android:enabled="false" />
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp"
+                    android:text="Existing question-answer model" android:textSize="18sp" android:textStyle="bold" android:textColor="#233A61" />
                 <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp"
                     android:text="Try your trained question-answer model with the question and image selected above. Keep those inputs unchanged to compare its answer with base Gemini."
                     android:textSize="14sp" android:textColor="#435777" />
                 <Button android:id="@+id/ask_tuned" android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp" android:minHeight="56dp" android:text="Ask fine-tuned Gemini" android:textAllCaps="false"
+                    android:layout_marginTop="12dp" android:minHeight="56dp" android:text="Ask fine-tuned question model" android:textAllCaps="false"
                     android:backgroundTint="#375DA1" android:textColor="#FFFFFF" android:enabled="false" />
                 <TextView android:id="@+id/tuned_status" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp"
                     android:text="Uses the question and image selected above." android:textSize="14sp" android:textColor="#435777" android:accessibilityLiveRegion="polite" />
@@ -165,9 +199,9 @@
                 android:text="For project evaluation" android:textSize="20sp" android:textStyle="bold" android:accessibilityHeading="true" />
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp"
                 android:text="These fields are optional. Export saves the scan images and any Gemini answer." android:textSize="15sp" />
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:text="Future product extraction comparison" android:textSize="21sp" android:textStyle="bold" android:textColor="#233A61" android:accessibilityHeading="true" />
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Requires a separate fine-tuned product-extraction model. Your existing fine-tuned model answers questions in the Gemini section above. When extraction tuning is ready, this compares both models on the same images and OCR using two model requests." android:textSize="14sp" android:textColor="#435777" />
-            <Button android:id="@+id/compare_products" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="56dp" android:text="Check extraction comparison availability" android:textAllCaps="false" android:enabled="false" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:text="Product extraction comparison" android:textSize="21sp" android:textStyle="bold" android:textColor="#233A61" android:accessibilityHeading="true" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Compare base Gemini and the product-extraction fine-tune on identical images and OCR. Runs two model requests. Agreement between the models is not an accuracy score." android:textSize="14sp" android:textColor="#435777" />
+            <Button android:id="@+id/compare_products" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="56dp" android:text="Compare product extraction models" android:textAllCaps="false" android:enabled="false" />
             <TextView android:id="@+id/product_comparison_status" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Compare base and fine-tuned product extraction on the same photo and OCR." android:textSize="14sp" android:textColor="#435777" android:accessibilityLiveRegion="polite" />
             <LinearLayout android:id="@+id/product_comparison" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="8dp" />
             <Button android:id="@+id/compare" android:layout_width="match_parent" android:layout_height="wrap_content"

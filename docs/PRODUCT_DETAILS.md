@@ -1,4 +1,30 @@
-# Product details baseline
+# Product details
+
+## November 15: product fine-tune connected
+
+The completed product-extraction endpoint is connected on Cloud Run revision
+`labellens-qa-00004-nmx`, serving 100% of traffic. The service URL, saved app token
+and separate QA model are unchanged. Extraction now uses `labellens-evidence-v3`,
+the same prompt and generation policy used in training and paired validation.
+
+Live authenticated checks returned HTTP 200 for base extraction, both sides of
+`/v1/compare`, and the original tuned QA route. Unauthenticated calls returned
+401. The comparison returned the actual new endpoint
+`projects/1056598944825/locations/us/endpoints/6152796700290318336`.
+Raw checks are in ignored `qa_product_details_results/live_tuned_20261115.json`
+and `qa_gateway_results/recheck_20261115.json`. This was one existing validation
+photo with empty OCR, not an additional accuracy evaluation.
+
+Rebuild/run the Android app from the repository root. After a local scan, use
+**Analyze with fine-tuned model** in the bottom Gemini section, or expand
+**Evaluation tools** and use **Compare product extraction models**. The base
+product card and question-answer actions remain separate. Phone interaction
+still needs verification. All 32 offline Python tests pass; Android debug and
+instrumentation APKs build, and lint completes with zero errors.
+
+See the [155-example paired validation report](PRODUCT_VALIDATION_20261115.md)
+for measured benefits, regressions and interpretation limits. The November 13
+record below describes the earlier base-only deployment.
 
 ## November 13 verification
 
@@ -62,7 +88,7 @@ Product extraction defaults to `gemini-3.5-flash` in `global`, configurable via
 are separate. Tuned product extraction fails explicitly until its own
 `LABELLENS_TUNED_MODEL` is configured; it never substitutes the QA model.
 
-`labellens-evidence-v2` versions the extraction prompt. Each populated field
+`labellens-evidence-v3` versions the current extraction prompt. Each populated field
 requires an evidence quote; quotes attributed to OCR must occur in the supplied
 OCR. Invalid types, unsupported evidence, missing fields, and malformed JSON
 produce a failure rather than partially trusted UI output. Image-only evidence
@@ -80,8 +106,8 @@ instrumentation checks for partial-value presentation and response validation.
 Build and lint checks compile those tests; running on a device remains a
 separate step.
 
-Next: review real-photo extraction errors, assemble independently reviewed
-crop/OCR/target examples, then compare base and a future product-extraction
-fine-tune using the same inputs, scoring, and held-out product groups. Keep the
-existing QA model as a separate experiment. A fine-tuning benefit must be
-measured, not assumed or created by changing the test set.
+Next: verify both extraction actions on the phone and review validation failures,
+including blank-reference disagreements and bilingual or equivalent-unit matches.
+Preserve the frozen final-test set until the experiment and evaluation policy
+are selected. Keep the existing QA model as a separate experiment. Benefits must
+be measured, not assumed or created by changing the test set.

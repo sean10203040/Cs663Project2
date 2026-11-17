@@ -1,5 +1,21 @@
 # Android Gemini backend — ready November 11, 2026
 
+November 17 update: revision `labellens-qa-00005-lqd` connects the 399-image,
+two-epoch product-extraction model with its evaluated v4 prompt and one targeted
+evidence recheck. The existing URL, app token and separate QA model are preserved.
+Rebuild/run Android Studio for the longer product-request timeouts. See the
+[399-image app update](PRODUCT_399_APP_UPDATE_20261117.md) for verification and limits.
+
+November 15 update: revision `labellens-qa-00004-nmx` connects the completed
+product-extraction fine-tune, separately from the original QA model. Base
+extraction, both comparison variants and original tuned QA passed authenticated
+live checks. Rebuild/run the current root Android project to use **Analyze with
+fine-tuned model** and **Compare product extraction models**. The service URL
+and saved application token are unchanged. See
+[product details](PRODUCT_DETAILS.md) and [validation](PRODUCT_VALIDATION_20261115.md).
+
+The following deployment notes are historical.
+
 November 13 update: the same service now supports the new **Analyze product
 details** action using base Gemini image+OCR extraction. Revision is
 `labellens-qa-00002-kcf`; the URL and app token are unchanged. The new extraction

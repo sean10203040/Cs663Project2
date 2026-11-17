@@ -9,6 +9,16 @@ model has its own answer, timing, input summary and speech button. Missing detai
 display as Not visible, and detail speech requires Read details aloud. Structured
 responses/evidence and timings are included when exporting the current scan.
 
+The bottom section now also has **Analyze with fine-tuned model**, separate from
+the existing fine-tuned question-answer action. It checks extraction configuration
+before making an inference request. While the new model is training or awaiting
+connection after validation, it explains availability and makes no inference call.
+Completed extraction outputs/evidence appear at the bottom with their own speech
+button; the base product card above is preserved. Exports retain these under
+`product_details_tuned`, including input references, OCR and timing. Local scans
+and choosing a new photo clear both models' displayed results and invalidate
+stale requests.
+
 The main screen starts with photo capture/import, local Read label and Read full
 photo actions, recognized text, and a manual Read aloud button. Taking a photo
 does not automatically start reading or speech.

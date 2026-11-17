@@ -37,6 +37,12 @@ public final class MainActivity extends ComponentActivity {
     private TextView tunedStatus, tunedResult;
     private Button askTuned, speakTuned;
     private String tunedSpeech = "";
+    private TextView tunedDetailsStatus, tunedDetailsResult;
+    private View tunedDetailsCard;
+    private TextView[] tunedDetailValues, tunedDetailEvidence;
+    private TextView tunedDetailsGuidance, tunedDetailsCertainty;
+    private Button analyzeTunedDetails, speakTunedDetails;
+    private String tunedDetailsSpeech = "";
     private TextView detailsStatus, detailProduct, detailBrand, detailSize, detailDate, detailsGuidance, detailsCertainty;
     private View detailsCard;
     private CheckBox detailsContext;
@@ -99,6 +105,12 @@ public final class MainActivity extends ComponentActivity {
         geminiStatus = findViewById(R.id.gemini_status); geminiResult = findViewById(R.id.gemini_result);
         tunedStatus = findViewById(R.id.tuned_status); tunedResult = findViewById(R.id.tuned_result);
         askTuned = findViewById(R.id.ask_tuned); speakTuned = findViewById(R.id.speak_tuned);
+        tunedDetailsStatus = findViewById(R.id.tuned_details_status); tunedDetailsResult = findViewById(R.id.tuned_details_result);
+        tunedDetailsCard = findViewById(R.id.tuned_details_card);
+        tunedDetailValues = new TextView[]{findViewById(R.id.tuned_detail_product),findViewById(R.id.tuned_detail_brand),findViewById(R.id.tuned_detail_size),findViewById(R.id.tuned_detail_date)};
+        tunedDetailEvidence = new TextView[]{findViewById(R.id.tuned_evidence_product),findViewById(R.id.tuned_evidence_brand),findViewById(R.id.tuned_evidence_size),findViewById(R.id.tuned_evidence_date)};
+        tunedDetailsGuidance = findViewById(R.id.tuned_details_guidance); tunedDetailsCertainty = findViewById(R.id.tuned_details_certainty);
+        analyzeTunedDetails = findViewById(R.id.analyze_tuned_details); speakTunedDetails = findViewById(R.id.speak_tuned_details);
         detailsStatus = findViewById(R.id.details_status); detailsCard = findViewById(R.id.details_card);
         detailProduct = findViewById(R.id.detail_product); detailBrand = findViewById(R.id.detail_brand);
         detailSize = findViewById(R.id.detail_size); detailDate = findViewById(R.id.detail_date);
@@ -132,6 +144,7 @@ public final class MainActivity extends ComponentActivity {
         askGemini.setOnClickListener(v -> askGemini("base")); speakGemini.setOnClickListener(v -> say(geminiSpeech));
         askTuned.setOnClickListener(v -> askGemini("tuned")); speakTuned.setOnClickListener(v -> say(tunedSpeech));
         analyzeDetails.setOnClickListener(v -> analyzeDetails()); speakDetails.setOnClickListener(v -> say(detailsSpeech));
+        analyzeTunedDetails.setOnClickListener(v -> analyzeTunedDetails()); speakTunedDetails.setOnClickListener(v -> say(tunedDetailsSpeech));
         compareProducts.setOnClickListener(v -> compareProducts()); reviewDetails.setOnClickListener(v -> reviewDetails());
         exportReviewed.setOnClickListener(v -> exportScan());
         settings.setOnClickListener(v -> backendSettings()); export.setOnClickListener(v -> exportScan());
@@ -139,6 +152,7 @@ public final class MainActivity extends ComponentActivity {
             generation++; geminiGeneration++; cloudBusy = false; tts.stop(); setBusy(false);
             status.setText("Scan cancelled."); geminiStatus.setText("Request cancelled. Local text is still available.");
             tunedStatus.setText("Request cancelled. Local text is still available.");
+            tunedDetailsStatus.setText("Request cancelled. You can try again.");
             detailsStatus.setText("Request cancelled. Tap Analyze product details to try again.");
         });
         toggle(R.id.toggle_options, R.id.scan_options, "Scan options", "Hide scan options");
@@ -207,6 +221,9 @@ public final class MainActivity extends ComponentActivity {
         geminiStatus.setText("Enter a question, then tap Ask base Gemini.");
         tunedResult.setText("Your fine-tuned Gemini answer will appear here.");
         tunedStatus.setText("Uses the question and image selected above.");
+        tunedDetailsSpeech = ""; tunedDetailsResult.setText("Your fine-tuned product details will appear here.");
+        tunedDetailsResult.setVisibility(View.VISIBLE); tunedDetailsCard.setVisibility(View.GONE);
+        tunedDetailsStatus.setText("Checks whether the product model is connected before analyzing.");
         detailsSpeech = ""; detailsReading = null; detailsCard.setVisibility(View.GONE);
         productComparison.removeAllViews(); productComparisonStatus.setText("Compare base and fine-tuned product extraction on the same photo and OCR.");
         detailsStatus.setText("Read a label above to begin.");
@@ -470,6 +487,76 @@ public final class MainActivity extends ComponentActivity {
         });
     }
 
+    private void analyzeTunedDetails() {
+        ScanPipeline.Result reading=activeResult;
+        if(busy||cloudBusy||reading==null||connectionLoading)return;
+        if(token.length()<24){tunedDetailsStatus.setText("Add your app token in Connection settings.");backendSettings();return;}
+        int ticket=++geminiGeneration;
+        String service=endpoint,secret=token,id=reading.record.optString("scan_id"),ocr=reading.record.optString("primary_ocr_text");
+        boolean includeContext=detailsContext.isChecked()&&reading.source!=reading.crop;
+        Bitmap context=includeContext?reading.source:null;
+        JSONObject stage=reading.record.optJSONObject("paths").optJSONObject(reading.record.optString("primary_path"));
+        String imageName=stage==null?"source.png":stage.optString("image","source.png");
+        cloudBusy=true;tunedDetailsSpeech="";tts.stop();
+        tunedDetailsCard.setVisibility(View.GONE);tunedDetailsResult.setVisibility(View.VISIBLE);
+        tunedDetailsStatus.setText("Checking the product model connection...");tunedDetailsResult.setText("Waiting for product details...");setBusy(busy);
+        cloudWorker.execute(()->{
+            long started=SystemClock.elapsedRealtime();boolean invoked=false;
+            try {
+                if(closed||ticket!=geminiGeneration)return;
+                if(!GeminiGateway.productExtractionReady(service))throw new IOException("The new product model is still training or awaiting connection after validation. Base product details and the question-answer models remain available.");
+                if(closed||ticket!=geminiGeneration||activeResult!=reading)return;
+                invoked=true;
+                JSONObject response=GeminiGateway.productDetails(service,secret,"tuned",id,reading.crop,context,ocr);
+                JSONObject fields=response.getJSONObject("reading");
+                String[] keys={"product_name","brand","size","best_by"};
+                String[] values=new String[keys.length],evidence=new String[keys.length];
+                for(int i=0;i<keys.length;i++){
+                    values[i]=ProductDetails.value(fields,keys[i]);
+                    evidence[i]=ProductDetails.evidence(fields,keys[i]);
+                }
+                String guidance=ProductDetails.guidance(fields),spoken=ProductDetails.speech(fields);
+                String certainty="Model-reported certainty: "+fields.getString("confidence")+". Not calibrated.";
+                long elapsed=SystemClock.elapsedRealtime()-started;
+                runOnUiThread(()->{
+                    if(closed||ticket!=geminiGeneration||activeResult!=reading)return;
+                    cloudBusy=false;tunedDetailsSpeech=spoken;
+                    for(int i=0;i<values.length;i++){
+                        tunedDetailValues[i].setText(values[i]);tunedDetailEvidence[i].setText(evidence[i]);
+                    }
+                    tunedDetailsGuidance.setText(guidance);tunedDetailsCertainty.setText(certainty);
+                    tunedDetailsResult.setVisibility(View.GONE);tunedDetailsCard.setVisibility(View.VISIBLE);
+                    tunedDetailsStatus.setText(String.format(Locale.US,"Fine-tuned product extraction · %.2f seconds",elapsed/1000.0));setBusy(busy);
+                    saveTunedDetails(reading,response,null,elapsed,true,imageName,includeContext,ocr);
+                });
+            } catch(Exception failure) {
+                long elapsed=SystemClock.elapsedRealtime()-started;boolean modelInvoked=invoked;
+                String message=failure instanceof java.net.UnknownHostException?"Connect your phone to Wi-Fi or mobile data, then try again.":
+                    failure instanceof java.net.SocketTimeoutException?"The request timed out. Try again.":
+                    failure instanceof IOException?failure.getMessage():"Product details could not be read. Try again with a clearer photo.";
+                runOnUiThread(()->{
+                    if(closed||ticket!=geminiGeneration||activeResult!=reading)return;
+                    cloudBusy=false;tunedDetailsStatus.setText(message);tunedDetailsResult.setText("Fine-tuned product details are unavailable for this request.");setBusy(busy);
+                    saveTunedDetails(reading,null,message,elapsed,modelInvoked,imageName,includeContext,ocr);
+                });
+            }
+        });
+    }
+
+    private void saveTunedDetails(ScanPipeline.Result reading,JSONObject response,String error,long elapsed,boolean invoked,String image,boolean context,String ocr) {
+        worker.execute(()->{
+            try {
+                reading.record.remove("product_details_tuned");reading.record.remove("product_details_tuned_error");
+                reading.record.put("product_details_tuned_requested",true).put("product_details_tuned_inference_attempted",invoked)
+                    .put("product_details_tuned_crop",image).put("product_details_tuned_context",context?"source.png":JSONObject.NULL)
+                    .put("product_details_tuned_ocr_text",ocr).put("product_details_tuned_round_trip_ms",elapsed);
+                if(response!=null)reading.record.put("product_details_tuned",response);
+                if(error!=null)reading.record.put("product_details_tuned_error",error);
+                ScanStore.writeRecord(reading.directory,reading.record);
+            } catch(Exception failure){android.util.Log.e("LabelLens","Tuned details save failed",failure);}
+        });
+    }
+
     private void renderProductComparison(JSONObject response) throws Exception {
         if(!response.getBoolean("available")){productComparisonStatus.setText(response.getString("reason"));return;}
         TableLayout table=new TableLayout(this);table.setStretchAllColumns(true);table.setShrinkAllColumns(true);
@@ -619,6 +706,8 @@ public final class MainActivity extends ComponentActivity {
         speak.setEnabled(!value && speechReady && activeResult != null);
         askGemini.setEnabled(!value && !cloudBusy && !connectionLoading && activeResult != null);
         askTuned.setEnabled(!value && !cloudBusy && !connectionLoading && activeResult != null);
+        analyzeTunedDetails.setEnabled(!value && !cloudBusy && !connectionLoading && activeResult != null);
+        speakTunedDetails.setEnabled(speechReady && !tunedDetailsSpeech.isEmpty());
         analyzeDetails.setEnabled(!value && !cloudBusy && !connectionLoading && activeResult != null);
         compareProducts.setEnabled(!value && !cloudBusy && !connectionLoading && activeResult != null);
         reviewDetails.setEnabled(!value && !cloudBusy && detailsReading != null && activeResult != null);

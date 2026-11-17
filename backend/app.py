@@ -16,7 +16,22 @@ from pydantic import Field
 
 from .contracts import PROMPT_VERSION, StrictModel, make_prompt, parse_reading
 from . import qa
-from .product_tools import agreement, rescan_steps
+from .product_tools import agreement, rescan_steps, generation_settings, api_base_url
+from .evidence_recheck import PROCESSING_VERSION, read_with_recheck
+
+
+def product_policy():
+    selected = os.environ.get("LABELLENS_PRODUCT_POLICY", "v3")
+    if selected == "v4":
+        from .product_policy_v4 import PROMPT_VERSION as version, make_prompt as prompt
+        return version, prompt
+    if selected != "v3":
+        raise HTTPException(503, "Unknown product extraction policy")
+    return PROMPT_VERSION, make_prompt
+
+
+def evidence_recheck_enabled():
+    return os.environ.get("LABELLENS_EVIDENCE_RECHECK", "false").casefold() == "true"
 
 
 class ParseRequest(StrictModel):
@@ -63,7 +78,9 @@ def calibration_for(model: str, reported_confidence: str):
         return None
     try:
         report = json.loads(Path(path).read_text(encoding="utf-8"))
-        if report["model"] != model or report["prompt_version"] != PROMPT_VERSION or report["split"] != "validation":
+        processing = PROCESSING_VERSION if evidence_recheck_enabled() else "strict-v1"
+        if (report["model"] != model or report["prompt_version"] != product_policy()[0]
+                or report["split"] != "validation" or report.get("processing_version", "strict-v1") != processing):
             return None
         bucket = report["buckets"].get(reported_confidence)
         if not bucket or bucket["count"] < 30:
@@ -75,7 +92,7 @@ def calibration_for(model: str, reported_confidence: str):
 
 
 def create_app(generate=None, generate_qa=None):
-    app = FastAPI(title="LabelLens Gemini gateway", version="0.5.0")
+    app = FastAPI(title="LabelLens Gemini gateway", version="0.7.0")
 
     def product_model_settings():
         base = os.environ.get("LABELLENS_BASE_MODEL", qa.BASE_MODEL)
@@ -91,7 +108,8 @@ def create_app(generate=None, generate_qa=None):
             prompt_ready = True
         except (OSError, ValueError, TypeError, KeyError):
             prompt_ready = False
-        return {"service": "LabelLens", "prompt_version": PROMPT_VERSION,
+        return {"service": "LabelLens", "prompt_version": product_policy()[0],
+                "product_processing_version": PROCESSING_VERSION if evidence_recheck_enabled() else "strict-v1",
                 "base_configured": bool(os.environ.get("GOOGLE_CLOUD_PROJECT") and os.environ.get("LABELLENS_APP_TOKEN")),
                 "tuned_configured": product_model_settings()[2],
                 "qa_prompt_configured": prompt_ready,
@@ -151,44 +169,53 @@ def create_app(generate=None, generate_qa=None):
             raise HTTPException(503, "Fine-tuned Gemini is not configured; no base-model substitution was made")
         if request.model_variant == "tuned" and not product_model_settings()[2]:
             raise HTTPException(503, "Configure a separate product-extraction tuned endpoint; the QA model is not compatible")
+        location=qa.serving_location(model, os.environ.get("GOOGLE_CLOUD_LOCATION", "global"))
         crop = checked_jpeg(request.crop_jpeg_base64)
         context = checked_jpeg(request.context_jpeg_base64) if request.context_jpeg_base64 else None
         started = time.perf_counter()
-        try:
+        prompt_version, build_prompt = product_policy()
+        prompt = build_prompt(request.ocr_text)
+        calls = 0
+
+        def generate_reading(instruction):
+            nonlocal calls
+            calls += 1
             if generate is not None:  # Test injection only; production always calls Gemini.
-                text = generate(model, request.model_variant, crop, context, make_prompt(request.ocr_text))
+                return generate(model, request.model_variant, crop, context, instruction)
             else:
                 project = os.environ.get("GOOGLE_CLOUD_PROJECT")
                 if not project:
                     raise HTTPException(503, "Google Cloud project is not configured")
                 from google import genai
                 from google.genai import types
-                client = genai.Client(vertexai=True, project=project,
-                    location=qa.serving_location(model, os.environ.get("GOOGLE_CLOUD_LOCATION", "global")),
-                    http_options=types.HttpOptions(api_version="v1", timeout=25_000,
-                        retry_options=types.HttpRetryOptions(attempts=1)))
+                options={"api_version":"v1","timeout":25_000,"retry_options":types.HttpRetryOptions(attempts=1)}
+                if api_base_url(location):options["base_url"]=api_base_url(location)
+                client = genai.Client(vertexai=True, project=project, location=location,
+                    http_options=types.HttpOptions(**options))
                 parts = [types.Part.from_bytes(data=crop, mime_type="image/jpeg")]
                 if context is not None:
                     parts.append(types.Part.from_bytes(data=context, mime_type="image/jpeg"))
-                parts.append(types.Part.from_text(text=make_prompt(request.ocr_text)))
+                parts.append(types.Part.from_text(text=instruction))
                 # Tuned tasks use the same prompt/schema as training. Google notes
                 # controlled response schemas may reduce tuned-model quality.
-                config = {"temperature": 0, "max_output_tokens": 1600}
                 family = os.environ.get("LABELLENS_BASE_MODEL", qa.BASE_MODEL)
-                if "gemini-2.5" in family:
-                    config["thinking_config"] = types.ThinkingConfig(thinking_budget=0)
-                elif "gemini-3" in family:
-                    config["thinking_config"] = types.ThinkingConfig(thinking_level="MINIMAL")
-                # Same generation settings for the paired product-details comparison.
-                config["response_mime_type"] = "application/json"
+                config = generation_settings(family)
                 try:
                     response = client.models.generate_content(model=model,
                         contents=[types.Content(role="user", parts=parts)],
                         config=types.GenerateContentConfig(**config))
-                    text = response.text or ""
+                    return response.text or ""
                 finally:
                     client.close()
-            reading = parse_reading(text, request.ocr_text)
+
+        try:
+            text = generate_reading(prompt)
+            if evidence_recheck_enabled():
+                reading, evidence_validation = read_with_recheck(text, request.ocr_text, prompt, generate_reading)
+            else:
+                reading = parse_reading(text, request.ocr_text)
+                evidence_validation = {"processing_version": "strict-v1", "recheck_attempted": False,
+                                       "rechecked_fields": [], "removed_fields": []}
         except HTTPException:
             raise
         except (ValueError, TypeError) as exc:
@@ -197,7 +224,9 @@ def create_app(generate=None, generate_qa=None):
             status, detail = qa.failure_status(exc)
             raise HTTPException(status, detail) from exc
         return {"scan_id": request.scan_id, "model": model, "model_variant": request.model_variant,
-                "prompt_version": PROMPT_VERSION, "reading": reading.model_dump(),
+                "prompt_version": prompt_version, "reading": reading.model_dump(),
+                "evidence_validation": evidence_validation, "inference_requests": calls,
+                "model_location":location,"generation_settings":generation_settings(os.environ.get("LABELLENS_BASE_MODEL",qa.BASE_MODEL)),
                 "calibration": calibration_for(model, reading.confidence),
                 "rescan_steps": rescan_steps(reading),
                 "backend_ms": round((time.perf_counter()-started)*1000, 2),
@@ -214,18 +243,20 @@ def create_app(generate=None, generate_qa=None):
         crop = checked_jpeg(request.crop_jpeg_base64)
         context = checked_jpeg(request.context_jpeg_base64) if request.context_jpeg_base64 else b""
         # Snapshot the exact multimodal input before either model is called.
-        prompt = make_prompt(request.ocr_text)
+        prompt_version, build_prompt = product_policy()
+        prompt = build_prompt(request.ocr_text)
         digest = hashlib.sha256(json.dumps({"crop_sha256": hashlib.sha256(crop).hexdigest(),
             "context_sha256": hashlib.sha256(context).hexdigest(), "prompt": prompt}, sort_keys=True).encode()).hexdigest()
         result = {"scan_id": request.scan_id, "available": True, "input_sha256": digest,
-                  "prompt_version": PROMPT_VERSION, "inference_requests": 2,
-                  "scope": "Same images, OCR, prompt and generation settings; no reference answers sent. Agreement is not accuracy."}
+                  "prompt_version": prompt_version, "inference_requests": 2,
+                  "scope": "Same initial images, OCR, prompt and generation settings; same bounded evidence-recheck policy. No reference answers sent. Agreement is not accuracy."}
         for variant in ("base", "tuned"):
             try:
                 response = parse(request.model_copy(update={"model_variant": variant}), authorization)
                 result[variant] = {"status": "ok", "response": response}
             except HTTPException as exc:
                 result[variant] = {"status": "error", "error": {"status": exc.status_code, "detail": exc.detail}}
+        result["inference_requests"] = sum(result[v].get("response", {}).get("inference_requests", 1) for v in ("base", "tuned"))
         if all(result[v]["status"] == "ok" for v in ("base", "tuned")):
             from .contracts import ProductReading
             result["agreement"] = agreement(*[ProductReading.model_validate(result[v]["response"]["reading"]) for v in ("base", "tuned")])

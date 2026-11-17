@@ -1,0 +1,1574 @@
+{
+  "source_audit_sha256": "822b7bc0e56d2f026e560be00b0c7a4e851c6e50a195f6936e82b2a5255ac954",
+  "source_examples_sha256": "1b208f476b11865aed600740dcc07c1f68cb2673b0c36e26ca7bd22f44f48fc5",
+  "review_date": "2026-11-17",
+  "scope": "113 held training examples only; first 5 revisited at original resolution. Proposals are pending user judgment; no running job or dataset modified.",
+  "counts": {
+    "held": 113,
+    "assistant_rechecked": 5,
+    "human_confirmed": 0
+  },
+  "entries": [
+    {
+      "number": 2,
+      "example_id": "sean_349:P013",
+      "source_row_sha256": "60bfbc71d4b8fd7a89eec7526f79c6edefd3128d2acb941177a75b59d808bc2d",
+      "image_sha256": "0fb92f013e8c714e89a09bee2a21b97a63cdee2ac72969011bd068c7f164f96b",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Partly cropped product wording; strength 200 mg is visible but full name requires closer adjudication."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "original_resolution_recheck",
+      "proposed_target": {
+        "product_name": "Tablets 200 mg",
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": "Show the complete front label so the product name and brand are readable.",
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "200 mg\nTablets"
+          }
+        }
+      },
+      "assessment": "Readable strength and Tablets wording can be retained. Full active-ingredient name and full brand text are clipped. This is a partial reading, not a confirmed medicine identity.",
+      "recommendation": "Use only clearly readable partial wording; ask user to check whether the complete brand/ingredient is legible."
+    },
+    {
+      "number": 5,
+      "example_id": "team_336:K056",
+      "source_row_sha256": "05417b86c352ff0e26eee830bee1497f88b56ba16247a13a6f0ba332de82fc78",
+      "image_sha256": "a4cb823231eab1fc35963fcb97a2514b0abd3048de0f62c947404b9429f93a71",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Rear view uses distributor as brand and omits a visible Best Used By stamp; exact date requires independent verification."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "original_resolution_recheck",
+      "proposed_target": {
+        "product_name": null,
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "low",
+        "guidance": "Show the front label and take a close-up of the Best Used By stamp.",
+        "evidence": {}
+      },
+      "assessment": "Garden of Life appears in distributor/address text, which alone does not establish the visible consumer brand under v4. Best Used By and the year 2023 are visible, but the leading month/separator is unclear.",
+      "recommendation": "Keep held until the user adjudicates the date, or approve as an unreadable-identity/rescan example; do not invent the date."
+    },
+    {
+      "number": 9,
+      "example_id": "team_336:K060",
+      "source_row_sha256": "5dfaa39dafe1fe0b7ef877bb7f251dc3a82bc7569f9f43bc2ddcc445932934f7",
+      "image_sha256": "375da38348ded3632a9ebaa6e8f38fb69e9bc004b7503993754395af7b1b0d1b",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Partly obscured identity and distributor-only parent brand conflict with literal visible-brand policy."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "original_resolution_recheck",
+      "proposed_target": {
+        "product_name": null,
+        "brand": "Hathi Brand",
+        "key_attributes": {
+          "size": "3.5 oz (100 g)",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "brand": {
+            "source": "image",
+            "quote": "HATHI BRAND"
+          },
+          "size": {
+            "source": "image",
+            "quote": "3.5 oz / 100g"
+          }
+        }
+      },
+      "assessment": "Original-resolution crop shows HATHI BRAND in an actual trademark logo as well as distributor text. Net quantity is readable. The beginning of the product name is covered; Baking Powder is not fully readable.",
+      "recommendation": "Recover with visible brand and size; leave product name and date null."
+    },
+    {
+      "number": 14,
+      "example_id": "team_336:K097",
+      "source_row_sha256": "bb93b32981e34f87961c82e72cca75849cd20ad122fc564c9ee841adbc291eb6",
+      "image_sha256": "9a60d9117b422a2da7107f043bfd4eeed286ac5559ea9df2880c1f413c985bc6",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Rear/upper product wording partly clipped; needs a closer check before retaining Bhujia as a supported full name."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "original_resolution_recheck",
+      "proposed_target": {
+        "product_name": "Savoury Spiced Tepary Beans",
+        "brand": "Haldiram's",
+        "key_attributes": {
+          "size": "1 kg (35.27 oz)",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Savoury Spiced Tepary Beans"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "Haldiram's"
+          },
+          "size": {
+            "source": "image",
+            "quote": "1kg e 35.27 oz"
+          }
+        }
+      },
+      "assessment": "Bhujia is clipped at the folded top. The rear description Savoury Spiced Tepary Beans and the Haldiram logo are readable. Net weight is clear. The faint date stamp needs closer adjudication and is not filled.",
+      "recommendation": "Recover with the visible description, brand and weight; keep date unknown."
+    },
+    {
+      "number": 25,
+      "example_id": "team_336:H096",
+      "source_row_sha256": "4ae77ae0f83b8734c0c157ca16ea83cd9fddcfc459114e87c266b99ba7a828b8",
+      "image_sha256": "3ae17603e81b7e3d205d04e63845a243323bc32526b574c078494214a944d261",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Very oblique partial brand/product wording; needs closer legibility adjudication."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "original_resolution_recheck",
+      "proposed_target": {
+        "product_name": null,
+        "brand": null,
+        "key_attributes": {
+          "size": "20 oz",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": "Rotate the container until the complete front label faces the camera.",
+        "evidence": {
+          "size": {
+            "source": "image",
+            "quote": "NET WT 20 OZ"
+          }
+        }
+      },
+      "assessment": "20 OZ is readable. Consumer brand and Moistur... product wording wrap beyond the visible face. The metric equivalent is also around the edge; do not complete it from conversion or familiarity.",
+      "recommendation": "Recover as a size-only partial reading with specific rescan guidance."
+    },
+    {
+      "number": 42,
+      "example_id": "team_336:K078",
+      "source_row_sha256": "71ded9f3ec64e13301ea436e5806f414656eb0470927464d82b039ca38db288a",
+      "image_sha256": "774794177b05c2ade674ba5aaee321120417dc8e3dbc84c1adf8767f4e5ca6d8",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Rear header may contain a readable identity currently labeled null; check cropped header before training."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 43,
+      "example_id": "team_336:K079",
+      "source_row_sha256": "965ab6a7bbe5408515b574e1d05330e2bdf46a767fe54f8ad6171195a03ba4ce",
+      "image_sha256": "18cb931484a1b70c5535d9f867f8051721f2abf73c20c742c99ac7ca0777c4be",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Partly cropped brand and expiry; identity should not be recovered solely from neighboring views."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 49,
+      "example_id": "team_336:K014",
+      "source_row_sha256": "450a0b415ab0f3a4eae6807b658555ca7f23d45eaaa9e2b1120aba90c10759ae",
+      "image_sha256": "3725824c6ec587e313671a35ca63c05d0a89fbafc5bae4b278e9c723b2e8fddf",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Brand appears only in manufacturer/domain text on rear view; literal consumer-brand policy needs adjudication."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 50,
+      "example_id": "team_336:K015",
+      "source_row_sha256": "8b72d56c3134ddcada4194f04b12483e250e4fdb1db1941d2dc93aec6c02a9fb",
+      "image_sha256": "91f3fc2f02a807f46b4d9287f2cb462ed4cfceb0c3c9b1fa3fd8b9e4d51e57ab",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Rear view: manufacturer and website do not independently establish visible consumer brand."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 51,
+      "example_id": "team_336:K018",
+      "source_row_sha256": "4353fddd5432529b5fd4a2b2ae04b2780376c78529ee695b203e49ff6eb09f86",
+      "image_sha256": "dd624ed36d3d4f584efad4fbc18094d369f18da7734a1b4ca01357c718fb11ef",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Rear view: only manufacturer/domain evidence for brand."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 52,
+      "example_id": "original_722:fg_059000003115_rgb_20190126_133620",
+      "source_row_sha256": "25e4b834aaafecf3d1260ea7d20448a2438f991dcf25b4ae9da6c31fefc75bd6",
+      "image_sha256": "818c49bdf9f5e85456d7aaa6205b567a8e202ec1a85e001a8258080efe7999d5",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Brand is partly turned away; verify whether complete consumer logo is readable."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 53,
+      "example_id": "original_722:fg_059000003115_rgb_20190204_124343",
+      "source_row_sha256": "c9be43f9567970df5f9c2a8be481e38ec2f6197d28c8a2726186c5efa4911d8c",
+      "image_sha256": "6db31e45e697e1c2635aa2403315d76cc78810558a84c5ff4b8b071505ffef44",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Brand partly cropped; only website supplies full spelling. Needs adjudication."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 54,
+      "example_id": "original_722:fg_059000003115_rgb_20190930_173615",
+      "source_row_sha256": "29f033a2e75db7e7bb7fe58ba75ddf8804277ba5c63491a4cbad1d4c36530ee4",
+      "image_sha256": "de284ddb146a26bf05cc6ce4be31f2fe65ed89c9b418c45133abe6e8ed094920",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Net quantity may be on turned-away front edge; verify 354 mL rather than inheriting family quantity."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 59,
+      "example_id": "original_722:fg_811620021784_rgb_20190216_101031",
+      "source_row_sha256": "90e8e97c3d6fd0a284f7c0bad6d114b3a4892e9a0f4b8e7010c1c90fef3f0c01",
+      "image_sha256": "bf67b8eda9410ec6b3c7a44ec3810694650a3b754a95f34c3bd449a03e49596f",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Partial front and rear advertising text; confirm full brand and product scope independently."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 63,
+      "example_id": "original_722:fg_285332000000_rgb_20190906_111532",
+      "source_row_sha256": "172b9e8eb744d09ffb7dfa73a6d4952f5e281b1a5a08afb9573e5b5373f9598c",
+      "image_sha256": "b70339f56f231e8ae8d1a8cf902be49f6233b1a259efbf2b1af04ce3e9f16d99",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Retail label identity is not readable with confidence in selected crop."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 64,
+      "example_id": "original_722:fg_073570130149_rgb_20180831_143443",
+      "source_row_sha256": "2ea1d70966380c720c00ec213415df9217f900f386646546d38f879fb5e6052a",
+      "image_sha256": "edfc94629e434638dd76cc0a213a4029cb10329556a88670dab3e817b0ba2123",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Lid may contain a readable net quantity omitted from reference; needs closer check."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 65,
+      "example_id": "original_722:fg_073570130149_rgb_20180914_204356",
+      "source_row_sha256": "23fb31afb8cd6871c52af1c6ae87aa4891efea5b817a6a8f8f2b2c3ec0534c44",
+      "image_sha256": "defcc7d554993e21ddf383cd27b5c0ba8449df70aba82d06e90ee52d3a793968",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small lid net quantity needs verification rather than retaining a possible false null."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 66,
+      "example_id": "original_722:fg_073570130149_rgb_20181212_201152",
+      "source_row_sha256": "b46df1b25b62f08818d4c86df05351738732239462ce02476bcd773d9c61f23f",
+      "image_sha256": "364ea631a783e439f1b4c2028345b3380c85cf5a86378562540e5c624b2b6e16",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Rear/edge brand visibility uncertain; do not infer from domain."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 67,
+      "example_id": "expansion_224:fgnew_059800218627_rgb_20180811_093236",
+      "source_row_sha256": "1529ed8e8ebd78864340134490406ade7ef9ca5d50608fa91e905f33e6ec815d",
+      "image_sha256": "e9fa0f5f0fd27a14e88e97b073427ea11ae1b71f0908d59ce8663a365c69ff0a",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Full-resolution recheck: date heading is abbreviated and 4-bar pack count is not established by readable crop; exclude pending adjudication."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 68,
+      "example_id": "expansion_224:fgnew_059800218627_rgb_20181223_075817",
+      "source_row_sha256": "6e32c8b09b99d36c18f869f016e9db1aca3e92171661a96796b226c1dd4055a3",
+      "image_sha256": "3f1b02d8252055369e72c5a97100996aa8f57b76871418b9560aa2f19d6d8ab8",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Kit Kat logos visible but reference marks brand null; verify missing identity and date."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 69,
+      "example_id": "expansion_224:fgnew_059800218627_rgb_20190109_193021",
+      "source_row_sha256": "dab76bd23dd8dcdce35f676279e2ecc63c61a93dc59bd97069d30ecfd8a9a48f",
+      "image_sha256": "2c62fdd8bccffd927cfa70b22693b1e2264af7ba23e9ab81e9dc3bff5bff0b57",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Kit Kat logos visible but original brand null; verify date stamp and brand together."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 70,
+      "example_id": "original_722:fg_059800886161_rgb_20180914_203051",
+      "source_row_sha256": "3934b193d8f229fa407a172eee801359c0d82114270597c42fd214943768a49d",
+      "image_sha256": "07f65e4a2c1796783d1dad0ebf9cda29f5ac91032a4ddf7db415bd58d5ae45c5",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Very oblique rear view with potential readable logos; uncertain all-null reference."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 71,
+      "example_id": "original_722:fg_059800886161_rgb_20181014_191753",
+      "source_row_sha256": "e1180816fba9b2b46ee38a964c4c06565b6e6d476407c3f14d99fa3dd1971e59",
+      "image_sha256": "484ce7ac39f9c3b382965982a1645993920004a974971dee4abaac8f91356301",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Thin rear view with potential readable logos; uncertain all-null reference."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 76,
+      "example_id": "original_722:fg_743434000337_rgb_20181006_150542",
+      "source_row_sha256": "feb83dc87023ed45c95842eab4e4fd40e2e55b535ec6adcdfcfc8397fad7d394",
+      "image_sha256": "651ed5a677c81d9c2d197333a2815dbde0e2daf65d108bf10a3d9b0696986fd7",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Back-panel manufacturer text versus consumer brand and unheaded date need role adjudication."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 77,
+      "example_id": "original_722:fg_063100888008_rgb_20181016_213911",
+      "source_row_sha256": "24a262bf73d3fa9b87cf5cfcb9713cb7baf45173a0d03b8ea3d6c8d504a1c646",
+      "image_sha256": "a6a323aa8453807fdf835c5c76938f4a0d9ecc1ddb1836a36c933f70d6761d6b",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Generic Bacon is inferred from rear ingredients/cooking instructions; decide whether identity is actually readable."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 93,
+      "example_id": "original_722:fg_066800000282_rgb_20190514_152701",
+      "source_row_sha256": "d9edfa9e834be26115a08ce47a7bf1bde730bfe2cc23fd4861fb90a61b46e3b0",
+      "image_sha256": "d7bd7aa50c4d2d3bc58676c49a6150d44f827f87a1024ddb924a73e46f3d82aa",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Folded upside-down front appears to include a fat percentage omitted from generic Milk target; verify exact percentage."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 94,
+      "example_id": "original_722:fg_066800000282_rgb_20190927_214618",
+      "source_row_sha256": "8db500299ab845a837011d2ca47d61cdf653ca54f8d393aea2e54d4a043d0f16",
+      "image_sha256": "c94d0808490fcf28d84a9c2a00a4e36bea609179ed312418609b68ea39f0d4ee",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Folded front may expose product qualifiers; verify which words are actually readable."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 95,
+      "example_id": "original_722:fg_066800000572_rgb_20190609_085307",
+      "source_row_sha256": "78d904973e8fc97d1125833d3801ed13c3b81b49c18c210052aff97e8e031ace",
+      "image_sha256": "24824e6d4cc20d7c434fcd43692151ce5ac6f9d7bf5fe07b4a6ea47f224fd70e",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Upside-down front shows 1% milk wording missing from generic Milk target; verify full descriptor."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 108,
+      "example_id": "original_722:fg_066013153638_rgb_20190124_201647",
+      "source_row_sha256": "17826cf1c84b42d85ba0196cbbe105c46a3cddb3dc08424760b4df99fbd747ac",
+      "image_sha256": "574cdec74f9f6bf949ac52e02ea62c0292c73ead52c1a2aaa6564413b9168b98",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Unheaded date-like lid stamp and split brand visibility need adjudication before accepting date role."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 127,
+      "example_id": "original_722:fg_060383069292_rgb_20180917_160616",
+      "source_row_sha256": "cf16a71a2f04916b00c8b4f6d95f75f12ef0a3a9b651d76dfa011a58eeaf4a06",
+      "image_sha256": "76f9bd5089277d2ff8c9e43afe306b2771f1856bdf52bf05c80f9149e2c77cd8",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Partial front text and a recipe mentioning condensed milk need closer product-name adjudication."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 141,
+      "example_id": "expansion_224:fgnew_060383195878_rgb_20181006_123340",
+      "source_row_sha256": "c99d6d36a1fd576519011d65ae415b985be0136e62362e17ad5389fa4834506b",
+      "image_sha256": "b327c5a70fd571b4d5ff1fd335904331a9a65557b7a8727566d092dedbb33e64",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small rear script may establish consumer brand but current all-null target needs closer verification."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 142,
+      "example_id": "expansion_224:fgnew_060383195878_rgb_20181028_100511",
+      "source_row_sha256": "36a4a30a2715074919533d5250d45d76eeaa8d7f80f626b904eeff0b09f533fa",
+      "image_sha256": "b34549f96f90d1ed8ccd9830a1c13880ad91cae5a46925ee140996b45497d11f",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Oblique rear consumer-brand script needs closer verification."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 143,
+      "example_id": "expansion_224:fgnew_060383195878_rgb_20190308_110007",
+      "source_row_sha256": "1b9928c2f9337fc1493d51c86a60a3118b7b87ceb96511f885818ee0805ee87d",
+      "image_sha256": "ff660242d9f04bccd26bacf963fba14d6665f8a1bb3e4de97ee9166bd79ff2b9",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small rear script may contradict all-null label; hold for verification."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 146,
+      "example_id": "original_722:fg_060383152215_rgb_20180831_132829",
+      "source_row_sha256": "1d4faa79fa6e5dd2dcce0bd4eeb1ad6d83b83126589d99924713a48b68a671ed",
+      "image_sha256": "acb77a922792f8b0974417545f2d60ab1143635942ef0097f3b56676991fffea",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Unheaded lid stamp is treated as best-by in reference; date role needs verification."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 151,
+      "example_id": "original_722:fg_062000132419_rgb_20190418_165452",
+      "source_row_sha256": "509f3e061cad26825b1e645fb88a621eb5a5dc26db30614859b9aa8d33c60a2b",
+      "image_sha256": "6d26a3fdb48fcda1c32a94b8763d21bce52e4c7d50680042e5ce3f26dac69cca",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Wieners identity may be inferred from appearance/ingredients on rear; explicit product-name evidence needs checking."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 153,
+      "example_id": "expansion_224:fgnew_025293001350_rgb_20190417_131048",
+      "source_row_sha256": "8ecab090017968ff359ed216aa300d210b1a62911de1bc7b69d67cbfe9d7d81e",
+      "image_sha256": "743045692a1b293047c49eb7fc14c771ec57dbbe22a07e064254a385d7b93857",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Rear panel target is all null despite partially visible Silk logo; adjudicate brand and identity from this crop."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 154,
+      "example_id": "expansion_224:fgnew_025293001350_rgb_20190622_165142",
+      "source_row_sha256": "b5b13dcda6ad79df8823d47a2c1762894fb1c48b03996e629f7d505ba178c09c",
+      "image_sha256": "4271017a4f489280b26ee140a92223169acf33c37573a7da10205dc3f67c49a1",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Rear panel target is all null despite partially visible Silk logo; adjudicate brand and identity from this crop."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 161,
+      "example_id": "original_722:fg_209290000000_rgb_20190813_185351",
+      "source_row_sha256": "96fece3b49db9c5e407d468ebd45d39bff2f5fac5c0cd3fc90c73a770dcebefb",
+      "image_sha256": "507eebad4db8a528f78ab13f6e6043eddf3816d9c91dd28482280daf9ba54fb8",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small retail stamp, brand scope, or date requires full-resolution confirmation before use as a v4 training target."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 162,
+      "example_id": "original_722:fg_229901000000_rgb_20190806_180537",
+      "source_row_sha256": "1db09eafdc7255cb919860811168096de68ff17afcf39800bb0066304ba32863",
+      "image_sha256": "05ef5a86382e3e06ab5d5e8e940e90df568231b72adc8514c4584c0f9dee5115",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small retail stamp, brand scope, or date requires full-resolution confirmation before use as a v4 training target."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 163,
+      "example_id": "original_722:fg_236601000000_rgb_20190827_105502",
+      "source_row_sha256": "92674b0dd1161877dee6b39a59e10c8cc993a7bcc67099da67e00a9ef44a6035",
+      "image_sha256": "e843b05dbcc9d6443d5636012210b5fafca786715ac9234c4f5f6032d8747e31",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small retail stamp, brand scope, or date requires full-resolution confirmation before use as a v4 training target."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 164,
+      "example_id": "original_722:fg_280179000000_rgb_20190915_181952",
+      "source_row_sha256": "5e529b24676e4b29ecc73319cfecd61c2206c961b08c67132120224a0dd064b9",
+      "image_sha256": "824afad8cce397c80fc59c584619925f5a8b1602312d564cd6d34d3b66fa38b3",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small retail stamp, brand scope, or date requires full-resolution confirmation before use as a v4 training target."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 165,
+      "example_id": "original_722:fg_287218000000_rgb_20190719_091441",
+      "source_row_sha256": "5a509a4a3f6b8138043681ebb00d275c0671ce39009ee5c61ef495753f5ee4e8",
+      "image_sha256": "052f4fd79f2585ed7576743b8a8fd64a090ee48c6c5b8a6f650171f2854154c9",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small retail stamp, brand scope, or date requires full-resolution confirmation before use as a v4 training target."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 166,
+      "example_id": "original_722:fg_061483051774_rgb_20190118_151524",
+      "source_row_sha256": "cf923135652f94250d3c808ec530ec968877ce4babf3f333d39fd381db10bc83",
+      "image_sha256": "a22e79edfe0ce0bd7336419f824d63bc879000b3007696c867cd832733aec971",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small retail stamp, brand scope, or date requires full-resolution confirmation before use as a v4 training target."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 168,
+      "example_id": "original_722:fg_061483010535_rgb_20181010_142122",
+      "source_row_sha256": "7f785f978053807aef21cd904496d2b1e359b42a5c6e2388635f9696a3d70b2d",
+      "image_sha256": "f2446e1ffd24a797ac1093e1d773ea7c46facef385ec4fa43582d7e986d803dc",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small retail stamp, brand scope, or date requires full-resolution confirmation before use as a v4 training target."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 169,
+      "example_id": "original_722:fg_061483040228_rgb_20190801_211357",
+      "source_row_sha256": "e335568eeda70e40c4ddb31dc67a3eac3b5aa5917d66b43c57bc8dcf7fcaa99d",
+      "image_sha256": "9a873521802ebaed0f70f2aef62db17b9a7e579adbf8816a48ea7f9203c9bf36",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small best-before stamp omitted from existing target; full-resolution date adjudication needed."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 181,
+      "example_id": "expansion_224:gs_Arla-Ecological-Medium-Fat-Milk_016_train",
+      "source_row_sha256": "0ba4fac39108648cd3eb7529f4b88c860dfce47735910822ca63cf4009e41024",
+      "image_sha256": "36a5321130115d24269f5759f8669088d431d7bf2d8b5cd16cdbf9cc30a60970",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Partially visible brand and side-panel product identity need closer adjudication."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 183,
+      "example_id": "expansion_224:gs_Arla-Lactose-Medium-Fat-Milk_003_test",
+      "source_row_sha256": "9ad0558830b8be0d578ae14f724e8fd4b91b2435157417a9e3dc2aebfc7e7053",
+      "image_sha256": "73d1fccdf5aaa5bfafa7bb36caf36f81a704159162dae44e1b8f970323525a37",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Visible lactose-free claim omitted from product name; non-English print requires closer transcription."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 187,
+      "example_id": "expansion_224:gs_Garant-Ecological-Medium-Fat-Milk_001_train",
+      "source_row_sha256": "c1cbf15ac2a0a22945f6464d34fe0c79b41a13c835a22675a7ae60f6287e54ad",
+      "image_sha256": "b86674f0912a97c5f2fd8b3d82e64c79e11efdf90bc03daef79f440cb64a725e",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Partly covered primary name/logo and small net volume require closer transcription."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 188,
+      "example_id": "expansion_224:gs_Garant-Ecological-Medium-Fat-Milk_003_train",
+      "source_row_sha256": "e7ca484e35f8edd06333577617f855f26598e56d96ec78591d3a7b93cd8d980f",
+      "image_sha256": "aaa0c9cfd3456934dcabba4eaf1752228b7816de60f8dc13dc79a36618143910",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Partly covered primary name/logo and small net volume require closer transcription."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 190,
+      "example_id": "expansion_224:gs_Garant-Ecological-Standard-Milk_010_train",
+      "source_row_sha256": "f82e594216c94b030d5d3d74003926ebd2169e23e95087e68e7bac1117749825",
+      "image_sha256": "d30a6f31bac04726041b295df59c208fa9b1a8af6eadbafd162c8659de9b6a9d",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Partly covered primary name/logo and small net volume require closer transcription."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 201,
+      "example_id": "team_336:K087",
+      "source_row_sha256": "d1ad259d009a523a52fc32b0bd210f8e4901a21ba56dbf546c8d10d74e6688b6",
+      "image_sha256": "f811390dd6c6a82aab9c9f8fe2f01c2fddcefad736846390362be98b23b7392f",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Matcha ingredient claim and maker wording need adjudication for name/consumer brand; do not train maker as brand by default."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 202,
+      "example_id": "team_336:K088",
+      "source_row_sha256": "ffefedb54af0ade801d713a12836ccb928e092f21ab88c89e6923099284a5e4c",
+      "image_sha256": "2fbac7ee4bfcc0b1c3cf1abaf737bf774d77da56acfcd54951a1f69ab930b318",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Matcha ingredient claim and maker wording need adjudication for name/consumer brand; do not train maker as brand by default."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 208,
+      "example_id": "team_336:K007",
+      "source_row_sha256": "6358bd1a469fb3dc21354712a44180e6ace242b45b1669f9a95a84d8815dae36",
+      "image_sha256": "799b1e36c18bcf03b8fd865da27f672fb9d284fcb7970443d6fd710491607f72",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Brand or product identity partly cropped/covered, and printed date or modifiers omitted; requires closer review."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 210,
+      "example_id": "team_336:K010",
+      "source_row_sha256": "e611fe6babfc47d1e85463831cb0f654fd0f5c2784a381b284fc68cf6a4386fa",
+      "image_sha256": "456bc28674a643ba4586c6147356eeb7f6eaad6327b1d07c1af29991aa964d96",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Brand or product identity partly cropped/covered, and printed date or modifiers omitted; requires closer review."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 220,
+      "example_id": "team_336:K095",
+      "source_row_sha256": "5e5b47cfc5e2701aeeb1afac36b715acbba9eb3661c6e77d94760f479e94a128",
+      "image_sha256": "72222690256eab9b48b88dc6d280438b66c2cb381ff082d5c8327e87316db71b",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Tea identity may rely on other panels; this panel shows brand, package size and nutrition but no clear Tea name."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 228,
+      "example_id": "sean_349:R109",
+      "source_row_sha256": "21d923de6a234ba34b8ead4deed1e330a2257eb0ca5e455c2808165ec5cea8e7",
+      "image_sha256": "a1a86fc2e83dd155efa7178dd7529626194a466fd9402b8a39021a8cb21e63ac",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small package quantity appears visible but requires closer digit transcription."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 231,
+      "example_id": "sean_349:R183",
+      "source_row_sha256": "fe1e49f75f4f2c6f007fd7183080fae04edba51bc401db2585f8f4b2c665e0fe",
+      "image_sha256": "ed8d2fc6884d0edf7aa790401dd704caf70d38036c8cfb8487d7d70a35587ca8",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Flavor wording under Ice Cream is visible but too blurry for reliable transcription at review size."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 235,
+      "example_id": "sean_349:C018",
+      "source_row_sha256": "160be2b0f43728452400dc74c2ff589504fc15a5dbc6c37d09f8f0405796b4e5",
+      "image_sha256": "8a230cbe2b3fa7c0271873ddfcf76d8705aa414dd1212ebb718a7c0efd9b7682",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Flavor under Natural Energy Drink is small; closer transcription needed."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 242,
+      "example_id": "sean_349:R171",
+      "source_row_sha256": "6e03622bc390a29a4b10c288d14f142c7ef2b7d3fba04615f6caae42556aa1b5",
+      "image_sha256": "5310cc2b64466a323806b50bc93b17be7a580705b1cb3a200d2e08a7ee2f65df",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small package quantity appears readable but needs full-resolution confirmation."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 243,
+      "example_id": "sean_349:R009",
+      "source_row_sha256": "4db4d43cba3f95557026efee190c555867608d1a15f2ae87b635a0b3219dd62d",
+      "image_sha256": "60817dde2ab8f7eb782248a73c60038d83fe386200ceb88c54e1b466169d0ebf",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small package quantity appears readable but needs full-resolution confirmation."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 253,
+      "example_id": "sean_349:R017",
+      "source_row_sha256": "c67b9395a6f7c46c285a90e83c463d1f1a58caa09115dcb26b57348159587b71",
+      "image_sha256": "5d1016389868502779b80eae043fd203c53d86622676f5b0d2b0e4353906912f",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Rose-water type and small volume visible but volume digits need closer transcription."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 263,
+      "example_id": "sean_349:R181",
+      "source_row_sha256": "faeee985c880254408af0ae102f2f564843016f4e845587cda580f429fb793e5",
+      "image_sha256": "8fd1b092cf21a31ac909284535105b2ae50c2dafd0fb544bc8b414723797dc89",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Existing 300 g size appears to misread the prominent 300 CALORIES claim; package quantity and identity require adjudication."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 267,
+      "example_id": "sean_349:R012",
+      "source_row_sha256": "f81fcc2b21a123483e49c910933ecf98f761dbe17f09e47accf02a44eb95306d",
+      "image_sha256": "2a31277cdc44dec5ca1baf203027464e36728be5cc0149abcc822e3d9696894b",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Printed Jasmin variant/product type omitted; small text needs closer transcription before training."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 277,
+      "example_id": "sean_349:R006",
+      "source_row_sha256": "730d3622601059cf1854ce6d102250220fe10b72b9cf760e35388f298f7450b0",
+      "image_sha256": "9f7d75bcd49dd0f7344e63b20771358f7a4b2cb78591ec50f8d754074aa9911a",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Distinct variant text is printed below Supreme but not reliably readable at contact-sheet resolution."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 278,
+      "example_id": "sean_349:R007",
+      "source_row_sha256": "68220e25d75e6f96efe2c954d6f42a691d6f3d332f4a0dd8d76bfbe015e09f7d",
+      "image_sha256": "a0cfdd6538e09ab935db96db6ce4d39f0d83bd29e433e4516a417ddd7ee2fdf6",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Distinct variant text is printed below Supreme but not reliably readable at contact-sheet resolution."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 280,
+      "example_id": "sean_349:R010",
+      "source_row_sha256": "a6f382276852a06670f0d8516c12ab8ff7c73df10c359e59f6403f4781a6c3b0",
+      "image_sha256": "0441ddcca68038b7a49073cb4984f1d064ca4b293dee63123e764292b323ed1f",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Net package quantity and fragrance wording need closer transcription."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 281,
+      "example_id": "sean_349:R035",
+      "source_row_sha256": "fab95d07b5deba7d3659858a322273def237f0918ee80b3ba4bc0b2e499f139a",
+      "image_sha256": "5e8bb056e14ff86c0798b9140cc9f1b8c8c2e337ac2238c518aa3c083f6af66b",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small net volume at bottom needs closer transcription."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 283,
+      "example_id": "sean_349:R189",
+      "source_row_sha256": "0bb5e897fa57fac2b31ef9896d305b30e35126035fb35f749e52049db744c6bb",
+      "image_sha256": "e12947cea25dcd80345a3176d2228c0003b6c0fc65b4673f45be2e32a9566f2e",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small net weight at bottom needs closer transcription."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 284,
+      "example_id": "sean_349:R122",
+      "source_row_sha256": "81fe8395e84895c42b87ccfa93621f2f24e6f313741df0f723b0bb018c53441e",
+      "image_sha256": "1fbb4386e56a2f5eefef51b2f4708e3a5a7fb08ea35bae98df8a68bf1abde638",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Front variant wording is partly cropped; do not infer hazelnut from illustration."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 304,
+      "example_id": "sean_349:R125",
+      "source_row_sha256": "11fcb4cc88d70ddd2c2b02064a84ddcde5f5d8f3ea3afdf7a7fb8b077dcc8d90",
+      "image_sha256": "035a054a94b5c1946f8f5d6faf8f278c11d16ea925661e21e85705b2b064cda6",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Visible package count or flavor text requires closer transcription."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 305,
+      "example_id": "sean_349:R191",
+      "source_row_sha256": "c3249ba577bb886322f123dd05f79635bfbf82569436f7fc781e1f17aee7ab56",
+      "image_sha256": "2a05c4660a320c1e3211f7d35c3cd5bde08c2b06695c5814e2f8490495f64720",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Visible package count or flavor text requires closer transcription."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 308,
+      "example_id": "sean_349:R107",
+      "source_row_sha256": "9975ec1b1a1d24e9b4acdba334c8ff8fdfebf3296adbd71f9b5ca68df460ed70",
+      "image_sha256": "ed57bb76b38a68dc3cfdca31b739a1ae6872ed63bd00c813cc4b98ec13e33d55",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Arabic-only consumer logo needs fluent transcription review; do not guess from related products."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 310,
+      "example_id": "sean_349:R021",
+      "source_row_sha256": "40758f56757de53486f5de09fd35584ff3028da92d4e45b8cf99ce2823b4c2e7",
+      "image_sha256": "751a46a0983b2ebb545753bbb9127e5677127045672c2ebe27aa561e9558c811",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Printed mix/type wording omitted; English/French identity requires closer scope adjudication."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 311,
+      "example_id": "sean_349:R022",
+      "source_row_sha256": "7deac5e5effec03ff917c22538ca79ebf8d97f9cd6c905dbc033ee8640510946",
+      "image_sha256": "309f03701e003ebda46a96a5043afa5d86b81fec6a2a459b99bc18462f8ba0b1",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Printed mix/type wording omitted; English/French identity requires closer scope adjudication."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 324,
+      "example_id": "sean_349:C014",
+      "source_row_sha256": "b3e08538f3cf4d8887265666e102a09a74f4d6413a61a7a6e20cbeffcc271e70",
+      "image_sha256": "38ee4ed5885cb075745120e2ba8f851b658787dfb4f0b714cd5eaf91f21bd30c",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Existing Volvic brand conflicts with visible al ain-like logo; review original crop rather than source filename."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 326,
+      "example_id": "sean_349:R049",
+      "source_row_sha256": "92517acc9af1f5a87f96d0d9d15eed05b2601ae70e59e36386db92ce8bca81de",
+      "image_sha256": "3d618e3a7c46f0efd7baa6819c787f6155bb3f369f04439a37ff46e56eb2c5ae",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small pack count/product wording visible but needs closer transcription."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 327,
+      "example_id": "sean_349:R052",
+      "source_row_sha256": "0faefaa463cc953449ea8c1722d6ee134f93e486dc3d8ae66e970bde6eed8701",
+      "image_sha256": "c05ae04aa7132568542e1561a14688a147521d3545f462234cbfd1218ed07183",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small pack count/product wording visible but needs closer transcription."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 328,
+      "example_id": "sean_349:R045",
+      "source_row_sha256": "44770b3be3b9b4a37fbd253eb592b1ee4843b672200ad2f3f8d1fb2f8b2f4483",
+      "image_sha256": "0da2a18ca60a64ba7670bdb575508c2aa191c23b20667dbb65ccfb3efd294f70",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Arabic product text in existing target appears garbled and multiple weights are visible; requires fluent transcription and quantity-role review."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 329,
+      "example_id": "sean_349:R140",
+      "source_row_sha256": "d6365edecd4d07c3ca1606e0ec4ac6b530a69769113a087d0faed28f611ee035",
+      "image_sha256": "b4b4595dc0f5a438ae42576b4cbd19ce27da8a3e191404d7c65262b14895cdab",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Arabic text in existing target appears garbled and printed quantity omitted; requires fluent review."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 330,
+      "example_id": "original_722:sean_phone_IMG_3494",
+      "source_row_sha256": "a81c310af0f99b9adb6736dff1803db282ee96ce3a2fcbb12c31eb1153bd81d7",
+      "image_sha256": "9d32e5ef4a9e4d1f76f45fd3d62f5db82d4d2ea32f5300151be7dd9dc75fabd9",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small bottom quantity/date or distinguishing modifiers require full-resolution confirmation."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 331,
+      "example_id": "original_722:sean_phone_IMG_3495",
+      "source_row_sha256": "c88ef15aed72ad01cd0f2a1e40718570a8f7148a86241169f9fda461765eb803",
+      "image_sha256": "15c19b12e2f6fc745a71fc1cd572a3bbad4c80a94b9add21de6cb74a7dcb5fe1",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small bottom quantity/date or distinguishing modifiers require full-resolution confirmation."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 332,
+      "example_id": "original_722:sean_phone_IMG_3496",
+      "source_row_sha256": "532a810c4922d232a237dcf009c6199073c7a68f512316a4192ed18d8769036d",
+      "image_sha256": "bf38ce3ac3b3140588fac440781cf9cfe3701773e99415276ae497580e15a17b",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small bottom quantity/date or distinguishing modifiers require full-resolution confirmation."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 334,
+      "example_id": "original_722:sean_phone_IMG_3477",
+      "source_row_sha256": "1b599713b1cd5582d9e752af1f9b11e76d8ce875bc497c3f895f01d240ea86a0",
+      "image_sha256": "7f7549b181d9111661305f406440ed1be9266e26c88e59f3c871fb2dff7878ae",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small bottom quantity/date or distinguishing modifiers require full-resolution confirmation."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 337,
+      "example_id": "original_722:sean_phone_IMG_3529",
+      "source_row_sha256": "3843036e9a06503e4e10c02426cfd80ebcedaefe8f8d2d86f4c1b3fbe01b48c7",
+      "image_sha256": "f21843e7fe04d8a0a7a210d9e9a90f4fb83caf435e393ab693262190ddfb1567",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small bottom quantity/date or distinguishing modifiers require full-resolution confirmation."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 341,
+      "example_id": "original_722:sean_phone_IMG_3575",
+      "source_row_sha256": "eb9cd55f7310102b5ecd6858c9df531550405861d0df5173c85d02c5ce1d4269",
+      "image_sha256": "e5415472d668be7c85e3ab50c4740e66360fd0765c06a251a76565a2a53a688e",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Count is clear but per-bar and total net quantities need closer transcription under multipack rules."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 342,
+      "example_id": "original_722:sean_phone_IMG_3576",
+      "source_row_sha256": "5caf142a5e8b5137b1e4a131501b70e7b2fe0e055f9d4e4cdaf605e3b0f13579",
+      "image_sha256": "4c842044893fa25f4b3a321930a645fe9460ed631cb16bf801f5a261a069fd93",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Count is clear but per-bar and total net quantities need closer transcription under multipack rules."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 345,
+      "example_id": "original_722:sean_phone_IMG_3482",
+      "source_row_sha256": "fb3accdb41b54e848947f73c812e87e764921100502b92c394c7fc7c221813f0",
+      "image_sha256": "a7c3eca719f3584900dffb2af4db5ea0e424a68e88a9d6440a6037c1a8546192",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Package count/net quantity or date is partly cropped; reconcile only from selected image before training."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 346,
+      "example_id": "original_722:sean_phone_IMG_3483",
+      "source_row_sha256": "80f27431a78040b0745182c4ee5e3b1f20ccf98c610ef1eeffa0facae194dac6",
+      "image_sha256": "a04143e743ca1c556a0b9e63de1a57f8ad44d771bd8820ceb27d9937522e7c06",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Package count/net quantity or date is partly cropped; reconcile only from selected image before training."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 348,
+      "example_id": "original_722:sean_phone_IMG_3485",
+      "source_row_sha256": "bf8ec80a35b207b8637754bd74015458cd935a0c6fb077b558b2104f5c35ded1",
+      "image_sha256": "51d292e556f9ad4186781c30dbc621f26e6064ae0027a42ac9d81cafa6813cd6",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Package count/net quantity or date is partly cropped; reconcile only from selected image before training."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 352,
+      "example_id": "original_722:sean_phone_IMG_3498",
+      "source_row_sha256": "186e949ff954f51208bf8ffc95194da9336bd3b6bb5bea4b409a86ba839b428e",
+      "image_sha256": "071635afd83eb34f8320620705b007f9135fb9c3116690bd1a756f6fc57a929e",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small bottom net quantity needs closer transcription."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 353,
+      "example_id": "original_722:sean_phone_IMG_3499",
+      "source_row_sha256": "09b597050cd6c7ea74b212cf1659c2838d23e16c1d9214c17c3db47981923416",
+      "image_sha256": "77cb0d313fd3affab306d4809a7324607edf0216d518ee728e36f64308b3cddc",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small bottom net quantity needs closer transcription."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 355,
+      "example_id": "sean_349:R202",
+      "source_row_sha256": "4e1bc62072f7bb36ff50fb98333eee40af51c8ad085cae840a23cc1aa773b4cc",
+      "image_sha256": "3222395fb01dc9b103a3b55e0d3610c0b22fd7431b793e56271f5235f1c108f6",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Consumer brand versus product-line wording or incomplete type needs adjudication; do not teach uncertain identity roles."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 356,
+      "example_id": "sean_349:R106",
+      "source_row_sha256": "9b5e86aa933dc4472d9db76f2c16d8e425d671e7f6d0b5b4fa862395e395bb80",
+      "image_sha256": "855491f7f53e2d283ebbc67b3ac4e38a324b85261f4e412384be0331d63741ae",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Consumer brand versus product-line wording or incomplete type needs adjudication; do not teach uncertain identity roles."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 357,
+      "example_id": "sean_349:R099",
+      "source_row_sha256": "7bdd8b3331b9c53972fd864d8643411ec506e7db2ff4c092358a63dd5776ae27",
+      "image_sha256": "2109ef67302a126d21973b9db9b4e01f9a08d4dee0cafe2f8aeb5af518b38b19",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Consumer brand versus product-line wording or incomplete type needs adjudication; do not teach uncertain identity roles."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 358,
+      "example_id": "sean_349:R095",
+      "source_row_sha256": "51fafb7e4b604294ee618b82beaf99c2b623a501a43d0cdfbf3b20757c58c0c3",
+      "image_sha256": "b822d949157cb2675f8a7b53c49623d1a1b684097b1661239ca8c3e5bd39e964",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Consumer brand versus product-line wording or incomplete type needs adjudication; do not teach uncertain identity roles."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 360,
+      "example_id": "sean_349:R030",
+      "source_row_sha256": "575da9e2aea646cba99aed6660f2a940224e61ce32a8248e0746fd5967f2296b",
+      "image_sha256": "576f6d1981ec7699923e47c15c7b376f9d2ceed74d62550b9469f61e81d38981",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Consumer brand versus product-line wording or incomplete type needs adjudication; do not teach uncertain identity roles."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 361,
+      "example_id": "sean_349:R056",
+      "source_row_sha256": "3581a1bd3025a01aa5e8dcb155c7e6a26b4206e55cbad627f96e1321415dc0df",
+      "image_sha256": "1a1ce89b7d25c072c8dad82e4fe90ab6983f4ee5a333300fcb3dde9218e35d6d",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Visible small consumer logo/variant or multilingual identity requires role/transcription adjudication; do not retain uncertain reference roles."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 362,
+      "example_id": "sean_349:R101",
+      "source_row_sha256": "512952f758c79f6e40324521123979a8013ec4426ddcd77f5017d499996b51be",
+      "image_sha256": "b971b071673f8e276ff909479819d2e3d67841f5457ae9b668f0f7af5013454a",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Visible small consumer logo/variant or multilingual identity requires role/transcription adjudication; do not retain uncertain reference roles."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 363,
+      "example_id": "sean_349:R092",
+      "source_row_sha256": "ddebfabe6f374c2e776498506f59bcb0c51647ad878f921367b7e5457bc95f4c",
+      "image_sha256": "09df40da291a2151171cbcbb178ef66ef10ea78d031a3cc8e57df3084e400a05",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Visible small consumer logo/variant or multilingual identity requires role/transcription adjudication; do not retain uncertain reference roles."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 364,
+      "example_id": "sean_349:R051",
+      "source_row_sha256": "13235ec6b7ecf2cf1a23944b406982a72ad14d6ed98797ac474f23f3a40cba74",
+      "image_sha256": "2504ec44d8d06aea0be92a716902f97c10ffea30f388719f57fe5ee8390de361",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Visible small consumer logo/variant or multilingual identity requires role/transcription adjudication; do not retain uncertain reference roles."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 365,
+      "example_id": "sean_349:R158",
+      "source_row_sha256": "622eb713be150895e8035cc3f7a33fbd8b41d30eddbfe76007528531e15cf0bb",
+      "image_sha256": "04ae01fa069a443c96b6d3bffabc90bdc6181390e4c3d7a88c681f178845a1bd",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Visible small consumer logo/variant or multilingual identity requires role/transcription adjudication; do not retain uncertain reference roles."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 367,
+      "example_id": "sean_349:R100",
+      "source_row_sha256": "ab10560c66cdeaf6b30e1058ae3144dbaab2fcd8732cd5f9e3f0ffb4495b1207",
+      "image_sha256": "7dbd8b3a758ccd42e3efc01ea8faa7185be12afb22ae5c9c439f624b9b27d589",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Visible small consumer logo/variant or multilingual identity requires role/transcription adjudication; do not retain uncertain reference roles."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 368,
+      "example_id": "sean_349:R054",
+      "source_row_sha256": "5806bc81dc152809bdbfadb9b1c89638fa945d5ffd0c932bc84c926ace69c517",
+      "image_sha256": "99e0b08679421bc0742e34e6ca47c31eb2e9a44d8f6682c90aa579cc7e74ed65",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Visible small consumer logo/variant or multilingual identity requires role/transcription adjudication; do not retain uncertain reference roles."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 369,
+      "example_id": "expansion_224:gs_Tropicana-Apple-Juice_007_test",
+      "source_row_sha256": "e87eba2f225dd51d7567ddc38139159c02f50ed8cf12e73e02afe61ce6ccf654",
+      "image_sha256": "4123bc01299af60c2516180a829982f7b64762e3ff020ae2faa04bc8919bc9ea",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Proposed expanded juice descriptor is not reliably readable in original low-resolution crop; exclude rather than infer wording from enlarged contact sheet."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 370,
+      "example_id": "expansion_224:gs_Tropicana-Apple-Juice_016_train",
+      "source_row_sha256": "7b50ca076941a318aaccca4c8a63c0b20f1c4d5fc9df328d54f8b6b9375eca90",
+      "image_sha256": "ea7aea98d0381be559deb902558ac8e3a7ce35c4a6f092ef4395a87840cfd02e",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Proposed expanded juice descriptor is not reliably readable in original low-resolution crop; exclude rather than infer wording from enlarged contact sheet."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 371,
+      "example_id": "expansion_224:gs_Tropicana-Golden-Grapefruit_003_train",
+      "source_row_sha256": "8ebcd3be961420ba62c6e9a0a6493f0a22be4714f0c85c83cb559901215f6210",
+      "image_sha256": "c7f9879a8582e6e8df2b2a6cd769fb0affaefc6bce2bbce9cd67a9f70b5c298b",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Proposed expanded juice descriptor is not reliably readable in original low-resolution crop; exclude rather than infer wording from enlarged contact sheet."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 372,
+      "example_id": "expansion_224:gs_Tropicana-Golden-Grapefruit_020_train",
+      "source_row_sha256": "d444e0ab6ab592d58167bb683365ce130873413599a357df6794b5f830d1e9d0",
+      "image_sha256": "603ccaa62dc65e9f17120c211d522bb1af8d63f06d818d1757082ad0855372a7",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Proposed expanded juice descriptor is not reliably readable in original low-resolution crop; exclude rather than infer wording from enlarged contact sheet."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 373,
+      "example_id": "expansion_224:gs_Tropicana-Juice-Smooth_009_train",
+      "source_row_sha256": "504a3ecfd91207dcada45d21505f5f4ccd8530f22f4bc3f2cab9a25ceaac0076",
+      "image_sha256": "70943fc58118ae154c2bcc6ac689d51c3ca68c36246b7c31eee072c7e5203b44",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Printed orange-juice type and bottom quantity require closer confirmation; existing name is only Smooth."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 374,
+      "example_id": "expansion_224:gs_Tropicana-Mandarin-Morning_004_train",
+      "source_row_sha256": "a1529acd49cbbb0b763ed5fd6d7ac788235d4cc6c2077283ca0d494a978fe2f2",
+      "image_sha256": "b9bbefb268e0bfb96cf2a7141b3b87b8b54c592c0039feff05814167f76da199",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Proposed expanded juice descriptor is not reliably readable in original low-resolution crop; exclude rather than infer wording from enlarged contact sheet."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 381,
+      "example_id": "team_336:K127",
+      "source_row_sha256": "ac74f95cb8a093676b511a75abaa3272a8e2de4b2601d9db958fa5479b6bd9b7",
+      "image_sha256": "979a4583caa45c78b3ada03d2675a2aa6c342c1f84c73f5b8388843c5fdc8aa4",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Covered name and cropped consumer logo need closer adjudication before training."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 384,
+      "example_id": "team_336:K050",
+      "source_row_sha256": "d887cdd7515f2848fe658a60c634e4861d0dff4861c90bfc8194e4f8e01d4948",
+      "image_sha256": "6bbb07dcbce5ef2a0244f9b5cf4259aa76308bb1b81c691c37e2b25ef342ff8f",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Sesame Seeds only in Ingredients; existing product name may violate identity-versus-ingredient rule. Brand appears only in distributor copy."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 394,
+      "example_id": "team_336:H025",
+      "source_row_sha256": "60d385e093a0077db0a610c704e23f30c88c15e8237ea195909b0cf65793d708",
+      "image_sha256": "ed710159922f11bf67689bb5bced4a1704c2f8631fe21b93d96236a28b4eaaaf",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Partly cropped name/brand and medicine strength need closer adjudication from selected crop."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    },
+    {
+      "number": 396,
+      "example_id": "team_336:H027",
+      "source_row_sha256": "d0ee22b46f15f31e9104f3e2fb1b105d986ad81672677c867600e4ab91240bf0",
+      "image_sha256": "190e9cb47a9379f226820be2b99110ffe7c12ec925a6be8418f0e8b59fa3e264",
+      "original_hold_notes": [
+        "Assistant inspected selected crop against existing target under v4 field rules.",
+        "Small strength text and non-EXP lot/suffix code require closer transcription; do not change medicine data by inference."
+      ],
+      "human_decision": "pending",
+      "assistant_review": "pending",
+      "proposed_target": null
+    }
+  ]
+}

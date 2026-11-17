@@ -25,15 +25,41 @@ public final class GeminiGateway {
         return result;
     }
 
-    /** Product extraction is explicitly a base-model baseline until a matching tuned model exists. */
+    /** The existing action stays a base baseline; the tuned action is explicit. */
     public static JSONObject productDetails(String endpoint,String token,String scanId,
                                             Bitmap crop,Bitmap context,String ocr) throws Exception {
-        JSONObject body=new JSONObject().put("scan_id",scanId).put("model_variant","base")
+        return productDetails(endpoint,token,"base",scanId,crop,context,ocr);
+    }
+
+    public static JSONObject productDetails(String endpoint,String token,String variant,String scanId,
+                                            Bitmap crop,Bitmap context,String ocr) throws Exception {
+        if(!variant.equals("base")&&!variant.equals("tuned"))throw new IOException("Invalid product model");
+        JSONObject body=new JSONObject().put("scan_id",scanId).put("model_variant",variant)
             .put("crop_jpeg_base64",encode(crop,2048)).put("ocr_text",ocr);
         if(context!=null)body.put("context_jpeg_base64",encode(context,2048));
-        JSONObject result=post(endpoint,token,"/v1/parse",body);
-        ProductDetails.validateResponse(result,scanId);
+        // A field with unsupported OCR evidence can require one image recheck.
+        JSONObject result=post(endpoint,token,"/v1/parse",body,65000);
+        ProductDetails.validateResponse(result,scanId,variant);
         return result;
+    }
+
+    /** Configuration availability only; inference still verifies actual access. */
+    public static boolean productExtractionReady(String endpoint) throws Exception {
+        URL url=new URL(endpoint.replaceAll("/+$","")+"/health");
+        if(!url.getProtocol().equals("https"))throw new IOException("Use an HTTPS backend address");
+        HttpURLConnection connection=(HttpURLConnection)url.openConnection();
+        try {
+            connection.setConnectTimeout(15000);connection.setReadTimeout(15000);connection.setInstanceFollowRedirects(false);
+            if(connection.getResponseCode()!=200)throw new IOException("Could not check the Gemini connection. Try again.");
+            ByteArrayOutputStream bytes=new ByteArrayOutputStream();
+            try(InputStream stream=connection.getInputStream()){
+                byte[] buffer=new byte[4096];int n;
+                while((n=stream.read(buffer))!=-1){bytes.write(buffer,0,n);if(bytes.size()>20000)throw new IOException("Invalid service status");}
+            }
+            JSONObject status=new JSONObject(bytes.toString("UTF-8"));
+            if(!"LabelLens".equals(status.optString("service")))throw new IOException("Unexpected Gemini service");
+            return status.optBoolean("tuned_configured",false);
+        } finally {connection.disconnect();}
     }
 
     private static JSONObject post(String endpoint,String token,String route,JSONObject body) throws Exception {
@@ -43,7 +69,7 @@ public final class GeminiGateway {
     public static JSONObject compareDetails(String endpoint,String token,String scanId,Bitmap crop,Bitmap context,String ocr) throws Exception {
         JSONObject body=new JSONObject().put("scan_id",scanId).put("crop_jpeg_base64",encode(crop,2048)).put("ocr_text",ocr);
         if(context!=null)body.put("context_jpeg_base64",encode(context,2048));
-        JSONObject result=post(endpoint,token,"/v1/compare",body,65000);
+        JSONObject result=post(endpoint,token,"/v1/compare",body,125000);
         if(!scanId.equals(result.optString("scan_id"))||!(result.get("available") instanceof Boolean))throw new IOException("Unexpected comparison response");
         if(result.getBoolean("available"))for(String variant:new String[]{"base","tuned"}) {
             JSONObject side=result.getJSONObject(variant);

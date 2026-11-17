@@ -1,0 +1,331 @@
+[
+  {
+    "split": "train_compact_400",
+    "id": "original_722:fg_025293001008_rgb_20190311_112355",
+    "image": "images/train/4b05037fa2b0b962fb274f2a8a80c1c2be2401b05f9e61b1158510b38527ba9f.jpg",
+    "fields": {
+      "brand": {
+        "source": "image",
+        "quote": "Silk"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "train_compact_400",
+    "id": "original_722:fg_025293001008_rgb_20180922_214555",
+    "image": "images/train/c019716ef344f94c4009543e6fcf6ed7d77e8895bc147a3be38a6fd3efa6542c.jpg",
+    "fields": {
+      "brand": {
+        "source": "image",
+        "quote": "Silk"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "train_compact_400",
+    "id": "original_722:fg_025293001008_rgb_20190208_091500",
+    "image": "images/train/d71ff9429a5346d887e3f26ccf2e700077edc13ad4e11930ec40a546d8737687.jpg",
+    "fields": {
+      "brand": {
+        "source": "image",
+        "quote": "Silk"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "train_compact_400",
+    "id": "original_722:fg_060383118068_rgb_20180831_154040",
+    "image": "images/train/b78dcaaacbf80f7c8941570db308016675fb9455a794bc552f6cb33ff8186c5d.jpg",
+    "fields": {
+      "product_name": {
+        "source": "image",
+        "quote": "14% Sour Cream"
+      },
+      "brand": {
+        "source": "image",
+        "quote": "no name"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "train_compact_400",
+    "id": "original_722:fg_229901000000_rgb_20190806_180537",
+    "image": "images/train/05ef5a86382e3e06ab5d5e8e940e90df568231b72adc8514c4584c0f9dee5115.jpg",
+    "fields": {
+      "product_name": {
+        "source": "image",
+        "quote": "Mortadella"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "train_compact_400",
+    "id": "original_722:fg_811620021784_rgb_20190511_172928",
+    "image": "images/train/1884697cd21e9f30fad0b31c80358b0499c4aed8c04f01ad61e8398c6540c41a.jpg",
+    "fields": {
+      "brand": {
+        "source": "image",
+        "quote": "fairlife"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "train_compact_400",
+    "id": "expansion_224:gs_Alpro-Fresh-Soy-Milk_021_test",
+    "image": "images/train/42511b62141f657497f9a12268052b2b24db52c8dc3a719044c43412111e3c86.jpg",
+    "fields": {
+      "brand": {
+        "source": "image",
+        "quote": "Alpro"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "train_compact_400",
+    "id": "expansion_224:fgnew_060383004033_rgb_20190316_101455",
+    "image": "images/train/168365674afdbf467c424f1016c8361d21949aae57dd2c09d88ab60e253eeea1.jpg",
+    "fields": {
+      "brand": {
+        "source": "image",
+        "quote": "No Name"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "train_compact_400",
+    "id": "expansion_224:fgnew_060383004033_rgb_20190316_142051",
+    "image": "images/train/ac6936b9eb20beea5422c39b56fd2c015a0797050633e146c866afce8981eb31.jpg",
+    "fields": {
+      "brand": {
+        "source": "image",
+        "quote": "No Name"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "train_compact_400",
+    "id": "team_336:K031",
+    "image": "images/train/430fc69c3cc6562735c9db0a272d3ae2e47a01ab3f9d6adc68dd8b459b1ea7ef.jpg",
+    "fields": {
+      "brand": {
+        "source": "image",
+        "quote": "MDH"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "train_compact_400",
+    "id": "sean_349:C002",
+    "image": "images/train/babdae0725b5b7d1d782d1b5ca9661cc961183c5c49dcc555999c2628709b959.png",
+    "fields": {
+      "brand": {
+        "source": "image",
+        "quote": "Minute Maid"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "train_compact_400",
+    "id": "sean_349:C018",
+    "image": "images/train/8a230cbe2b3fa7c0271873ddfcf76d8705aa414dd1212ebb718a7c0efd9b7682.png",
+    "fields": {
+      "brand": {
+        "source": "image",
+        "quote": "BRIO"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "train_compact_400",
+    "id": "sean_349:R168",
+    "image": "images/train/49424ad76e2f6ce725435d59bcf308fb32c5c85bd2d0da0c1ee24161e39240b5.png",
+    "fields": {
+      "brand": {
+        "source": "image",
+        "quote": "Colgate"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "validation",
+    "id": "original_722:fg_060383008390_rgb_20190309_155145",
+    "image": "images/validation/18ac59b86f3fb87bc115d3f2dc1f158d3a907b28ed55306fd268ef3cf561d299.jpg",
+    "fields": {
+      "size": {
+        "source": "image",
+        "quote": "250 g"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "validation",
+    "id": "original_722:fg_060383008390_rgb_20190224_194329",
+    "image": "images/validation/b7360076604747666870bcdf547ca1a06964b57815c1d4ea3fdbd4dd7c21740a.jpg",
+    "fields": {
+      "size": {
+        "source": "image",
+        "quote": "250 g"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "validation",
+    "id": "original_722:fg_060383008390_rgb_20181210_072105",
+    "image": "images/validation/7bf0537e628b7959818b68dfe2da51862ee0cdb5f3cdd86f81a95164df7fc05f.jpg",
+    "fields": {
+      "size": {
+        "source": "image",
+        "quote": "250 g"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "validation",
+    "id": "original_722:fg_060383061357_rgb_20190224_185207",
+    "image": "images/validation/b7d25c73eea62db7083939f2d932c569f3a55f00f64f962a4f8488667f9147c3.jpg",
+    "fields": {
+      "brand": {
+        "source": "image",
+        "quote": "no name"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "validation",
+    "id": "original_722:fg_060383061357_rgb_20180914_113859",
+    "image": "images/validation/2847be2b49066bd8e039b6138f9c6744182d3b0b1be508ed621bce7e0177bfba.jpg",
+    "fields": {
+      "brand": {
+        "source": "image",
+        "quote": "no name"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "validation",
+    "id": "original_722:fg_060383061357_rgb_20190125_112941",
+    "image": "images/validation/3f9eba6303f4030ad64c94b7e42858f4ecb4a9c2afc41c6645c39daca246a417.jpg",
+    "fields": {
+      "brand": {
+        "source": "image",
+        "quote": "no name"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "validation",
+    "id": "original_722:fg_060383061357_rgb_20190824_180949",
+    "image": "images/validation/f5a38fecb3423b27ca3b7226fb587c6e797070cec21d06537b54554e4e346b28.jpg",
+    "fields": {
+      "brand": {
+        "source": "image",
+        "quote": "no name"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "validation",
+    "id": "original_722:fg_060383152888_rgb_20181117_220040",
+    "image": "images/validation/1cbb7a087f76dc4c6400a508d23bc115baa42b60ce517b8f63cae5d6e684aac7.jpg",
+    "fields": {
+      "brand": {
+        "source": "image",
+        "quote": "no name"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "validation",
+    "id": "original_722:fg_060383152888_rgb_20181101_155441",
+    "image": "images/validation/efc01ed21d0ad440121e9ecd98052094110b32a64782276d6c890e5996182fbc.jpg",
+    "fields": {
+      "brand": {
+        "source": "image",
+        "quote": "no name"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "validation",
+    "id": "original_722:fg_066096123054_rgb_20190430_163504",
+    "image": "images/validation/b1f4342ae03f28f89e076bc0d451bcb975f32049a5520b28df39d5000ba7fa27.jpg",
+    "fields": {
+      "brand": {
+        "source": "image",
+        "quote": "Lactantia"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "validation",
+    "id": "original_722:fg_066188004490_rgb_20190628_120104",
+    "image": "images/validation/62438ee4c9ffba517e30945e8bc529fd2b231292024d13062fbb77f7c323f6c7.jpg",
+    "fields": {
+      "size": {
+        "source": "image",
+        "quote": "356 g"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  },
+  {
+    "split": "validation",
+    "id": "original_722:sean_phone_IMG_3520",
+    "image": "images/validation/4ae7f958d3391c1b4a8c5b33ef29a9662d552e5875769e068b193e68e65e1654.jpg",
+    "fields": {
+      "product_name": {
+        "source": "image",
+        "quote": "Vanilla Greek Yogurt Mixed Berry on the Bottom"
+      }
+    },
+    "review_method": "assistant visual review of supplied crop; product field values retained",
+    "reason": "OCR quote only matched within another token. Supporting printed text was verified in the crop."
+  }
+]

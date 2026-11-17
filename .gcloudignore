@@ -4,6 +4,7 @@
 !.gcloudignore
 !.dockerignore
 !backend/
+backend/*
 !backend/*.py
 !backend/requirements.txt
 !backend/qa_prompt.json

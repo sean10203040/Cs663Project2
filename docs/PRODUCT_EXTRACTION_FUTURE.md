@@ -1,9 +1,12 @@
 # LabelLens: Gemini examples, tuning, comparison and Android integration
 
-This guide describes the future product-extraction training workflow. The existing
-Cloud Run gateway and separate tuned QA model are already connected. See
+This guide describes the product-extraction development workflow. One approved
+400-example training epoch completed November 14; see the
+[training record](PRODUCT_TUNING_20261113.md) and
+[paired validation results](PRODUCT_VALIDATION_20261115.md).
+The existing Cloud Run gateway and separate tuned QA model are retained. See
 [current features and verification](GEMINI_IMPROVEMENTS.md) and
-[product baseline](PRODUCT_DETAILS.md). No new extraction tuning job has been run.
+[product details](PRODUCT_DETAILS.md). Further training requires a separate decision.
 
 ## 1. Open the Android code
 

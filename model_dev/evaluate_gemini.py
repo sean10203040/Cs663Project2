@@ -5,9 +5,14 @@ import json
 from pathlib import Path
 import time
 import statistics
-from backend.contracts import PROMPT_VERSION, make_prompt, parse_reading
+import hashlib
+import mimetypes
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from backend.contracts import parse_reading
 from backend.qa import serving_location
+from backend.product_tools import generation_settings, api_base_url
 from model_dev.export_sft import load_reviewed
+from model_dev.product_policy_v4 import select_policy
 
 
 def values(reading):
@@ -53,33 +58,61 @@ def main():
     from google.genai import types
     p=argparse.ArgumentParser(description=__doc__);p.add_argument("--records",type=Path,required=True)
     p.add_argument("--project",required=True);p.add_argument("--location",default="global",help="Base serving location; tuned location comes from endpoint")
-    p.add_argument("--base-model",required=True);p.add_argument("--tuned-model",required=True)
-    p.add_argument("--split",choices=["validation","test"],default="test");p.add_argument("--output",type=Path,required=True)
+    p.add_argument("--base-model",required=True);p.add_argument("--tuned-model")
+    p.add_argument("--variant",choices=["base","tuned","both"],default="both")
+    p.add_argument("--policy", choices=["v3", "v4"], default="v3", help="Explicit candidate policy; v3 remains the production default")
+    p.add_argument("--workers",type=int,default=2);p.add_argument("--resume",action="store_true")
+    p.add_argument("--split",choices=["validation","test"],default="validation");p.add_argument("--output",type=Path,required=True)
     a=p.parse_args();records=[r for r in load_reviewed(a.records) if r["split"]==a.split]
+    prompt_version, build_prompt = select_policy(a.policy)
+    if a.variant!="base" and not a.tuned_model:p.error("Provide --tuned-model for a tuned comparison")
+    if not 1<=a.workers<=4:p.error("Use between one and four workers")
     if not records:raise ValueError("No reviewed held-out examples in selected split")
-    if a.output.exists() and any(a.output.iterdir()):raise ValueError("Choose a new output folder")
+    if a.output.exists() and any(a.output.iterdir()) and not a.resume:raise ValueError("Choose a new output folder or explicitly --resume")
     a.output.mkdir(parents=True,exist_ok=True)
-    report={}
+    summary_path=a.output/"comparison.json"
+    report=json.loads(summary_path.read_text(encoding="utf-8")) if a.resume and summary_path.exists() else {}
     for variant,model in [("base",a.base_model),("tuned",a.tuned_model)]:
-        client=genai.Client(vertexai=True,project=a.project,location=serving_location(model,a.location),
-            http_options=types.HttpOptions(api_version="v1",timeout=25000,retry_options=types.HttpRetryOptions(attempts=1)))
+        if a.variant not in (variant,"both"):continue
+        location=serving_location(model,a.location)
+        options={"api_version":"v1","timeout":25000,"retry_options":types.HttpRetryOptions(attempts=1)}
+        if api_base_url(location):options["base_url"]=api_base_url(location)
+        provenance={"model":model,"location":location,"prompt_version":prompt_version,
+            "instruction_sha256":hashlib.sha256(build_prompt("").encode()).hexdigest(),
+            "records_sha256":hashlib.sha256(a.records.read_bytes()).hexdigest(),"split":a.split,
+            "generation_settings":generation_settings(a.base_model)}
+        provenance_path=a.output/(variant+"_provenance.json")
+        if provenance_path.exists() and json.loads(provenance_path.read_text(encoding="utf-8"))!=provenance:
+            raise ValueError("Resume cannot change the model, dataset, prompt or generation settings")
+        provenance_path.write_text(json.dumps(provenance,indent=2),encoding="utf-8")
+        predictions_path=a.output/(variant+"_predictions.jsonl")
+        rows=[json.loads(line) for line in predictions_path.read_text(encoding="utf-8").splitlines() if line.strip()] if a.resume and predictions_path.exists() else []
+        done={row["example_id"] for row in rows}
+        if len(done)!=len(rows) or not done.issubset({r["example_id"] for r in records}):raise ValueError("Resume contains duplicate or foreign examples")
+        client=genai.Client(vertexai=True,project=a.project,location=location,http_options=types.HttpOptions(**options))
         try:
-            rows=[]
-            for r in records:
+            def predict(r):
                 started=time.perf_counter();row={"example_id":r["example_id"],"product_group":r["product_group"],"condition":r.get("condition"),"target":r["target"],"model":model}
                 try:
-                    parts=[types.Part.from_bytes(data=(a.records.parent/r[k]).read_bytes(),mime_type="image/jpeg") for k in ["crop","context"] if r.get(k) is not None]
-                    parts.append(types.Part.from_text(text=make_prompt(r["ocr_text"])))
-                    config={"temperature":0,"max_output_tokens":1600}
-                    if "gemini-2.5" in a.base_model:config["thinking_config"]=types.ThinkingConfig(thinking_budget=0)
-                    elif "gemini-3" in a.base_model:config["thinking_config"]=types.ThinkingConfig(thinking_level="MINIMAL")
-                    config["response_mime_type"]="application/json"
+                    images=[a.records.parent/r[k] for k in ["crop","context"] if r.get(k) is not None]
+                    blobs=[image.read_bytes() for image in images]
+                    parts=[types.Part.from_bytes(data=data,mime_type=mimetypes.guess_type(str(path))[0]) for path,data in zip(images,blobs)]
+                    parts.append(types.Part.from_text(text=build_prompt(r["ocr_text"])))
+                    row["input_sha256"]=hashlib.sha256(json.dumps({"images":[hashlib.sha256(b).hexdigest() for b in blobs],"prompt":build_prompt(r["ocr_text"])},sort_keys=True).encode()).hexdigest()
+                    config=generation_settings(a.base_model)
                     response=client.models.generate_content(model=model,contents=[types.Content(role="user",parts=parts)],config=types.GenerateContentConfig(**config))
+                    row["raw_response"]=response.text or ""
                     row["prediction"]=parse_reading(response.text or "",r["ocr_text"]).model_dump()
                 except Exception as error:row["error"]=str(error);row["prediction"]=None
-                row["elapsed_ms"]=(time.perf_counter()-started)*1000;rows.append(row)
-                with (a.output/(variant+"_predictions.jsonl")).open("a",encoding="utf-8") as stream:stream.write(json.dumps(row,ensure_ascii=False)+"\n")
-            stats=summarize(rows);stats.update({"model":model,"prompt_version":PROMPT_VERSION,"split":a.split})
+                row["elapsed_ms"]=(time.perf_counter()-started)*1000
+                return row
+            with ThreadPoolExecutor(max_workers=a.workers) as pool:
+                futures=[pool.submit(predict,r) for r in records if r["example_id"] not in done]
+                for future in as_completed(futures):
+                    row=future.result();rows.append(row)
+                    with predictions_path.open("a",encoding="utf-8") as stream:stream.write(json.dumps(row,ensure_ascii=False)+"\n")
+                    if len(rows)%10==0 or len(rows)==len(records):print(f"{variant}: {len(rows)}/{len(records)}",flush=True)
+            stats=summarize(rows);stats.update({"model":model,"prompt_version":prompt_version,"split":a.split})
             stats["by_condition"]={c:summarize([r for r in rows if (r.get("condition") or "unspecified")==c]) for c in sorted({r.get("condition") or "unspecified" for r in rows})}
             report[variant]=stats
             if a.split=="validation":(a.output/(variant+"_calibration.json")).write_text(json.dumps(stats,indent=2),encoding="utf-8")

@@ -1,0 +1,3519 @@
+{
+  "review_date": "2026-11-15",
+  "run": "gemini_product_v3_compact400_20261113",
+  "split": "validation",
+  "reviewer": "assistant_visual_triage",
+  "scope": "All 155 validation crops visually triaged in 34 contact sheets; 211 field disagreements for valid tuned responses categorized; base predictions inspected as paired context, not independently fully adjudicated.",
+  "limits": [
+    "Not independent human ground truth.",
+    "Categories explain disagreements; wording/scope is not an automatic semantic pass.",
+    "Blurred/occluded/reference-policy cases remain unresolved.",
+    "Strict matches were visually screened but not exhaustively reannotated.",
+    "No new inference/training; no labels, scoring, model, app or final-test files changed."
+  ],
+  "category_definitions": {
+    "formatting": "Same quantity/date/text identity; formatting or date-heading inclusion differs.",
+    "wording_or_scope": "Printed wording, qualifier, translation, product line or field scope differs; requires explicit policy.",
+    "reference_review": "Reference visibility/content or field policy needs independent review; no correction applied.",
+    "model_error": "Apparent extraction/role/number/unsupported-value error in the supplied inputs; provisional assistant judgment.",
+    "uncertain": "Insufficient legibility or evidence to adjudicate safely."
+  },
+  "counts": {
+    "examples": 155,
+    "groups": 18,
+    "valid_tuned_responses": 151,
+    "invalid_tuned_responses": 4,
+    "field_disagreements": 211,
+    "by_category": {
+      "formatting": 51,
+      "model_error": 44,
+      "wording_or_scope": 82,
+      "reference_review": 22,
+      "uncertain": 12
+    },
+    "by_field": {
+      "product_name": {
+        "model_error": 9,
+        "wording_or_scope": 57,
+        "reference_review": 6,
+        "uncertain": 1
+      },
+      "brand": {
+        "formatting": 10,
+        "model_error": 13,
+        "wording_or_scope": 21,
+        "uncertain": 5,
+        "reference_review": 9
+      },
+      "size": {
+        "formatting": 24,
+        "model_error": 21,
+        "uncertain": 5,
+        "reference_review": 2,
+        "wording_or_scope": 4
+      },
+      "best_by": {
+        "formatting": 17,
+        "reference_review": 5,
+        "model_error": 1,
+        "uncertain": 1
+      }
+    }
+  },
+  "source_sha256": {
+    "dataset/examples.jsonl": "1b208f476b11865aed600740dcc07c1f68cb2673b0c36e26ca7bd22f44f48fc5",
+    "dataset/manifest.json": "32e8f694db67d7520d12dde250c10c5c2911954cbbf7218651ea224937cf0fc3",
+    "validation/base_predictions.jsonl": "579055344ad32627c892c87e0d6c10e9d6d6ba4785e5f8354e552356cf69bf85",
+    "validation/tuned_predictions.jsonl": "52d78c3bc7d724930adebd3c143fc7c1428a965d3bead7deb7c3f195cd368938",
+    "validation/comparison.json": "4846cacf438ae76b2bed4ebabb4fbfeb74967c39508eca6c46af7183a3ba6466",
+    "validation/paired_comparison.json": "c99e86c8b09b16f1b2b585acba5015e5ed4e7d308a9082451f402686390afe99"
+  },
+  "cases": [
+    {
+      "case_number": 1,
+      "example_id": "team_336:K019",
+      "product_group": "desi_milk_bottle",
+      "crop_sha256": "11b6348aee62b50260f653c20b2681f4b18360e3569bbe0d945e10ff44a59f0b",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "size",
+          "reference": null,
+          "prediction": "16 fl oz",
+          "category": "model_error",
+          "note": "Only serving information is visible; 16 fl oz is inferred from servings, rather than a directly transcribed net quantity.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 2,
+      "example_id": "team_336:K020",
+      "product_group": "desi_milk_bottle",
+      "crop_sha256": "78c07e0be9867374bddeefb0542e2679026da531b666366dfe6d09ff3550d946",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Raw Milk",
+          "prediction": "Farm Fresh Raw Dairy",
+          "category": "model_error",
+          "note": "Farm Fresh Raw Dairy is the printed tagline, chosen instead of the product identity. Define name versus tagline consistently.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": "16 oz (1 pint)",
+          "prediction": "16 oz. (1 pint)",
+          "category": "formatting",
+          "note": "Same printed quantity/count; punctuation, spacing, parentheses or multiplication symbol differs. No numerical correction is implied.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 3,
+      "example_id": "team_336:K021",
+      "product_group": "desi_milk_bottle",
+      "crop_sha256": "bb20ffafc6f61d385fecc5665ea610831abd0501e168c0600dfb22964565fe0a",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": "Desi Milk",
+          "prediction": "DESIMILK",
+          "category": "formatting",
+          "note": "Spacing, apostrophe style, accent or hyphen differs. Earth’s Own uses a curly apostrophe in the reference; it is not corrupted text.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 4,
+      "example_id": "team_336:K022",
+      "product_group": "desi_milk_bottle",
+      "crop_sha256": "bf68144016962b258f0df4ca9398777fb56eeab34980c70771cb94b7ed4aac72",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "A2/A2 Raw Milk",
+          "prediction": "Raw Milk",
+          "category": "wording_or_scope",
+          "note": "Raw Milk identifies the product but omits the visible A2/A2 qualifier required by this reference.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": "16 oz (1 pint)",
+          "prediction": "16 oz. (1 Pint)",
+          "category": "formatting",
+          "note": "Same printed quantity/count; punctuation, spacing, parentheses or multiplication symbol differs. No numerical correction is implied.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 5,
+      "example_id": "team_336:K023",
+      "product_group": "desi_milk_bottle",
+      "crop_sha256": "06afec8fc0b21c88a5d5e11db34cd27768fc3b0824537fb37e364b63a2d1008b",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 6,
+      "example_id": "team_336:K024",
+      "product_group": "desi_milk_bottle",
+      "crop_sha256": "e115d6cb397e24bd6d58757f8a976a75499e548cbaa8234d0ff200d8d3cbe725",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Raw Milk",
+          "prediction": "Raw (Unpasteurized) Milk",
+          "category": "wording_or_scope",
+          "note": "The warning explicitly mentions raw unpasteurized milk; prediction adds that qualifier to the short reference.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": null,
+          "prediction": "16 fl oz",
+          "category": "model_error",
+          "note": "Only serving information is visible; 16 fl oz is inferred from servings, rather than a directly transcribed net quantity.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 7,
+      "example_id": "team_336:K025",
+      "product_group": "desi_milk_bottle",
+      "crop_sha256": "db9eba330fe83d810ee93133c3584a111cefa9cfb7d7ed317b25f3b86c523ed2",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "size",
+          "reference": "16 oz (1 pint)",
+          "prediction": "16 OZ. 1 PINT",
+          "category": "formatting",
+          "note": "Same printed quantity/count; punctuation, spacing, parentheses or multiplication symbol differs. No numerical correction is implied.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 8,
+      "example_id": "original_722:fg_626027700015_rgb_20181004_202248",
+      "product_group": "fg_earths_own_almond_carton",
+      "crop_sha256": "6994db4604b82421a1109300454c7aa8956aa027ef97a589ec7900b407bb3a1e",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "SoFresh Original Almond Beverage",
+          "prediction": "So Fresh Almond Original",
+          "category": "wording_or_scope",
+          "note": "Printed SoFresh/Almond/Original text is reordered or spaced differently; the reference sometimes adds Beverage. Define canonical name scope.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": "Earth’s Own",
+          "prediction": "Earth's Own",
+          "category": "formatting",
+          "note": "Spacing, apostrophe style, accent or hyphen differs. Earth’s Own uses a curly apostrophe in the reference; it is not corrupted text.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": "1.89 L",
+          "prediction": "1.89L",
+          "category": "formatting",
+          "note": "Same printed quantity/count; punctuation, spacing, parentheses or multiplication symbol differs. No numerical correction is implied.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 9,
+      "example_id": "original_722:fg_626027700015_rgb_20181005_152437",
+      "product_group": "fg_earths_own_almond_carton",
+      "crop_sha256": "ef1fca76d4aae29dbdef61ca3e89d7d4aa92d4dac2b27cde873e7d6e1dd22b93",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": null,
+          "prediction": "Almond Base Beverage",
+          "category": "model_error",
+          "note": "An ingredient description (almond base) is presented as the product name on a rear nutrition view.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": "Earth’s Own",
+          "prediction": "Earth's Own",
+          "category": "formatting",
+          "note": "Spacing, apostrophe style, accent or hyphen differs. Earth’s Own uses a curly apostrophe in the reference; it is not corrupted text.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": null,
+          "prediction": "1 cup (250 mL) serving size",
+          "category": "model_error",
+          "note": "Serving amount, tablet directions or servings per container is incorrectly used as package size. Keep net quantity/count separate from serving information.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 10,
+      "example_id": "original_722:fg_626027700015_rgb_20181027_154829",
+      "product_group": "fg_earths_own_almond_carton",
+      "crop_sha256": "9868515ec13bccf37765556f87d1416257657a02ffab2bab280d70c76923ac69",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "SoFresh Original Almond",
+          "prediction": "So Fresh Almond",
+          "category": "reference_review",
+          "note": "Front panel is partly turned away; reference requires Original while the model only transcribes visible SoFresh Almond. Review visible-input policy.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": "Earth’s Own",
+          "prediction": "Earth's Own",
+          "category": "formatting",
+          "note": "Spacing, apostrophe style, accent or hyphen differs. Earth’s Own uses a curly apostrophe in the reference; it is not corrupted text.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": null,
+          "prediction": "1.89 L",
+          "category": "uncertain",
+          "note": "Model supplies 1.89 L on a side view where the net quantity is not clearly legible in this review. Do not treat the blank reference as automatically wrong.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 11,
+      "example_id": "original_722:fg_626027700015_rgb_20181103_195136",
+      "product_group": "fg_earths_own_almond_carton",
+      "crop_sha256": "f5c616b05d46359b2a4454876dc62d2fdecbeb443ca7036864014f97807ba27c",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": false,
+      "field_disagreements": [],
+      "response_failure": {
+        "category": "unsupported_ocr_quote",
+        "field": "brand",
+        "claimed_ocr_quote": "earth's own",
+        "actual_ocr_fragment": "earthisown / eartha",
+        "note": "Visually plausible label text is attributed to OCR that actually contains a different string. Keep whole response rejected under the frozen contract; teach verbatim OCR quotes or image source."
+      }
+    },
+    {
+      "case_number": 12,
+      "example_id": "original_722:fg_626027700015_rgb_20190209_133733",
+      "product_group": "fg_earths_own_almond_carton",
+      "crop_sha256": "b7be8bc4fbbd190a66b31639e23e0b27123b618e249103c8c45d4b55fa3f0b61",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": "Earth’s Own",
+          "prediction": "earth's own",
+          "category": "formatting",
+          "note": "Spacing, apostrophe style, accent or hyphen differs. Earth’s Own uses a curly apostrophe in the reference; it is not corrupted text.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": null,
+          "prediction": "250 mL",
+          "category": "model_error",
+          "note": "Serving amount, tablet directions or servings per container is incorrectly used as package size. Keep net quantity/count separate from serving information.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 13,
+      "example_id": "original_722:fg_626027700015_rgb_20190506_114204",
+      "product_group": "fg_earths_own_almond_carton",
+      "crop_sha256": "7480270a71b1a570cb9f45b927c1cfda9af6217552a23052427db857edd9b727",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "SoFresh Original Almond",
+          "prediction": "So Fresh Almond Original",
+          "category": "wording_or_scope",
+          "note": "Printed SoFresh/Almond/Original text is reordered or spaced differently; the reference sometimes adds Beverage. Define canonical name scope.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": "Earth’s Own",
+          "prediction": "Earth's Own",
+          "category": "formatting",
+          "note": "Spacing, apostrophe style, accent or hyphen differs. Earth’s Own uses a curly apostrophe in the reference; it is not corrupted text.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 14,
+      "example_id": "original_722:fg_626027700015_rgb_20190630_110032",
+      "product_group": "fg_earths_own_almond_carton",
+      "crop_sha256": "413d82567d87be5566a76d536ed3c73e037a3d012152778a8a5991b5858f8019",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "SoFresh Original Almond Beverage",
+          "prediction": "So Fresh Almond Original",
+          "category": "wording_or_scope",
+          "note": "Printed SoFresh/Almond/Original text is reordered or spaced differently; the reference sometimes adds Beverage. Define canonical name scope.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": "Earth’s Own",
+          "prediction": "Earth's Own",
+          "category": "formatting",
+          "note": "Spacing, apostrophe style, accent or hyphen differs. Earth’s Own uses a curly apostrophe in the reference; it is not corrupted text.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": "1.89 L",
+          "prediction": "1.89L",
+          "category": "formatting",
+          "note": "Same printed quantity/count; punctuation, spacing, parentheses or multiplication symbol differs. No numerical correction is implied.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 15,
+      "example_id": "original_722:fg_629025350060_rgb_20181218_201003",
+      "product_group": "fg_iogo_nano_yogurt",
+      "crop_sha256": "09446d09022ee7de0d0a273215805b2441cf8228c03d26feabfae039872f1e74",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Nano Raspberry Drinkable Yogurt",
+          "prediction": "nano raspberry framboise",
+          "category": "wording_or_scope",
+          "note": "Model includes the visible French flavor wording but omits the reference category phrase Drinkable Yogurt.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "best_by",
+          "reference": null,
+          "prediction": "2019 JA 21",
+          "category": "reference_review",
+          "note": "A date stamp is visible on the bottle base, but the reference is null. Independently verify digits and date-heading policy before changing any label.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 16,
+      "example_id": "original_722:fg_629025350060_rgb_20181231_134240",
+      "product_group": "fg_iogo_nano_yogurt",
+      "crop_sha256": "c389028887d5707f3a3923ae7ca2f1aa7d3cd04defe127794177cf4fd4cab8ab",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "size",
+          "reference": null,
+          "prediction": "6 x 93 mL",
+          "category": "uncertain",
+          "note": "Six bottles are visible, but the claimed 6 x 93 mL net count is not clearly readable on this rear view. May be inferred; human check required.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 17,
+      "example_id": "original_722:fg_629025350060_rgb_20190228_125323",
+      "product_group": "fg_iogo_nano_yogurt",
+      "crop_sha256": "6f63a6fa00d7d7f15de7292fc9960587f5be30f06c3722ecdf66303971e4798c",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Nano Raspberry Drinkable Yogurt",
+          "prediction": "nano",
+          "category": "model_error",
+          "note": "Returns only nano and misses visible raspberry flavor wording on the front.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": "6 × 93 mL",
+          "prediction": "6x93ml",
+          "category": "formatting",
+          "note": "Same printed quantity/count; punctuation, spacing, parentheses or multiplication symbol differs. No numerical correction is implied.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 18,
+      "example_id": "original_722:fg_629025350060_rgb_20190315_203040",
+      "product_group": "fg_iogo_nano_yogurt",
+      "crop_sha256": "e8983de031cd307379241859d8f40d8fd61c45eb2edb9b955239a31f17350e8b",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": null,
+          "prediction": "Ultima",
+          "category": "model_error",
+          "note": "A manufacturer, distributor or corporate owner is used as consumer brand. For example, Indian Nectar is the importer; the front brand is Nature Sense.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 19,
+      "example_id": "original_722:fg_629025350060_rgb_20190318_154639",
+      "product_group": "fg_iogo_nano_yogurt",
+      "crop_sha256": "d7e387605836929b6c223f6ad3db93809807b9e2863f97f634f777af00afb026",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "size",
+          "reference": null,
+          "prediction": "93 mL",
+          "category": "model_error",
+          "note": "Serving amount, tablet directions or servings per container is incorrectly used as package size. Keep net quantity/count separate from serving information.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 20,
+      "example_id": "original_722:fg_629025350060_rgb_20190707_153310",
+      "product_group": "fg_iogo_nano_yogurt",
+      "crop_sha256": "b7fd23a37db51141becb60c952deb7498596de6d5eecdc89a2b36117dbed17f0",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": null,
+          "prediction": "Ultima",
+          "category": "model_error",
+          "note": "A manufacturer, distributor or corporate owner is used as consumer brand. For example, Indian Nectar is the importer; the front brand is Nature Sense.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 21,
+      "example_id": "original_722:fg_629025350060_rgb_20190817_122809",
+      "product_group": "fg_iogo_nano_yogurt",
+      "crop_sha256": "f4cfcd40862e1cfabe77e10c537c8cfd7730285fbd097789bfb45578560f1f59",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 22,
+      "example_id": "original_722:fg_629025350060_rgb_20190920_224610",
+      "product_group": "fg_iogo_nano_yogurt",
+      "crop_sha256": "4be58389ac3a99eb89eff7b04a6f621610c40384e92eb3066f8b6a9b17ec9124",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Nano Raspberry Drinkable Yogurt",
+          "prediction": "nano",
+          "category": "reference_review",
+          "note": "Returns only nano; Raspberry Drinkable Yogurt is required by the reference although flavor/category is not clearly legible on this view. Resolve scope/visibility before calling this a recognition failure.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "best_by",
+          "reference": null,
+          "prediction": "2019 OC 10",
+          "category": "reference_review",
+          "note": "A date stamp is visible on the bottle base, but the reference is null. Independently verify digits and date-heading policy before changing any label.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 23,
+      "example_id": "original_722:fg_066188004490_rgb_20180930_140734",
+      "product_group": "fg_jello_gel_snack_multipacks",
+      "crop_sha256": "b743247278e2ce9ee21f87b419014e0ab3586b2c69877bfd215042f293a4aebb",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "No Sugar Added Strawberry Gel Snacks",
+          "prediction": "strawberry fraise Gel Snacks",
+          "category": "wording_or_scope",
+          "note": "Model transcribes strawberry/fraise and sometimes Gel Snacks, but omits No Sugar Added. This is a naming/qualifier scope difference that can matter to users, not an automatic semantic pass.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 24,
+      "example_id": "original_722:fg_066188004490_rgb_20180930_155442",
+      "product_group": "fg_jello_gel_snack_multipacks",
+      "crop_sha256": "8d14aee84f96038b0a22ae8958d0ea0ed45850b396338c8110f58339e17ac05d",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "size",
+          "reference": null,
+          "prediction": "4 x 99 g",
+          "category": "model_error",
+          "note": "Claims 4 x 99 g without a directly supported net quantity. The nutrition panel says 89 g per serving; the asserted 99 is inconsistent.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 25,
+      "example_id": "original_722:fg_066188004490_rgb_20181027_160644",
+      "product_group": "fg_jello_gel_snack_multipacks",
+      "crop_sha256": "799124bf8b233a6aa575f2015e283a8307afb6579ce4aea73719771eb7567ee7",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "No Sugar Added Strawberry Gel Snacks",
+          "prediction": "strawberry",
+          "category": "wording_or_scope",
+          "note": "Returns flavor only from a turned-away view. Reference requires the full product type and No Sugar Added qualifier; do not infer unobserved words.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": null,
+          "prediction": "356 g",
+          "category": "uncertain",
+          "note": "Returns 356 g while net quantity is turned away and absent from OCR. Treat as potentially unsupported; independent full-resolution check needed.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "best_by",
+          "reference": null,
+          "prediction": "19 JA 02",
+          "category": "model_error",
+          "note": "Claims 19 JA 02 from a rear view with no readable date and no date in supplied OCR. Supporting evidence does not establish the value.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 26,
+      "example_id": "original_722:fg_066188004490_rgb_20190126_172610",
+      "product_group": "fg_jello_gel_snack_multipacks",
+      "crop_sha256": "be0b9ef5ee1366a03482f1b6bd54ba55154673cfbfa4292919ef2cb0586524f2",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "No Sugar Added Strawberry Gel Snacks",
+          "prediction": "strawberry fraise Gel Snacks",
+          "category": "wording_or_scope",
+          "note": "Model transcribes strawberry/fraise and sometimes Gel Snacks, but omits No Sugar Added. This is a naming/qualifier scope difference that can matter to users, not an automatic semantic pass.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 27,
+      "example_id": "original_722:fg_066188004490_rgb_20190507_132050",
+      "product_group": "fg_jello_gel_snack_multipacks",
+      "crop_sha256": "9a6c6bf4d2cb605cf6302ddf15c0fb0eb3291c333df75edc4773372fe1cf7b0f",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": null,
+          "prediction": "Kraft Heinz",
+          "category": "model_error",
+          "note": "A manufacturer, distributor or corporate owner is used as consumer brand. For example, Indian Nectar is the importer; the front brand is Nature Sense.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 28,
+      "example_id": "original_722:fg_066188004490_rgb_20190521_205552",
+      "product_group": "fg_jello_gel_snack_multipacks",
+      "crop_sha256": "15e6ecc8434f9515ebed044a46db1342e044dbfe341e1c8e9a9cc6ee654d9e30",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "No Sugar Added Strawberry Gel Snacks",
+          "prediction": "Gel Snacks Strawberry",
+          "category": "wording_or_scope",
+          "note": "Model transcribes strawberry/fraise and sometimes Gel Snacks, but omits No Sugar Added. This is a naming/qualifier scope difference that can matter to users, not an automatic semantic pass.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 29,
+      "example_id": "original_722:fg_066188004490_rgb_20190522_203033",
+      "product_group": "fg_jello_gel_snack_multipacks",
+      "crop_sha256": "17ab67eea42262d4b20b705d0c35e730ca25284cb4a4839905ef1505002a0539",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "No Sugar Added Strawberry Gel Snacks",
+          "prediction": "strawberry fraise",
+          "category": "wording_or_scope",
+          "note": "Model transcribes strawberry/fraise and sometimes Gel Snacks, but omits No Sugar Added. This is a naming/qualifier scope difference that can matter to users, not an automatic semantic pass.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 30,
+      "example_id": "original_722:fg_066188004490_rgb_20190628_120104",
+      "product_group": "fg_jello_gel_snack_multipacks",
+      "crop_sha256": "62438ee4c9ffba517e30945e8bc529fd2b231292024d13062fbb77f7c323f6c7",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "No Sugar Added Strawberry Gel Snacks",
+          "prediction": "strawberry fraise Gel Snacks",
+          "category": "wording_or_scope",
+          "note": "Model transcribes strawberry/fraise and sometimes Gel Snacks, but omits No Sugar Added. This is a naming/qualifier scope difference that can matter to users, not an automatic semantic pass.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 31,
+      "example_id": "original_722:fg_066096123054_rgb_20181001_123726",
+      "product_group": "fg_lactantia_butter",
+      "crop_sha256": "d7c1a0d99477dbedbc186296908b21cbee3a11f18d3d7766984f6431efae5f71",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "My Country Bâtonnets de Beurre de Culture Non Salé",
+          "prediction": "Bâtonnets de beurre Beurre de culture non salé",
+          "category": "wording_or_scope",
+          "note": "Visible product-line words/descriptors are reordered, shortened or allocated differently. Missing Unsalted/Cultured/Churned qualifiers must be judged separately from harmless word order.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": "Lactantia",
+          "prediction": "Lactantia My Country",
+          "category": "wording_or_scope",
+          "note": "Model includes My Country with Lactantia; reference allocates My Country to product name.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": "454 g",
+          "prediction": "454g",
+          "category": "formatting",
+          "note": "Same printed quantity/count; punctuation, spacing, parentheses or multiplication symbol differs. No numerical correction is implied.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 32,
+      "example_id": "original_722:fg_066096123054_rgb_20181220_201726",
+      "product_group": "fg_lactantia_butter",
+      "crop_sha256": "a4a5b4c03fa4849fb425c8ffe544a0b2290908306912c64a8f0f79a5e0003848",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "My Country Unsalted Cultured Butter Sticks",
+          "prediction": "My Country Butter Sticks Unsalted Cultured Butter",
+          "category": "wording_or_scope",
+          "note": "Visible product-line words/descriptors are reordered, shortened or allocated differently. Missing Unsalted/Cultured/Churned qualifiers must be judged separately from harmless word order.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": "454 g",
+          "prediction": "454g",
+          "category": "formatting",
+          "note": "Same printed quantity/count; punctuation, spacing, parentheses or multiplication symbol differs. No numerical correction is implied.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 33,
+      "example_id": "original_722:fg_066096123054_rgb_20190127_112818",
+      "product_group": "fg_lactantia_butter",
+      "crop_sha256": "d0b4865b27a4570b0ba7e0815bf5747befeb48b6b30439c184d014fffccb8e4b",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "My Country Bâtonnets de Beurre de Culture Non Salé",
+          "prediction": "Bâtonnets de beurre (Beurre de culture non salé)",
+          "category": "wording_or_scope",
+          "note": "Visible product-line words/descriptors are reordered, shortened or allocated differently. Missing Unsalted/Cultured/Churned qualifiers must be judged separately from harmless word order.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": "454 g",
+          "prediction": "454g",
+          "category": "formatting",
+          "note": "Same printed quantity/count; punctuation, spacing, parentheses or multiplication symbol differs. No numerical correction is implied.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 34,
+      "example_id": "original_722:fg_066096123054_rgb_20190321_152454",
+      "product_group": "fg_lactantia_butter",
+      "crop_sha256": "03236b0ec2675f6677a2dab920246541e5dfb3a1d8be52c129588cda797ccfcc",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": null,
+          "prediction": "Lactantia",
+          "category": "uncertain",
+          "note": "Only a narrow edge of the front is visible. Lactantia cannot be confidently confirmed or rejected at the reviewed resolution.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 35,
+      "example_id": "original_722:fg_066096123054_rgb_20190430_163504",
+      "product_group": "fg_lactantia_butter",
+      "crop_sha256": "b1f4342ae03f28f89e076bc0d451bcb975f32049a5520b28df39d5000ba7fa27",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 36,
+      "example_id": "original_722:fg_066096123054_rgb_20190601_190750",
+      "product_group": "fg_lactantia_butter",
+      "crop_sha256": "8ec41d82ccd29ab699b126b87b4c4ce736ef714bf5943f18aff5b7190ae4cdf6",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 37,
+      "example_id": "original_722:fg_066096123054_rgb_20190606_105127",
+      "product_group": "fg_lactantia_butter",
+      "crop_sha256": "01443a0a9f612d59d446276b1d244bcdc0f035b15d4025800e5ad6307d883f9c",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "My Country Unsalted Cultured Butter Sticks",
+          "prediction": "My Country Butter Sticks Unsalted Cultured Butter",
+          "category": "wording_or_scope",
+          "note": "Visible product-line words/descriptors are reordered, shortened or allocated differently. Missing Unsalted/Cultured/Churned qualifiers must be judged separately from harmless word order.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": "454 g",
+          "prediction": "454g",
+          "category": "formatting",
+          "note": "Same printed quantity/count; punctuation, spacing, parentheses or multiplication symbol differs. No numerical correction is implied.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 38,
+      "example_id": "original_722:fg_066096123054_rgb_20190622_151546",
+      "product_group": "fg_lactantia_butter",
+      "crop_sha256": "726625179ca6e0ff8c17cca001ebdf97bb80ba790e1e6ef7f71dc5eb2be233aa",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "My Country Bâtonnets de Beurre de Culture Non Salé",
+          "prediction": "My Country Bâtonnets de beurre",
+          "category": "wording_or_scope",
+          "note": "Visible product-line words/descriptors are reordered, shortened or allocated differently. Missing Unsalted/Cultured/Churned qualifiers must be judged separately from harmless word order.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": "454 g",
+          "prediction": "454g",
+          "category": "formatting",
+          "note": "Same printed quantity/count; punctuation, spacing, parentheses or multiplication symbol differs. No numerical correction is implied.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 39,
+      "example_id": "original_722:fg_066096123450_rgb_20181024_172300",
+      "product_group": "fg_lactantia_butter",
+      "crop_sha256": "c8708546d2741fbcd6f2aa8230b8e8a45de55c54e045a8398a80da7c459ab044",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Unsalted Country Churned Butter",
+          "prediction": "Unsalted Butter",
+          "category": "wording_or_scope",
+          "note": "Visible product-line words/descriptors are reordered, shortened or allocated differently. Missing Unsalted/Cultured/Churned qualifiers must be judged separately from harmless word order.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": "454 g",
+          "prediction": "454g",
+          "category": "formatting",
+          "note": "Same printed quantity/count; punctuation, spacing, parentheses or multiplication symbol differs. No numerical correction is implied.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 40,
+      "example_id": "original_722:fg_066096123450_rgb_20190113_224620",
+      "product_group": "fg_lactantia_butter",
+      "crop_sha256": "eee255d2c9c64b9d767f4c2484b0d488a747188c8ff91b42f844f9f896ad4330",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": null,
+          "prediction": "Butter",
+          "category": "model_error",
+          "note": "Butter is inferred from nutrition/ingredients and package appearance rather than a clearly transcribed product name.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": null,
+          "prediction": "Lactantia",
+          "category": "reference_review",
+          "note": "The Lactantia logo is visible on the folded top but the reference is null. Queue an independent check of its legibility.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": null,
+          "prediction": "10 g",
+          "category": "model_error",
+          "note": "Serving amount, tablet directions or servings per container is incorrectly used as package size. Keep net quantity/count separate from serving information.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 41,
+      "example_id": "original_722:fg_066096123450_rgb_20190919_102315",
+      "product_group": "fg_lactantia_butter",
+      "crop_sha256": "7cd49ff25df85261ca277735cf0184ab15033ff1c4694562d003c11bf097ec80",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Beurre Non Salé de Campagne Baratté",
+          "prediction": "Beurre non salé",
+          "category": "wording_or_scope",
+          "note": "Visible product-line words/descriptors are reordered, shortened or allocated differently. Missing Unsalted/Cultured/Churned qualifiers must be judged separately from harmless word order.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 42,
+      "example_id": "original_722:fg_066096123450_rgb_20190919_222408",
+      "product_group": "fg_lactantia_butter",
+      "crop_sha256": "b19806fd1b7d7e2d91f06085c6e28f0f5c215f720d55e5da37df19e8a5a98c54",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 43,
+      "example_id": "original_722:fg_066096123450_rgb_20190920_161630",
+      "product_group": "fg_lactantia_butter",
+      "crop_sha256": "a8c250b1a6f806e70ff54136de459121f2b986720c37725b33130d335e7c0bf7",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Unsalted Country Churned Butter",
+          "prediction": "Unsalted Butter Country Churned Butter",
+          "category": "wording_or_scope",
+          "note": "Visible product-line words/descriptors are reordered, shortened or allocated differently. Missing Unsalted/Cultured/Churned qualifiers must be judged separately from harmless word order.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": "454 g",
+          "prediction": "454g",
+          "category": "formatting",
+          "note": "Same printed quantity/count; punctuation, spacing, parentheses or multiplication symbol differs. No numerical correction is implied.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 44,
+      "example_id": "original_722:fg_066096123450_rgb_20190921_185459",
+      "product_group": "fg_lactantia_butter",
+      "crop_sha256": "71c73bc3e8e4faa82473b23c3ddec26b4383d24f12414d680f7eeba83158c9f2",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Beurre Non Salé de Campagne Baratté",
+          "prediction": "Beurre non salé",
+          "category": "wording_or_scope",
+          "note": "Visible product-line words/descriptors are reordered, shortened or allocated differently. Missing Unsalted/Cultured/Churned qualifiers must be judged separately from harmless word order.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 45,
+      "example_id": "original_722:fg_066096123450_rgb_20190923_090606",
+      "product_group": "fg_lactantia_butter",
+      "crop_sha256": "16596b54446256474e86799d366cccf4e361867068d758103e49df54ab4dfc28",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 46,
+      "example_id": "original_722:fg_066096123450_rgb_20190923_144819",
+      "product_group": "fg_lactantia_butter",
+      "crop_sha256": "cf867d51424088e71e4bd3ee77813728d84171526ccb2e2c8d75a55e1085c449",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Unsalted Country Churned Butter",
+          "prediction": "Unsalted Butter Country Churned Butter",
+          "category": "wording_or_scope",
+          "note": "Visible product-line words/descriptors are reordered, shortened or allocated differently. Missing Unsalted/Cultured/Churned qualifiers must be judged separately from harmless word order.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": "454 g",
+          "prediction": "454g",
+          "category": "formatting",
+          "note": "Same printed quantity/count; punctuation, spacing, parentheses or multiplication symbol differs. No numerical correction is implied.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 47,
+      "example_id": "original_722:fg_060383008390_rgb_20181210_072105",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "7bf0537e628b7959818b68dfe2da51862ee0cdb5f3cdd86f81a95164df7fc05f",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Cream Cheese",
+          "prediction": "cream cheese / fromage à la crème",
+          "category": "wording_or_scope",
+          "note": "Prediction includes both cream cheese and its printed French translation; reference uses English only.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": "no name",
+          "prediction": "no name / sans nom",
+          "category": "wording_or_scope",
+          "note": "Prediction includes the printed bilingual no name / sans nom branding; reference includes English only.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 48,
+      "example_id": "original_722:fg_060383008390_rgb_20181223_130346",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "335638f4113ce9da58a7e904105082d7b93e288628170e229e3825c13aa7030f",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": null,
+          "prediction": "fromage à la crème",
+          "category": "uncertain",
+          "note": "Main image shows the nutrition side with a narrow oblique front edge. Check whether the French name is actually readable before deciding this is unsupported.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": null,
+          "prediction": "no name",
+          "category": "uncertain",
+          "note": "No name is not legible with confidence on the narrow side/front edge; supplied OCR contains no brand. Human check needed.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": null,
+          "prediction": "30 g",
+          "category": "model_error",
+          "note": "Serving amount, tablet directions or servings per container is incorrectly used as package size. Keep net quantity/count separate from serving information.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 49,
+      "example_id": "original_722:fg_060383008390_rgb_20190116_130351",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "ccc333571b9486bf3a810def825ed78fecc18a061e8dffd41c4cc382659c2d4c",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Cream Cheese",
+          "prediction": "cream cheese / fromage à la crème",
+          "category": "wording_or_scope",
+          "note": "Prediction includes both cream cheese and its printed French translation; reference uses English only.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": "no name",
+          "prediction": "no name / sans nom",
+          "category": "wording_or_scope",
+          "note": "Prediction includes the printed bilingual no name / sans nom branding; reference includes English only.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 50,
+      "example_id": "original_722:fg_060383008390_rgb_20190224_090126",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "6dcff9aaeed0e399fecafd307ea50db73bfd040d4df6c21abf6ff3e9b9ce0a9e",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Cream Cheese",
+          "prediction": "cream cheese / fromage à la crème",
+          "category": "wording_or_scope",
+          "note": "Prediction includes both cream cheese and its printed French translation; reference uses English only.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": "no name",
+          "prediction": "no name / sans nom",
+          "category": "wording_or_scope",
+          "note": "Prediction includes the printed bilingual no name / sans nom branding; reference includes English only.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 51,
+      "example_id": "original_722:fg_060383008390_rgb_20190224_194329",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "b7360076604747666870bcdf547ca1a06964b57815c1d4ea3fdbd4dd7c21740a",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Cream Cheese",
+          "prediction": "cream cheese / fromage à la crème",
+          "category": "wording_or_scope",
+          "note": "Prediction includes both cream cheese and its printed French translation; reference uses English only.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": "no name",
+          "prediction": "no name / sans nom",
+          "category": "wording_or_scope",
+          "note": "Prediction includes the printed bilingual no name / sans nom branding; reference includes English only.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 52,
+      "example_id": "original_722:fg_060383008390_rgb_20190309_155145",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "18ac59b86f3fb87bc115d3f2dc1f158d3a907b28ed55306fd268ef3cf561d299",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Cream Cheese",
+          "prediction": "cream cheese / fromage à la crème",
+          "category": "wording_or_scope",
+          "note": "Prediction includes both cream cheese and its printed French translation; reference uses English only.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": "no name",
+          "prediction": "no name / sans nom",
+          "category": "wording_or_scope",
+          "note": "Prediction includes the printed bilingual no name / sans nom branding; reference includes English only.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 53,
+      "example_id": "original_722:fg_060383008390_rgb_20190909_185104",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "b1c1e7c2a12e354ab6dbea51d3f254f76052b2715ca3fc938b206d2eca1dda8e",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Cream Cheese",
+          "prediction": "cream cheese / fromage à la crème",
+          "category": "wording_or_scope",
+          "note": "Prediction includes both cream cheese and its printed French translation; reference uses English only.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": null,
+          "prediction": "no name / sans nom",
+          "category": "reference_review",
+          "note": "No name / sans nom is visible on the oblique front panel while the reference is null.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 54,
+      "example_id": "original_722:fg_060383008390_rgb_20190919_112312",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "c55e4124e94902a001e1c58c66396e5311c45a168b94bda76b740789a792cb51",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 55,
+      "example_id": "original_722:fg_060383061357_rgb_20180830_204258",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "186581af7cdc293d394a6491479901eb0853f0464f52359142cf934a08252ead",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "size",
+          "reference": null,
+          "prediction": "19 g",
+          "category": "model_error",
+          "note": "Serving amount, tablet directions or servings per container is incorrectly used as package size. Keep net quantity/count separate from serving information.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 56,
+      "example_id": "original_722:fg_060383061357_rgb_20180913_185709",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "71a439b0be73499e8ff448a10792dd9a1ae5fe399d0432688676368f94f3aaaf",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "size",
+          "reference": null,
+          "prediction": "19 g",
+          "category": "model_error",
+          "note": "Serving amount, tablet directions or servings per container is incorrectly used as package size. Keep net quantity/count separate from serving information.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 57,
+      "example_id": "original_722:fg_060383061357_rgb_20180914_113859",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "2847be2b49066bd8e039b6138f9c6744182d3b0b1be508ed621bce7e0177bfba",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": false,
+      "field_disagreements": [],
+      "response_failure": {
+        "category": "unsupported_ocr_quote",
+        "field": "brand",
+        "claimed_ocr_quote": "no name",
+        "actual_ocr_fragment": "no namee",
+        "note": "Visually plausible label text is attributed to OCR that actually contains a different string. Keep whole response rejected under the frozen contract; teach verbatim OCR quotes or image source."
+      }
+    },
+    {
+      "case_number": 58,
+      "example_id": "original_722:fg_060383061357_rgb_20190125_112941",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "3f9eba6303f4030ad64c94b7e42858f4ecb4a9c2afc41c6645c39daca246a417",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Medium Cheese Slices",
+          "prediction": "medium cheddar cheese slices",
+          "category": "wording_or_scope",
+          "note": "Prediction assembles visible medium/cheddar/100% real cheese wording differently from Medium Cheese Slices. Define descriptors and bilingual-name policy.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 59,
+      "example_id": "original_722:fg_060383061357_rgb_20190224_151059",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "877d68b0ae61dda3ecf356e1d0a93330fcccc1ffa3cf0a1b492a602d5c721a71",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Medium Cheese Slices",
+          "prediction": "medium cheddar cheese",
+          "category": "wording_or_scope",
+          "note": "Prediction assembles visible medium/cheddar/100% real cheese wording differently from Medium Cheese Slices. Define descriptors and bilingual-name policy.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 60,
+      "example_id": "original_722:fg_060383061357_rgb_20190224_185207",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "b7d25c73eea62db7083939f2d932c569f3a55f00f64f962a4f8488667f9147c3",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": false,
+      "field_disagreements": [],
+      "response_failure": {
+        "category": "unsupported_ocr_quote",
+        "field": "brand",
+        "claimed_ocr_quote": "no name",
+        "actual_ocr_fragment": "no names",
+        "note": "Visually plausible label text is attributed to OCR that actually contains a different string. Keep whole response rejected under the frozen contract; teach verbatim OCR quotes or image source.",
+        "additional_observation": "Raw rejected output also says 250 g while photo shows 230 g; rejection is not the only issue."
+      }
+    },
+    {
+      "case_number": 61,
+      "example_id": "original_722:fg_060383061357_rgb_20190713_132221",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "d1468d4551669af2cc3f38465adcb963a425d7935081bf852038f702411b7ae1",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Medium Cheese Slices",
+          "prediction": "medium mi-fort 100% real cheese",
+          "category": "wording_or_scope",
+          "note": "Prediction assembles visible medium/cheddar/100% real cheese wording differently from Medium Cheese Slices. Define descriptors and bilingual-name policy.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": "230 g",
+          "prediction": "250 g",
+          "category": "model_error",
+          "note": "The photo shows 230 g, but the prediction returns 250 g. This is a real numerical transcription error.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 62,
+      "example_id": "original_722:fg_060383061357_rgb_20190824_180949",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "f5a38fecb3423b27ca3b7226fb587c6e797070cec21d06537b54554e4e346b28",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Medium Cheese Slices",
+          "prediction": "medium 100% real cheese / mi-fort vrai fromage à 100 %",
+          "category": "wording_or_scope",
+          "note": "Prediction assembles visible medium/cheddar/100% real cheese wording differently from Medium Cheese Slices. Define descriptors and bilingual-name policy.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": "no name",
+          "prediction": "no name / sans nom",
+          "category": "wording_or_scope",
+          "note": "Prediction includes the printed bilingual no name / sans nom branding; reference includes English only.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 63,
+      "example_id": "original_722:fg_060383152888_rgb_20181031_181032",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "98c9d88e04be2ff190d77651509b9f93707e04f1c2235eab6e3dc3389260e5dc",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Pizza Mozzarella",
+          "prediction": "pizza mozzarella cheese",
+          "category": "wording_or_scope",
+          "note": "Adds the printed generic word cheese to Pizza Mozzarella.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "best_by",
+          "reference": null,
+          "prediction": "2019 NV 03",
+          "category": "uncertain",
+          "note": "A stamp exists, but the month is unclear and base/tuned disagree (MA versus NV). Blank reference needs review; do not accept either prediction by default.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 64,
+      "example_id": "original_722:fg_060383152888_rgb_20181101_155441",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "efc01ed21d0ad440121e9ecd98052094110b32a64782276d6c890e5996182fbc",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 65,
+      "example_id": "original_722:fg_060383152888_rgb_20181117_220040",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "1cbb7a087f76dc4c6400a508d23bc115baa42b60ce517b8f63cae5d6e684aac7",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 66,
+      "example_id": "original_722:fg_060383152888_rgb_20190105_133324",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "a5127accf374c4c73d52f66cfaac75833cc997083112ecea20ec9f1f67968061",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 67,
+      "example_id": "original_722:fg_060383152888_rgb_20190124_094850",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "69ff1ec0a7c46fafc3916cbfe40d3743a24382fb07b8934844113a8c73b6c449",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": null,
+          "prediction": "Loblaws",
+          "category": "model_error",
+          "note": "A manufacturer, distributor or corporate owner is used as consumer brand. For example, Indian Nectar is the importer; the front brand is Nature Sense.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "best_by",
+          "reference": null,
+          "prediction": "2019 JN 12",
+          "category": "reference_review",
+          "note": "A BEST BEFORE stamp with the predicted date is visible while the reference is null. Independent digit verification still required.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 68,
+      "example_id": "original_722:fg_060383152888_rgb_20190502_105146",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "99330fd3cf678833dcfa4ca3bf5a5797550528629160fab1ef4f6a739db242e2",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 69,
+      "example_id": "original_722:fg_060383152888_rgb_20190521_164916",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "08219c42d6726e5fef1a78002c55abc1fded9ee855c4d3a96ea4e5314110cb68",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Pizza Mozzarella",
+          "prediction": "pizza mozzarella cheese",
+          "category": "wording_or_scope",
+          "note": "Adds the printed generic word cheese to Pizza Mozzarella.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "best_by",
+          "reference": null,
+          "prediction": "2019 OC 08",
+          "category": "reference_review",
+          "note": "A BEST BEFORE stamp with the predicted date is visible while the reference is null. Independent digit verification still required.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 70,
+      "example_id": "original_722:fg_060383152888_rgb_20190912_193637",
+      "product_group": "fg_noname_yellow_cheese",
+      "crop_sha256": "735bac6b93030c580e6150cf3c70054fe9d55aa9a3ca75c334b572e9e63229c3",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 71,
+      "example_id": "original_722:fg_060383026325_rgb_20181022_084058",
+      "product_group": "fg_pc_free_from_sausage_tray",
+      "crop_sha256": "f61855330839f7c63e62519b5e3435100b6cb11f7a20f7708fa2c51c15cd6496",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": "President's Choice",
+          "prediction": "PC Free From",
+          "category": "wording_or_scope",
+          "note": "PC/President’s Choice and Free From/Simplement Bon are parent/line/translated branding choices. Reference expands PC; define one explicit brand policy.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": "375 g",
+          "prediction": "375g",
+          "category": "formatting",
+          "note": "Same printed quantity/count; punctuation, spacing, parentheses or multiplication symbol differs. No numerical correction is implied.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 72,
+      "example_id": "original_722:fg_060383026325_rgb_20181022_084900",
+      "product_group": "fg_pc_free_from_sausage_tray",
+      "crop_sha256": "adec48648578f9e4ccdf26255bc1eac66abb4bd8860756e60b458b3c0c894a04",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": "President's Choice",
+          "prediction": "Free From / Simplement Bon",
+          "category": "wording_or_scope",
+          "note": "PC/President’s Choice and Free From/Simplement Bon are parent/line/translated branding choices. Reference expands PC; define one explicit brand policy.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 73,
+      "example_id": "original_722:fg_060383026325_rgb_20190118_124412",
+      "product_group": "fg_pc_free_from_sausage_tray",
+      "crop_sha256": "545de38ff6b192ba54daca1f925855183454a7ba9295717f71e2860f60593004",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 74,
+      "example_id": "original_722:fg_060383026325_rgb_20190210_083142",
+      "product_group": "fg_pc_free_from_sausage_tray",
+      "crop_sha256": "af056a5b6edd953c94fd5bd387992f10acd6fa32eed6f9a0f38275aa751d3f9c",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": "President's Choice",
+          "prediction": "PC Free From",
+          "category": "wording_or_scope",
+          "note": "PC/President’s Choice and Free From/Simplement Bon are parent/line/translated branding choices. Reference expands PC; define one explicit brand policy.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 75,
+      "example_id": "original_722:fg_060383026325_rgb_20190225_171513",
+      "product_group": "fg_pc_free_from_sausage_tray",
+      "crop_sha256": "2f7990a4d3c85d5bdcc6f3ddb4851b7a64ccc82d2e1610d45e2b14248f57a540",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": "President's Choice",
+          "prediction": "President's Choice Free From",
+          "category": "wording_or_scope",
+          "note": "PC/President’s Choice and Free From/Simplement Bon are parent/line/translated branding choices. Reference expands PC; define one explicit brand policy.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 76,
+      "example_id": "original_722:fg_060383026325_rgb_20190614_112735",
+      "product_group": "fg_pc_free_from_sausage_tray",
+      "crop_sha256": "2b616f53cd065b6b26f9ec81544a3772e5a0174aae058557ce54e5601715fb6a",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": "President's Choice",
+          "prediction": "President's Choice Free From",
+          "category": "wording_or_scope",
+          "note": "PC/President’s Choice and Free From/Simplement Bon are parent/line/translated branding choices. Reference expands PC; define one explicit brand policy.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "best_by",
+          "reference": null,
+          "prediction": "JN 17",
+          "category": "reference_review",
+          "note": "A best-before sticker is present while the reference is null; independently verify JN 17 and preserve the partial date without inventing a year.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 77,
+      "example_id": "original_722:fg_060383026325_rgb_20190703_113204",
+      "product_group": "fg_pc_free_from_sausage_tray",
+      "crop_sha256": "b3c138deb6094f01b6f754abf2f860ce3208af064975c67c3f2695d18d4ba963",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": "President's Choice",
+          "prediction": "President's Choice Free From",
+          "category": "wording_or_scope",
+          "note": "PC/President’s Choice and Free From/Simplement Bon are parent/line/translated branding choices. Reference expands PC; define one explicit brand policy.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 78,
+      "example_id": "original_722:fg_060383026325_rgb_20190903_154511",
+      "product_group": "fg_pc_free_from_sausage_tray",
+      "crop_sha256": "8d21751a55180498b0e816995e5f079b09c4f1c0fe4af9748d8de28a6bde97f9",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": null,
+          "prediction": "MAPLE BREAKFAST PORK SAUSAGES",
+          "category": "model_error",
+          "note": "Only a nutrition panel is supplied; MAPLE BREAKFAST PORK SAUSAGES is not visibly printed or present in supplied OCR. Unsupported identity assertion.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": null,
+          "prediction": "PC® FREE FROM™",
+          "category": "model_error",
+          "note": "PC FREE FROM is not visible on this nutrition-only view and is absent from OCR. Do not recover identity solely from familiar package styling.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": null,
+          "prediction": "80 g",
+          "category": "model_error",
+          "note": "Serving amount, tablet directions or servings per container is incorrectly used as package size. Keep net quantity/count separate from serving information.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 79,
+      "example_id": "original_722:fg_060383855772_rgb_20190117_113153",
+      "product_group": "fg_pc_free_from_sausage_tray",
+      "crop_sha256": "eca4f8c661bf50fd3f22ba5d45c2ba72002b96c89d2d872e18d455e4dd1310c6",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": false,
+      "field_disagreements": [],
+      "response_failure": {
+        "category": "unsupported_ocr_quote",
+        "field": "size",
+        "claimed_ocr_quote": "500g",
+        "actual_ocr_fragment": "5009",
+        "note": "Visually plausible label text is attributed to OCR that actually contains a different string. Keep whole response rejected under the frozen contract; teach verbatim OCR quotes or image source."
+      }
+    },
+    {
+      "case_number": 80,
+      "example_id": "original_722:fg_060383855772_rgb_20190324_142053",
+      "product_group": "fg_pc_free_from_sausage_tray",
+      "crop_sha256": "923e7d275555074aeacea89d9f407f065bb96abfabbe2576966570f50b5456c4",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": "President's Choice",
+          "prediction": "Free From Simplement Bon",
+          "category": "wording_or_scope",
+          "note": "PC/President’s Choice and Free From/Simplement Bon are parent/line/translated branding choices. Reference expands PC; define one explicit brand policy.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 81,
+      "example_id": "original_722:fg_060383855772_rgb_20190326_202009",
+      "product_group": "fg_pc_free_from_sausage_tray",
+      "crop_sha256": "4b68fb6ca06b613f7c04173563ae878d9fc47190b7c5fa4401dde175f60f02c3",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": "President's Choice",
+          "prediction": "President's Choice Free From",
+          "category": "wording_or_scope",
+          "note": "PC/President’s Choice and Free From/Simplement Bon are parent/line/translated branding choices. Reference expands PC; define one explicit brand policy.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 82,
+      "example_id": "original_722:fg_060383855772_rgb_20190504_212624",
+      "product_group": "fg_pc_free_from_sausage_tray",
+      "crop_sha256": "40e88ed7764551fc018af9d457878212c9e32a303bef825c6bf60af1d85be7a7",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": "President's Choice",
+          "prediction": "President's Choice Free From",
+          "category": "wording_or_scope",
+          "note": "PC/President’s Choice and Free From/Simplement Bon are parent/line/translated branding choices. Reference expands PC; define one explicit brand policy.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 83,
+      "example_id": "original_722:fg_060383855772_rgb_20190808_142334",
+      "product_group": "fg_pc_free_from_sausage_tray",
+      "crop_sha256": "eeeb175c8dcb98e5b80e424a7afd97ab735f831421cfae99bf916fec1e665854",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": "President's Choice",
+          "prediction": "Free From / Simplement Bon",
+          "category": "wording_or_scope",
+          "note": "PC/President’s Choice and Free From/Simplement Bon are parent/line/translated branding choices. Reference expands PC; define one explicit brand policy.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 84,
+      "example_id": "original_722:fg_060383855772_rgb_20190925_134837",
+      "product_group": "fg_pc_free_from_sausage_tray",
+      "crop_sha256": "ab32344f8d7063eda8643816a4d7121908901de2c67f6939933b1cf128196128",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": "President's Choice",
+          "prediction": "PC Free From / Simplement Bon",
+          "category": "wording_or_scope",
+          "note": "PC/President’s Choice and Free From/Simplement Bon are parent/line/translated branding choices. Reference expands PC; define one explicit brand policy.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": null,
+          "prediction": "500 g",
+          "category": "reference_review",
+          "note": "The net-weight area shows 500 g partly beside the sticker, but reference is null. Human verification of partially covered digits required.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "best_by",
+          "reference": "SE27 2019",
+          "prediction": "2019 SE 27",
+          "category": "formatting",
+          "note": "Same date components; the prediction omits the printed heading or changes component order. Date type must remain distinguishable in a future schema.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 85,
+      "example_id": "original_722:fg_060383081317_rgb_20180908_211038",
+      "product_group": "fg_pc_smokies_vacuum_pack",
+      "crop_sha256": "91ed52e2f87221a1d57be80204dd019fdb5a81a1d0f6e124e824d9e4c71293ef",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Original Smokies",
+          "prediction": "SMOKIES ORIGINALES",
+          "category": "wording_or_scope",
+          "note": "Includes printed French Originales/Smokies wording in addition to or instead of English. Reference is English only.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 86,
+      "example_id": "original_722:fg_060383081317_rgb_20190430_201115",
+      "product_group": "fg_pc_smokies_vacuum_pack",
+      "crop_sha256": "587ee8005107437b7461f9b674c7fe464946ec1da81f45148e555c7e264c7a09",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": null,
+          "prediction": "ORIGINALES",
+          "category": "model_error",
+          "note": "ORIGINALES is a French product descriptor, not a brand.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 87,
+      "example_id": "original_722:fg_060383081317_rgb_20190504_105146",
+      "product_group": "fg_pc_smokies_vacuum_pack",
+      "crop_sha256": "ca6843d0bb8b87b5272ca935381a0b442f78d478324f4355a125c8dac89e040c",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Original Smokies",
+          "prediction": "ORIGINAL SMOKIES ORIGINALES",
+          "category": "wording_or_scope",
+          "note": "Includes printed French Originales/Smokies wording in addition to or instead of English. Reference is English only.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 88,
+      "example_id": "original_722:fg_060383081317_rgb_20190504_192018",
+      "product_group": "fg_pc_smokies_vacuum_pack",
+      "crop_sha256": "2bfc144562fd1ded1b16a516c3b5844be315dd29677006a02ecfeb0b8bc5847c",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Original Smokies",
+          "prediction": "Original Smokies / Smokies Originales",
+          "category": "wording_or_scope",
+          "note": "Includes printed French Originales/Smokies wording in addition to or instead of English. Reference is English only.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": "President's Choice",
+          "prediction": "President's Choice / Le Choix du Président",
+          "category": "wording_or_scope",
+          "note": "Includes printed French translation Le Choix du Président after President’s Choice.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 89,
+      "example_id": "original_722:fg_060383081317_rgb_20190507_213117",
+      "product_group": "fg_pc_smokies_vacuum_pack",
+      "crop_sha256": "5bb66c1c1b37b9d744fd9c32ea2e1de3600c34c87b623a151d385bd0bcc750e5",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 90,
+      "example_id": "original_722:fg_060383081317_rgb_20190608_134647",
+      "product_group": "fg_pc_smokies_vacuum_pack",
+      "crop_sha256": "621b58a46a224c2468a9153c2e079e3dca2b63907f21b31faef185db38a1ad6f",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Original Smokies",
+          "prediction": "Original Smokies Originales",
+          "category": "wording_or_scope",
+          "note": "Includes printed French Originales/Smokies wording in addition to or instead of English. Reference is English only.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 91,
+      "example_id": "original_722:fg_060383081317_rgb_20190609_121634",
+      "product_group": "fg_pc_smokies_vacuum_pack",
+      "crop_sha256": "2fba2b03d7f9d4b931ee3bdd8039c3163811389708ee43f36b6b4870cdf0659b",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Original Smokies",
+          "prediction": "Original Smokies Originales",
+          "category": "wording_or_scope",
+          "note": "Includes printed French Originales/Smokies wording in addition to or instead of English. Reference is English only.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 92,
+      "example_id": "original_722:fg_060383081317_rgb_20190614_092458",
+      "product_group": "fg_pc_smokies_vacuum_pack",
+      "crop_sha256": "f5b7dfcdff3618dcfad461e6ee9d06fa954b164397769dff71b8d29e162577d6",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Original Smokies",
+          "prediction": "Original Smokies Originales",
+          "category": "wording_or_scope",
+          "note": "Includes printed French Originales/Smokies wording in addition to or instead of English. Reference is English only.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 93,
+      "example_id": "team_336:H106",
+      "product_group": "minoxidil_carton",
+      "crop_sha256": "6e2cd9d81916518ec1d46c3da685b6371c7c3ec8271335fe2220f1f1d92bc6f2",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 94,
+      "example_id": "team_336:H107",
+      "product_group": "minoxidil_carton",
+      "crop_sha256": "91e6ae2d2346ab46ed256b8c70f5a21ad85f4ad0fc0a03c5a92f2a6601ed84c7",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 95,
+      "example_id": "team_336:H108",
+      "product_group": "minoxidil_carton",
+      "crop_sha256": "412d27b4c851cd614ff94afad8f0769d2a5b1502d95f0ae6569c8f81a666ab78",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Minoxidil Hair Growth Serum",
+          "prediction": "Minoxidil 5% with Biotin Hair Growth Serum",
+          "category": "wording_or_scope",
+          "note": "Adds visible strength/biotin/purpose or reproduces a truncated sticker title. These are product-name scope differences; copying a truncated title is poor display behavior and needs a consistent target rule.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": null,
+          "prediction": "Minoxidil",
+          "category": "model_error",
+          "note": "Uses the ingredient/product name Minoxidil as brand when no brand logo is visible.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 96,
+      "example_id": "team_336:H109",
+      "product_group": "minoxidil_carton",
+      "crop_sha256": "e6a93849a81c867b4311a80156b3f26a74f23d1ee21ada9944973fbd2b218b5d",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Minoxidil Hair Growth Serum",
+          "prediction": "Minoxidil 5% with Biotin Hair Growth Serum",
+          "category": "wording_or_scope",
+          "note": "Adds visible strength/biotin/purpose or reproduces a truncated sticker title. These are product-name scope differences; copying a truncated title is poor display behavior and needs a consistent target rule.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": null,
+          "prediction": "Minoxidil",
+          "category": "model_error",
+          "note": "Uses the ingredient/product name Minoxidil as brand when no brand logo is visible.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 97,
+      "example_id": "team_336:H110",
+      "product_group": "minoxidil_carton",
+      "crop_sha256": "f87a945cd164106320398325314a244bdd346d8c9bdf492816d68e9f2ae1fb8f",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": "Beaueli",
+          "prediction": null,
+          "category": "reference_review",
+          "note": "Reference expects Beaueli on rear/side views without the front brand logo. Domain/distributor text is ambiguous; null may be appropriate under visible-brand policy.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 98,
+      "example_id": "team_336:H111",
+      "product_group": "minoxidil_carton",
+      "crop_sha256": "bac3477678af3689ff216ba456393123034cfd0c219c240c59cc7f849c554886",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 99,
+      "example_id": "team_336:H112",
+      "product_group": "minoxidil_carton",
+      "crop_sha256": "c7b9287d464f67d60237fa393d021ebeae7321218efb4a85e8bce0a7d9e118e7",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": "Beaueli",
+          "prediction": null,
+          "category": "reference_review",
+          "note": "Reference expects Beaueli on rear/side views without the front brand logo. Domain/distributor text is ambiguous; null may be appropriate under visible-brand policy.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 100,
+      "example_id": "team_336:H113",
+      "product_group": "minoxidil_carton",
+      "crop_sha256": "a62958c327c0d1a43b272cdcdeccf7abcb097932c1bddabe6795769b44629f40",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 101,
+      "example_id": "team_336:H114",
+      "product_group": "minoxidil_carton",
+      "crop_sha256": "97eec72f2684b8533bb20ebce840b718b14c76378caa2eb4ed865b6d343c8661",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Minoxidil Hair Growth Serum",
+          "prediction": "Minoxidil Hair Growth Serum 5% Minoxidil with Biotin",
+          "category": "wording_or_scope",
+          "note": "Adds visible strength/biotin/purpose or reproduces a truncated sticker title. These are product-name scope differences; copying a truncated title is poor display behavior and needs a consistent target rule.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": "30 mL/1 oz x 3 bottles",
+          "prediction": "30ml/1oz x 3bottles",
+          "category": "formatting",
+          "note": "Same printed quantity/count; punctuation, spacing, parentheses or multiplication symbol differs. No numerical correction is implied.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "best_by",
+          "reference": "EXP JUN/02/2029",
+          "prediction": "Jun/02/2029",
+          "category": "formatting",
+          "note": "Same date components; the prediction omits the printed heading or changes component order. Date type must remain distinguishable in a future schema.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 102,
+      "example_id": "team_336:H115",
+      "product_group": "minoxidil_carton",
+      "crop_sha256": "a5055eb677d8cf6086afb3b818d9afebd0f5c977d67a3de82f3584f49eb8c82c",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Minoxidil Hair Growth Serum",
+          "prediction": "Minoxidil Hair Growth Serum 5% Minoxidil with Biotin",
+          "category": "wording_or_scope",
+          "note": "Adds visible strength/biotin/purpose or reproduces a truncated sticker title. These are product-name scope differences; copying a truncated title is poor display behavior and needs a consistent target rule.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": "Beaueli",
+          "prediction": null,
+          "category": "uncertain",
+          "note": "Front logo is blurred/oblique; reference expects Beaueli but model abstains. Needs independent legibility review.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": "30 mL/1 oz x 3 bottles",
+          "prediction": "30ml/1oz x 3bottles",
+          "category": "formatting",
+          "note": "Same printed quantity/count; punctuation, spacing, parentheses or multiplication symbol differs. No numerical correction is implied.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "best_by",
+          "reference": "EXP JUN/02/2029",
+          "prediction": "Jun/02/2029",
+          "category": "formatting",
+          "note": "Same date components; the prediction omits the printed heading or changes component order. Date type must remain distinguishable in a future schema.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 103,
+      "example_id": "team_336:H116",
+      "product_group": "minoxidil_carton",
+      "crop_sha256": "2b8b60038db6aa9cc9bd20385832616f1e381787d3531c185cd62a6dbaea862d",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Minoxidil",
+          "prediction": "5% Minoxidil for Men...ed Drop",
+          "category": "wording_or_scope",
+          "note": "Adds visible strength/biotin/purpose or reproduces a truncated sticker title. These are product-name scope differences; copying a truncated title is poor display behavior and needs a consistent target rule.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": "Beaueli",
+          "prediction": "Beauell",
+          "category": "reference_review",
+          "note": "Rear distributor/domain text reads Beauell while front reference is Beaueli. This is a source/brand-alias policy issue, not a safe automatic spelling correction.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "best_by",
+          "reference": "EXP JUN/02/2029",
+          "prediction": "Jun/02/2029",
+          "category": "formatting",
+          "note": "Same date components; the prediction omits the printed heading or changes component order. Date type must remain distinguishable in a future schema.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 104,
+      "example_id": "team_336:H117",
+      "product_group": "minoxidil_carton",
+      "crop_sha256": "e8e88ae8a1624e93a6ce83cb8817230a988cf4fbb1b9a618efbe33808c71cae3",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Minoxidil",
+          "prediction": null,
+          "category": "reference_review",
+          "note": "Reference uses the active ingredient Minoxidil as a short name on the back panel; model abstains. Decide whether the active ingredient alone establishes product identity.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "best_by",
+          "reference": "EXP JUN/02/2029",
+          "prediction": "Jun/02/2029",
+          "category": "formatting",
+          "note": "Same date components; the prediction omits the printed heading or changes component order. Date type must remain distinguishable in a future schema.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 105,
+      "example_id": "team_336:H118",
+      "product_group": "minoxidil_carton",
+      "crop_sha256": "cffb5bdbadf3d24b8adfc9989dd54849c7f73859ff492a9a4ea6998b2c9b2643",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Minoxidil",
+          "prediction": "Minoxidil 5% w/w Hair Regrowth Treatment",
+          "category": "wording_or_scope",
+          "note": "Adds visible strength/biotin/purpose or reproduces a truncated sticker title. These are product-name scope differences; copying a truncated title is poor display behavior and needs a consistent target rule.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": "Beaueli",
+          "prediction": "Beauell",
+          "category": "reference_review",
+          "note": "Rear distributor/domain text reads Beauell while front reference is Beaueli. This is a source/brand-alias policy issue, not a safe automatic spelling correction.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "best_by",
+          "reference": "EXP JUN/02/2029",
+          "prediction": "Jun/02/2029",
+          "category": "formatting",
+          "note": "Same date components; the prediction omits the printed heading or changes component order. Date type must remain distinguishable in a future schema.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 106,
+      "example_id": "team_336:H119",
+      "product_group": "minoxidil_carton",
+      "crop_sha256": "b4031ed72c864de50d8e5964407411f401fa7e5c1c34f207d7d6b8630db648b4",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Minoxidil",
+          "prediction": "Minoxidil 5% Hair Regrowth Treatment",
+          "category": "wording_or_scope",
+          "note": "Adds visible strength/biotin/purpose or reproduces a truncated sticker title. These are product-name scope differences; copying a truncated title is poor display behavior and needs a consistent target rule.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": null,
+          "prediction": "Beaueli",
+          "category": "uncertain",
+          "note": "No clearly legible front logo; prediction may infer Beaueli from a support-domain fragment. Keep the reference-null disagreement unresolved.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "best_by",
+          "reference": "EXP JUN/02/2029",
+          "prediction": "Jun/02/2029",
+          "category": "formatting",
+          "note": "Same date components; the prediction omits the printed heading or changes component order. Date type must remain distinguishable in a future schema.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 107,
+      "example_id": "team_336:H120",
+      "product_group": "minoxidil_carton",
+      "crop_sha256": "602dd3e2aed645f87658fb96edaf1df3e8db77c1b7941d8b99f329150e26823e",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Minoxidil Hair Growth Serum",
+          "prediction": "Minoxidil 5% with Biotin Hair Growth Serum",
+          "category": "wording_or_scope",
+          "note": "Adds visible strength/biotin/purpose or reproduces a truncated sticker title. These are product-name scope differences; copying a truncated title is poor display behavior and needs a consistent target rule.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "best_by",
+          "reference": "EXP JUN/02/2029",
+          "prediction": "Jun/02/2029",
+          "category": "formatting",
+          "note": "Same date components; the prediction omits the printed heading or changes component order. Date type must remain distinguishable in a future schema.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 108,
+      "example_id": "team_336:H121",
+      "product_group": "minoxidil_carton",
+      "crop_sha256": "d70450681175dbe6b465d587c120457ee460f2f9dc60c2346e6652935b0b656f",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Minoxidil Hair Growth Serum",
+          "prediction": "Minoxidil Hair Growth Serum 5% Minoxidil With Biotin",
+          "category": "wording_or_scope",
+          "note": "Adds visible strength/biotin/purpose or reproduces a truncated sticker title. These are product-name scope differences; copying a truncated title is poor display behavior and needs a consistent target rule.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": null,
+          "prediction": "BEAUELI",
+          "category": "reference_review",
+          "note": "The front BEAUELI logo is visible upside down on this photo but the reference is null.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": "30 mL/1 oz x 3 bottles",
+          "prediction": "30ml/1oz x 3Bottles",
+          "category": "formatting",
+          "note": "Same printed quantity/count; punctuation, spacing, parentheses or multiplication symbol differs. No numerical correction is implied.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "best_by",
+          "reference": "EXP JUN/02/2029",
+          "prediction": "Jun/02/2029",
+          "category": "formatting",
+          "note": "Same date components; the prediction omits the printed heading or changes component order. Date type must remain distinguishable in a future schema.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 109,
+      "example_id": "team_336:H001",
+      "product_group": "move_free_bottle",
+      "crop_sha256": "2157bc67f9c435152d5408a1788f4229f543034dc637407affe6bc8b726380ac",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Ultra 3X Triple Action",
+          "prediction": "Ultra 3X Triple Action Joint Health",
+          "category": "wording_or_scope",
+          "note": "Adds printed Joint Health/Cartilage descriptors to Ultra 3X Triple Action. No new numeric identity is introduced.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 110,
+      "example_id": "team_336:H002",
+      "product_group": "move_free_bottle",
+      "crop_sha256": "8db275d1d8adc572dea570a672995a23e00ea3209385511c6dd0ac9949e221eb",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Dietary Supplement",
+          "prediction": null,
+          "category": "reference_review",
+          "note": "Reference names the generic category Dietary Supplement on a side view. Null may be reasonable when the actual product name is not visible.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 111,
+      "example_id": "team_336:H003",
+      "product_group": "move_free_bottle",
+      "crop_sha256": "1d4863176b07055d327d8faf051b2c49473de0ecdb7e97ce91b53e4a3aedffc3",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": null,
+          "prediction": "Proprietary Cartilage Blend with Boron and Hyaluronic Acid",
+          "category": "model_error",
+          "note": "Uses the proprietary ingredient blend as the product name.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": null,
+          "prediction": "Schiff",
+          "category": "model_error",
+          "note": "Schiff is not readable on this view or supplied OCR. Brand identification is unsupported by the selected inputs.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": null,
+          "prediction": "1 Tablet",
+          "category": "model_error",
+          "note": "Serving amount, tablet directions or servings per container is incorrectly used as package size. Keep net quantity/count separate from serving information.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 112,
+      "example_id": "team_336:H004",
+      "product_group": "move_free_bottle",
+      "crop_sha256": "e0907bb4dbf2fce6d7f72a981f41b4cb7190662ff928ca1b4e719f5c37729731",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "best_by",
+          "reference": "EXP 07/2028",
+          "prediction": "07/2028",
+          "category": "formatting",
+          "note": "Same date components; the prediction omits the printed heading or changes component order. Date type must remain distinguishable in a future schema.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 113,
+      "example_id": "team_336:H005",
+      "product_group": "move_free_bottle",
+      "crop_sha256": "91108d92b81b4dc8c1a05c1a6df167fd6225f9eb9ec4939af0df59941a9c35d9",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": null,
+          "prediction": "Move Free",
+          "category": "model_error",
+          "note": "Treats the Move Free brand/domain as the product name on a distributor panel, without the actual product variant.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": null,
+          "prediction": "reckitt",
+          "category": "model_error",
+          "note": "A manufacturer, distributor or corporate owner is used as consumer brand. For example, Indian Nectar is the importer; the front brand is Nature Sense.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 114,
+      "example_id": "team_336:H006",
+      "product_group": "move_free_bottle",
+      "crop_sha256": "a1d82ea480a54268bb639bd8519c7b4b0665ab70d0e8817262a055fea892dbec",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": null,
+          "prediction": "Move Free",
+          "category": "reference_review",
+          "note": "Move Free logo is visible on the partially turned front while the reference is null. Define consumer brand versus Schiff/corporate owner.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 115,
+      "example_id": "team_336:H007",
+      "product_group": "move_free_bottle",
+      "crop_sha256": "ae53cc36ae4a29a42fce6ca91f9c34d8e19e855b8a54e0e4c5e1a571f060a01a",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Ultra 3X Triple Action",
+          "prediction": "Ultra 3X Triple Action Joint Health",
+          "category": "wording_or_scope",
+          "note": "Adds printed Joint Health/Cartilage descriptors to Ultra 3X Triple Action. No new numeric identity is introduced.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 116,
+      "example_id": "team_336:H008",
+      "product_group": "move_free_bottle",
+      "crop_sha256": "c05bc917ade5e3fc16e3e14e997b587eac43c2ce303f3cdf13c0044c8cf5e680",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Ultra 3X Triple Action",
+          "prediction": "Ultra 3X Triple Action Joint Cartilage",
+          "category": "wording_or_scope",
+          "note": "Adds printed Joint Health/Cartilage descriptors to Ultra 3X Triple Action. No new numeric identity is introduced.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": null,
+          "prediction": "Move Free",
+          "category": "reference_review",
+          "note": "Move Free logo is visible on the partially turned front while the reference is null. Define consumer brand versus Schiff/corporate owner.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 117,
+      "example_id": "team_336:H009",
+      "product_group": "move_free_bottle",
+      "crop_sha256": "65321fb1fcfc3a840bde83ff2e9d69c1273e3a9eeb3288cc9862690aab0d4e6f",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": null,
+          "prediction": "Undenatured Type II Collagen",
+          "category": "model_error",
+          "note": "Uses an ingredient/trademark footnote (Undenatured Type II Collagen) as the product name.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": null,
+          "prediction": "Move Free",
+          "category": "wording_or_scope",
+          "note": "Move Free is inferred/transcribed from the printed website while reference requires no brand. Decide whether a domain is acceptable brand evidence.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "best_by",
+          "reference": "EXP 07/2028",
+          "prediction": "07/2028",
+          "category": "formatting",
+          "note": "Same date components; the prediction omits the printed heading or changes component order. Date type must remain distinguishable in a future schema.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 118,
+      "example_id": "team_336:H010",
+      "product_group": "move_free_bottle",
+      "crop_sha256": "29dcb7ca94fe9eda138aa352cb08d0bda98420186f2dd01c0c01335875a36c5c",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "best_by",
+          "reference": "EXP 07/2028",
+          "prediction": "07/2028",
+          "category": "formatting",
+          "note": "Same date components; the prediction omits the printed heading or changes component order. Date type must remain distinguishable in a future schema.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 119,
+      "example_id": "team_336:H011",
+      "product_group": "move_free_bottle",
+      "crop_sha256": "9d6164db6025e4d84967ecb2528f279c42e9ad4127264419948b624292380a91",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Dietary Supplement",
+          "prediction": "Triple Action Joint Health",
+          "category": "wording_or_scope",
+          "note": "Reference names the category Dietary Supplement; prediction assembles the partly visible product/health descriptors. Scope and visibility need a shared policy.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": null,
+          "prediction": "Schiff Move Free",
+          "category": "uncertain",
+          "note": "Schiff Move Free includes branding not fully visible on this cropped side/front view. Human legibility check required.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": null,
+          "prediction": "1 TINY TABLET PER DAY",
+          "category": "model_error",
+          "note": "Serving amount, tablet directions or servings per container is incorrectly used as package size. Keep net quantity/count separate from serving information.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 120,
+      "example_id": "team_336:K080",
+      "product_group": "nescafe_carton",
+      "crop_sha256": "62e233e8adfd6a07c5f930067cb913a69675e00041ecee6ca863c88aa00d93d3",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "best_by",
+          "reference": "BEST IF USED BY MAR 2027",
+          "prediction": "MAR 2027",
+          "category": "formatting",
+          "note": "Same date components; the prediction omits the printed heading or changes component order. Date type must remain distinguishable in a future schema.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 121,
+      "example_id": "team_336:K081",
+      "product_group": "nescafe_carton",
+      "crop_sha256": "2de4fb722f71d093270423a011f6b8fd745062b8b570c925e65b2174217e75f2",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": "Nescafé",
+          "prediction": "Nescafe",
+          "category": "formatting",
+          "note": "Spacing, apostrophe style, accent or hyphen differs. Earth’s Own uses a curly apostrophe in the reference; it is not corrupted text.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": null,
+          "prediction": "14 OZ (397g)",
+          "category": "uncertain",
+          "note": "Net quantity is strongly blurred; 14 OZ (397 g) is not confidently confirmed by this review or actual OCR. Do not infer from familiar packaging.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 122,
+      "example_id": "team_336:K057",
+      "product_group": "oregano_jar",
+      "crop_sha256": "6006c367d7448f7d2f779ac1bbc4e2baa6b84691e2371c8c3aed48dac9e5759d",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 123,
+      "example_id": "team_336:K058",
+      "product_group": "oregano_jar",
+      "crop_sha256": "32a62463c96518fbe052c75bfa2a44270ea68e03ad5bcaf8f2ce47e668d3eaf9",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "size",
+          "reference": "0.45 oz (13 g)",
+          "prediction": "NET WT. 0.45 OZ (13G)",
+          "category": "formatting",
+          "note": "Same net quantity; model includes NET WT and omits the space before g.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 124,
+      "example_id": "original_722:sean_phone_IMG_3520",
+      "product_group": "sean_chobani_yogurt_multipack",
+      "crop_sha256": "4ae7f958d3391c1b4a8c5b33ef29a9662d552e5875769e068b193e68e65e1654",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "size",
+          "reference": "4 pack",
+          "prediction": "4 - 5.3 OZ (150g) CUPS - NET WT 21.2 OZ (601g)",
+          "category": "model_error",
+          "note": "Correct four-cup count but adds 601 g; the printed total appears 600 g. Count-only reference masks the extra numerical error; verify print independently before correction.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 125,
+      "example_id": "original_722:sean_phone_IMG_3521",
+      "product_group": "sean_chobani_yogurt_multipack",
+      "crop_sha256": "a7fe41a6813b1f61ba13a8e737afd2e37a9bc70599f01e77e1dcf04ffd95514e",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "size",
+          "reference": "4 pack",
+          "prediction": "4 - 5.3 OZ (150g) CUPS - NET WT 21.2 OZ (600g)",
+          "category": "wording_or_scope",
+          "note": "Reference stores only 4 pack; model includes the printed cup quantity/net contents. Need a consistent multipack representation.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 126,
+      "example_id": "original_722:sean_phone_IMG_3522",
+      "product_group": "sean_chobani_yogurt_multipack",
+      "crop_sha256": "d48187e57e491b1e80d4e9674de1c8b30eb40faddac8611d6af0a0b3f62e1589",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": null,
+          "prediction": "Vanilla Greek Yogurt Mixed Berry",
+          "category": "reference_review",
+          "note": "Blurred but recognizable product wording is returned against a null reference. Requires independent legibility adjudication, not automatic acceptance.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": "4 pack",
+          "prediction": null,
+          "category": "model_error",
+          "note": "The 4 PACK badge is visible but the model returns null. Real missed package-count information.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 127,
+      "example_id": "original_722:sean_phone_IMG_3523",
+      "product_group": "sean_chobani_yogurt_multipack",
+      "crop_sha256": "20740f9fa8af697fab55f68096b2c8aa9d6f810be2b4a168108afba587530fd4",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "size",
+          "reference": "4 pack",
+          "prediction": "4 - 5.3 OZ (150g) CUPS",
+          "category": "wording_or_scope",
+          "note": "Reference stores only 4 pack; model includes the printed cup quantity/net contents. Need a consistent multipack representation.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 128,
+      "example_id": "original_722:sean_phone_IMG_3524",
+      "product_group": "sean_chobani_yogurt_multipack",
+      "crop_sha256": "2826f156161a2d3cb62aa87d55b09ef2c6c32abc9cdf055595aaf380514194dc",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "size",
+          "reference": "4 pack",
+          "prediction": "4-5.3 OZ (150g) CUPS - NET WT. 21.2 OZ (601g)",
+          "category": "uncertain",
+          "note": "Four-cup count matches but expanded 601 g total is not confidently verified. Do not count an expanded quantity as correct solely because it contains 4.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 129,
+      "example_id": "original_722:sean_phone_IMG_3487",
+      "product_group": "sean_skippy_peanut_butter",
+      "crop_sha256": "8c71a9bf87d715be4017932956dc560336743fadaa96d35fe5e0116b73f8da5e",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "size",
+          "reference": "40 oz",
+          "prediction": "40 OZ (2 LB 8 OZ) 1.13kg",
+          "category": "wording_or_scope",
+          "note": "Adds the printed pounds and kg alongside 40 oz. Reference records a shorter equivalent size.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 130,
+      "example_id": "original_722:sean_phone_IMG_3488",
+      "product_group": "sean_skippy_peanut_butter",
+      "crop_sha256": "41b74ca659a915747ab9ab3d943f565ec1427955fa2dc8f39edaf0fd346c0296",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 131,
+      "example_id": "original_722:sean_phone_IMG_3489",
+      "product_group": "sean_skippy_peanut_butter",
+      "crop_sha256": "2d4555115fb0318082e98b871046bee21efed8d5f2162ea88e836887500032c3",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 132,
+      "example_id": "original_722:sean_phone_IMG_3490",
+      "product_group": "sean_skippy_peanut_butter",
+      "crop_sha256": "f94a41930ca183893f67146ae05c4862525639aecfa4a2f92ef849a29d4f091d",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 133,
+      "example_id": "original_722:sean_phone_IMG_3491",
+      "product_group": "sean_skippy_peanut_butter",
+      "crop_sha256": "71d3d5df61762cf9fc99c42dcf6c63eb73158b76126ab5852e4b07b05eb53357",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 134,
+      "example_id": "original_722:sean_phone_IMG_3492",
+      "product_group": "sean_skippy_peanut_butter",
+      "crop_sha256": "e5c641e2c94edd9765c99abb93417b772a65cc6f64991ddf92cc5dbe4b31e8fb",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 135,
+      "example_id": "original_722:sean_phone_IMG_3507",
+      "product_group": "sean_sprouts_canned_beans",
+      "crop_sha256": "423897daa4143bdf1bcc9c236e5881397e8a78945cd1da5b0335d57890d1d78f",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 136,
+      "example_id": "original_722:sean_phone_IMG_3508",
+      "product_group": "sean_sprouts_canned_beans",
+      "crop_sha256": "525128e6e23ab4b206e6d6f0b2ce9403e33754b5afcf9fcc879e498f6dd55113",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 137,
+      "example_id": "original_722:sean_phone_IMG_3509",
+      "product_group": "sean_sprouts_canned_beans",
+      "crop_sha256": "a349ad3633b71278128e5cf43f86724867a9023dd846f3d9e300b51743e9431f",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "size",
+          "reference": null,
+          "prediction": "15 oz (425 g)",
+          "category": "model_error",
+          "note": "Returns 15 oz / 425 g from a partly clipped net-weight line. Visible remainder/other views indicate 439 g; prediction is an unsupported numerical substitution, not a proven reference omission.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 138,
+      "example_id": "original_722:sean_phone_IMG_3510",
+      "product_group": "sean_sprouts_canned_beans",
+      "crop_sha256": "2fdadb73ed47fecb68c39e159f73e09b96eb740533e89aa001d4e65556a561db",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 139,
+      "example_id": "original_722:sean_phone_IMG_3511",
+      "product_group": "sean_sprouts_canned_beans",
+      "crop_sha256": "799481dd7bc30a6cde33186ae572288682f7f21552f345e4dc640c9bdc16a21c",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "size",
+          "reference": "15.5 oz (439 g)",
+          "prediction": "15.5 oz (439g)",
+          "category": "formatting",
+          "note": "Same printed quantity/count; punctuation, spacing, parentheses or multiplication symbol differs. No numerical correction is implied.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 140,
+      "example_id": "original_722:sean_phone_IMG_3512",
+      "product_group": "sean_sprouts_canned_beans",
+      "crop_sha256": "01f05830ad36baa2417ab0752dceefda04822da08510aa83b7d930bcdb3b9d91",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "size",
+          "reference": "15.5 oz (439 g)",
+          "prediction": "15.5 OZ (439g)",
+          "category": "formatting",
+          "note": "Same printed quantity/count; punctuation, spacing, parentheses or multiplication symbol differs. No numerical correction is implied.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 141,
+      "example_id": "original_722:sean_phone_IMG_3513",
+      "product_group": "sean_sprouts_canned_beans",
+      "crop_sha256": "016257dc73687f4aaf4c5e45dd749655913910866959457cfe9c8b0aac71d036",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "size",
+          "reference": "15.5 oz (439 g)",
+          "prediction": "15.5 OZ (439g)",
+          "category": "formatting",
+          "note": "Same printed quantity/count; punctuation, spacing, parentheses or multiplication symbol differs. No numerical correction is implied.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 142,
+      "example_id": "original_722:sean_phone_IMG_3514",
+      "product_group": "sean_sprouts_canned_beans",
+      "crop_sha256": "306cc0bfa062a069999db97bf9ebb0b6f366065aaf6d44f3a61687bcc0883b1e",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "size",
+          "reference": "15.5 oz (439 g)",
+          "prediction": "15 oz (425g)",
+          "category": "model_error",
+          "note": "Printed 15.5 oz (439 g) is changed to 15 oz (425 g). Both models make this numerical error.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 143,
+      "example_id": "original_722:sean_phone_IMG_3515",
+      "product_group": "sean_sprouts_canned_beans",
+      "crop_sha256": "2f79829849b55748a95aa90f2497e5e7ef6e492a025cd4655c33f63e17819e57",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "size",
+          "reference": "15.5 oz (439 g)",
+          "prediction": "15.5 OZ (439g)",
+          "category": "formatting",
+          "note": "Same printed quantity/count; punctuation, spacing, parentheses or multiplication symbol differs. No numerical correction is implied.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 144,
+      "example_id": "team_336:K133",
+      "product_group": "squeeze_bottle",
+      "crop_sha256": "81e561d55f08a34083dc10d78a753c902bbae70c0b141d1fe1ab2f14ccaba62e",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": null,
+          "prediction": "Indian Nectar",
+          "category": "model_error",
+          "note": "A manufacturer, distributor or corporate owner is used as consumer brand. For example, Indian Nectar is the importer; the front brand is Nature Sense.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "best_by",
+          "reference": "BEST BEFORE AUG-2022",
+          "prediction": "AUG-2022",
+          "category": "formatting",
+          "note": "Same date components; the prediction omits the printed heading or changes component order. Date type must remain distinguishable in a future schema.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 145,
+      "example_id": "team_336:K134",
+      "product_group": "squeeze_bottle",
+      "crop_sha256": "3b937333f72ebc68fd3b68e756491e0178eee98c3ae4d538fea58f2c36721f64",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": null,
+          "prediction": "INDIAN NECTAR",
+          "category": "model_error",
+          "note": "A manufacturer, distributor or corporate owner is used as consumer brand. For example, Indian Nectar is the importer; the front brand is Nature Sense.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": null,
+          "prediction": "Approx. 38 servings per container",
+          "category": "model_error",
+          "note": "Serving amount, tablet directions or servings per container is incorrectly used as package size. Keep net quantity/count separate from serving information.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "best_by",
+          "reference": "BEST BEFORE AUG-2022",
+          "prediction": "AUG-2022",
+          "category": "formatting",
+          "note": "Same date components; the prediction omits the printed heading or changes component order. Date type must remain distinguishable in a future schema.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 146,
+      "example_id": "team_336:K135",
+      "product_group": "squeeze_bottle",
+      "crop_sha256": "cce6a64b137924ba6b614624bf84907553d8b68a49817ac7d869a22aa38bdbe2",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Imly Candy Mouth Freshener",
+          "prediction": "Imly Candy",
+          "category": "wording_or_scope",
+          "note": "Omits printed parenthetical Mouth Freshener descriptor from Imly Candy.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": "5.30 oz (150 g)",
+          "prediction": "5.30 oz (150g)",
+          "category": "formatting",
+          "note": "Same printed quantity/count; punctuation, spacing, parentheses or multiplication symbol differs. No numerical correction is implied.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 147,
+      "example_id": "team_336:K111",
+      "product_group": "tata_salt_pouch",
+      "crop_sha256": "9c287dd8a2c6d897ea1abbcf0473e1270e65e4bda8fab405e7f21834b9587dc2",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Vacuum Evaporated Iodised Salt",
+          "prediction": "Salt",
+          "category": "wording_or_scope",
+          "note": "Returns Salt but omits visible Vacuum Evaporated Iodised qualifiers. Important descriptor scope, not a spelling failure.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 148,
+      "example_id": "team_336:K112",
+      "product_group": "tata_salt_pouch",
+      "crop_sha256": "c0e79b8683429200cc522627bb15fdc3297380908215dab3d06f6e95c30cbcda",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "size",
+          "reference": null,
+          "prediction": "1 kg",
+          "category": "model_error",
+          "note": "1 kg is derived from 1000 servings at 1 g; a directly readable net quantity is absent on this rear view.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 149,
+      "example_id": "team_336:K113",
+      "product_group": "tata_salt_pouch",
+      "crop_sha256": "4674a345d70d210242155b191684aff45b83fd77b658bfc0799f5cfc5551bf23",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "size",
+          "reference": null,
+          "prediction": "1 kg",
+          "category": "reference_review",
+          "note": "NET QUANTITY 1 kg is visibly printed while reference is null.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "best_by",
+          "reference": "USE BY APR/28",
+          "prediction": "APR/28",
+          "category": "formatting",
+          "note": "Same date components; the prediction omits the printed heading or changes component order. Date type must remain distinguishable in a future schema.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 150,
+      "example_id": "team_336:K114",
+      "product_group": "tata_salt_pouch",
+      "crop_sha256": "d396b1f28cabf17232d8a37fcff1804eaf120e1ecea276c6f20aec57f6a053e2",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": []
+    },
+    {
+      "case_number": 151,
+      "example_id": "team_336:K115",
+      "product_group": "tata_salt_pouch",
+      "crop_sha256": "e2a1f9038bee685829c7d4eae5d0632ec742cf8c2c78f9d6e289971287e6df9d",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "brand",
+          "reference": "Tata",
+          "prediction": "Tata Salt",
+          "category": "wording_or_scope",
+          "note": "Tata Salt is printed branding; reference separates Tata as brand and Salt as product.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": null,
+          "prediction": "1000 g",
+          "category": "model_error",
+          "note": "1000 g is inferred from the serving table rather than transcribed from a net-quantity label.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 152,
+      "example_id": "team_336:K082",
+      "product_group": "teame_tea_carton",
+      "crop_sha256": "396569fa02bd2e1a0157f73321e82ba3a75e1c2280339adbcb6586a1f3c5773c",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Cranberry Apple Infusion",
+          "prediction": null,
+          "category": "reference_review",
+          "note": "Reference expects Cranberry Apple Infusion, but this side shows ingredients and brand, not the actual product name. Abstaining may be appropriate.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": "TE-A-ME",
+          "prediction": "TEAME",
+          "category": "formatting",
+          "note": "Spacing, apostrophe style, accent or hyphen differs. Earth’s Own uses a curly apostrophe in the reference; it is not corrupted text.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "size",
+          "reference": "25 bags (50 g)",
+          "prediction": "25 N (25 N x 2 g = 50 g)",
+          "category": "wording_or_scope",
+          "note": "Printed 25 N x 2 g = 50 g conveys the same count and mass as the reference 25 bags (50 g); representation differs.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "best_by",
+          "reference": "USE BY 18/06/2028",
+          "prediction": "18/06/2028",
+          "category": "formatting",
+          "note": "Same date components; the prediction omits the printed heading or changes component order. Date type must remain distinguishable in a future schema.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 153,
+      "example_id": "team_336:K083",
+      "product_group": "teame_tea_carton",
+      "crop_sha256": "a11539d7bee9e11191ac755d0bcbb6fc2cb8d5964215b1e6afc807c1c91e198c",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Cranberry Apple",
+          "prediction": "Cranberry Apple Cheer",
+          "category": "wording_or_scope",
+          "note": "Adds the printed Cheer line/subtitle after Cranberry Apple. Set a consistent rule for including this text.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": "TE-A-ME",
+          "prediction": "Teame",
+          "category": "formatting",
+          "note": "Spacing, apostrophe style, accent or hyphen differs. Earth’s Own uses a curly apostrophe in the reference; it is not corrupted text.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 154,
+      "example_id": "team_336:K084",
+      "product_group": "teame_tea_carton",
+      "crop_sha256": "c881d5c1004cb67210c7647c5266d2ae28c9b7113d36463a49660eba7461a223",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": null,
+          "prediction": "Tart cranberries and sweet apples blend in this vibrant tea",
+          "category": "model_error",
+          "note": "Uses a promotional sentence as the product name.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        },
+        {
+          "field": "brand",
+          "reference": "TE-A-ME",
+          "prediction": "Madhu Jayanti International Pvt. Ltd.",
+          "category": "model_error",
+          "note": "A manufacturer, distributor or corporate owner is used as consumer brand. For example, Indian Nectar is the importer; the front brand is Nature Sense.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    },
+    {
+      "case_number": 155,
+      "example_id": "team_336:K085",
+      "product_group": "teame_tea_carton",
+      "crop_sha256": "132ccfab65e7fc07fe54e50b5db05feb888661aeddd22fd9a1e8bc531de8cfe7",
+      "visual_triage": "inspected",
+      "strict_tuned_response_valid": true,
+      "field_disagreements": [
+        {
+          "field": "product_name",
+          "reference": "Cranberry Apple",
+          "prediction": "Cranberry Apple Cheer",
+          "category": "wording_or_scope",
+          "note": "Adds the printed Cheer line/subtitle after Cranberry Apple. Set a consistent rule for including this text.",
+          "reviewer": "assistant_visual_triage",
+          "human_adjudicated": false
+        }
+      ]
+    }
+  ]
+}

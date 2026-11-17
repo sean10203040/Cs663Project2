@@ -1,0 +1,3287 @@
+{
+  "review_date": "2026-11-17",
+  "authority": "User: review them yourself and fix however needed.",
+  "method": "Assistant original-resolution visual inspection of all 113 held crops; image-only evidence. No external product facts or neighboring-image completion.",
+  "independently_human_verified": false,
+  "source_examples_sha256": "1b208f476b11865aed600740dcc07c1f68cb2673b0c36e26ca7bd22f44f48fc5",
+  "source_audit_sha256": "822b7bc0e56d2f026e560be00b0c7a4e851c6e50a195f6936e82b2a5255ac954",
+  "previous_examples_sha256": "c8b59cf3ded8fd04b25d518b0a588a7458b98b1f44143c0078ef9dda28d17822",
+  "previous_gcs_prefix": "gs://labellens-spatial-thinker-512218-b0/product-extraction/20261115-v4-reviewed-candidate",
+  "policy_version": "labellens-evidence-v4-candidate",
+  "instruction_sha256": "cc071334fdb0ed6fb98e6229d2f8dd6f3db9963f3892333cf154652e36643793",
+  "counts": {
+    "rechecked": 113,
+    "include": 112,
+    "exclude": 1
+  },
+  "entries": [
+    {
+      "number": 2,
+      "example_id": "sean_349:P013",
+      "target": {
+        "product_name": "Tablets 200 mg",
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": "Show the complete front label so the product name and brand are readable.",
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "200 mg\nTablets"
+          }
+        }
+      },
+      "note": "Keep only visible partial tablet wording and strength; full ingredient and brand are clipped. No inferred medicine identity.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "60bfbc71d4b8fd7a89eec7526f79c6edefd3128d2acb941177a75b59d808bc2d",
+      "image_sha256": "0fb92f013e8c714e89a09bee2a21b97a63cdee2ac72969011bd068c7f164f96b",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 5,
+      "example_id": "team_336:K056",
+      "target": {
+        "product_name": null,
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "low",
+        "guidance": "Show the front label and take a sharper close-up of the Best Used By stamp.",
+        "evidence": {}
+      },
+      "note": "Distributor attribution alone does not establish visible consumer brand. Best Used By is printed but month/separator cannot be established reliably; year alone does not recover complete stamp.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "05417b86c352ff0e26eee830bee1497f88b56ba16247a13a6f0ba332de82fc78",
+      "image_sha256": "a4cb823231eab1fc35963fcb97a2514b0abd3048de0f62c947404b9429f93a71",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 9,
+      "example_id": "team_336:K060",
+      "target": {
+        "product_name": null,
+        "brand": "Hathi Brand",
+        "key_attributes": {
+          "size": "3.5 oz (100 g)",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "brand": {
+            "source": "image",
+            "quote": "HATHI BRAND"
+          },
+          "size": {
+            "source": "image",
+            "quote": "3.5 oz / 100g"
+          }
+        }
+      },
+      "note": "Trademark logo establishes Hathi Brand independently of distributor copy. Beginning of product name covered; retain explicit net weight.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "5dfaa39dafe1fe0b7ef877bb7f251dc3a82bc7569f9f43bc2ddcc445932934f7",
+      "image_sha256": "375da38348ded3632a9ebaa6e8f38fb69e9bc004b7503993754395af7b1b0d1b",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 14,
+      "example_id": "team_336:K097",
+      "target": {
+        "product_name": "Savoury Spiced Tepary Beans",
+        "brand": "Haldiram's",
+        "key_attributes": {
+          "size": "1 kg (35.27 oz)",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Savoury Spiced Tepary Beans"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "Haldiram's"
+          },
+          "size": {
+            "source": "image",
+            "quote": "1kg e 35.27 oz"
+          }
+        }
+      },
+      "note": "Use readable rear descriptor rather than complete the folded Bhujia name; consumer logo and net weight readable; faint date remains unknown.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "bb93b32981e34f87961c82e72cca75849cd20ad122fc564c9ee841adbc291eb6",
+      "image_sha256": "9a60d9117b422a2da7107f043bfd4eeed286ac5559ea9df2880c1f413c985bc6",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 25,
+      "example_id": "team_336:H096",
+      "target": {
+        "product_name": null,
+        "brand": null,
+        "key_attributes": {
+          "size": "20 oz",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": "Rotate the container until the complete front label faces the camera.",
+        "evidence": {
+          "size": {
+            "source": "image",
+            "quote": "NET WT 20 OZ"
+          }
+        }
+      },
+      "note": "Complete brand/name and metric equivalent wrap away from visible face. Retain readable net ounces only.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "4ae77ae0f83b8734c0c157ca16ea83cd9fddcfc459114e87c266b99ba7a828b8",
+      "image_sha256": "3ae17603e81b7e3d205d04e63845a243323bc32526b574c078494214a944d261",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 42,
+      "example_id": "team_336:K078",
+      "target": {
+        "product_name": null,
+        "brand": null,
+        "key_attributes": {
+          "size": "100 g",
+          "best_by": "EXP 04/2027"
+        },
+        "confidence": "medium",
+        "guidance": "Show the complete front label so the product name and brand are readable.",
+        "evidence": {
+          "size": {
+            "source": "image",
+            "quote": "Net Contents: 100 g"
+          },
+          "best_by": {
+            "source": "image",
+            "quote": "EXP. 04/2027"
+          }
+        }
+      },
+      "note": "Rear header identity clipped; package quantity and explicit expiry stamp readable. Do not use ingredient amounts or manufacture date.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "71ded9f3ec64e13301ea436e5806f414656eb0470927464d82b039ca38db288a",
+      "image_sha256": "774794177b05c2ade674ba5aaee321120417dc8e3dbc84c1adf8767f4e5ca6d8",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 43,
+      "example_id": "team_336:K079",
+      "target": {
+        "product_name": "Regular Fruit Salt",
+        "brand": "Eno",
+        "key_attributes": {
+          "size": "100 g",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "FRUIT SALT - REGULAR"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "ENO"
+          },
+          "size": {
+            "source": "image",
+            "quote": "Net Contents: 100g"
+          }
+        }
+      },
+      "note": "Full identity readable in rear header; expiry stamp extends beyond readable face, so omit date.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "965ab6a7bbe5408515b574e1d05330e2bdf46a767fe54f8ad6171195a03ba4ce",
+      "image_sha256": "18cb931484a1b70c5535d9f867f8051721f2abf73c20c742c99ac7ca0777c4be",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 49,
+      "example_id": "team_336:K014",
+      "target": {
+        "product_name": "Premium Ginger Beer",
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "PREMIUM GINGER BEER"
+          }
+        }
+      },
+      "note": "Name explicit; Fever-Tree appears only in manufacturer/domain copy, not consumer logo. Serving size 1 Bottle is not package count; date only says see shoulder.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "450a0b415ab0f3a4eae6807b658555ca7f23d45eaaa9e2b1120aba90c10759ae",
+      "image_sha256": "3725824c6ec587e313671a35ca63c05d0a89fbafc5bae4b278e9c723b2e8fddf",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 50,
+      "example_id": "team_336:K015",
+      "target": {
+        "product_name": "Premium Ginger Beer",
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "PREMIUM GINGER BEER"
+          }
+        }
+      },
+      "note": "Explicit product name; manufacturer/domain alone not consumer brand. No net quantity or actual date on selected face.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "8b72d56c3134ddcada4194f04b12483e250e4fdb1db1941d2dc93aec6c02a9fb",
+      "image_sha256": "91f3fc2f02a807f46b4d9287f2cb462ed4cfceb0c3c9b1fa3fd8b9e4d51e57ab",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 51,
+      "example_id": "team_336:K018",
+      "target": {
+        "product_name": "Premium Ginger Beer",
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "PREMIUM GINGER BEER"
+          }
+        }
+      },
+      "note": "Explicit product name; manufacturer/domain alone not consumer brand. No net quantity or actual date on selected face.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "4353fddd5432529b5fd4a2b2ae04b2780376c78529ee695b203e49ff6eb09f86",
+      "image_sha256": "dd624ed36d3d4f584efad4fbc18094d369f18da7734a1b4ca01357c718fb11ef",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 52,
+      "example_id": "original_722:fg_059000003115_rgb_20190126_133620",
+      "target": {
+        "product_name": "Lait Évaporé",
+        "brand": null,
+        "key_attributes": {
+          "size": "354 mL",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Lait Évaporé"
+          },
+          "size": {
+            "source": "image",
+            "quote": "354 mL"
+          }
+        }
+      },
+      "note": "French identity and net volume readable; full Carnation logo wraps away, so do not complete missing brand letters.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "25e4b834aaafecf3d1260ea7d20448a2438f991dcf25b4ae9da6c31fefc75bd6",
+      "image_sha256": "818c49bdf9f5e85456d7aaa6205b567a8e202ec1a85e001a8258080efe7999d5",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 53,
+      "example_id": "original_722:fg_059000003115_rgb_20190204_124343",
+      "target": {
+        "product_name": null,
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "low",
+        "guidance": "Show the complete front label so the product name and brand are readable.",
+        "evidence": {}
+      },
+      "note": "Consumer logo and product name wrap beyond view; website/manufacturer cannot complete identity. No readable net quantity or date on this face.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "c9be43f9567970df5f9c2a8be481e38ec2f6197d28c8a2726186c5efa4911d8c",
+      "image_sha256": "6db31e45e697e1c2635aa2403315d76cc78810558a84c5ff4b8b071505ffef44",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 54,
+      "example_id": "original_722:fg_059000003115_rgb_20190930_173615",
+      "target": {
+        "product_name": null,
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "low",
+        "guidance": "Show the complete front label so the product name and brand are readable.",
+        "evidence": {}
+      },
+      "note": "Primarily nutrition/ingredient face; name/logo and complete package-quantity units are turned away. Do not recover package data from another view.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "29f033a2e75db7e7bb7fe58ba75ddf8804277ba5c63491a4cbad1d4c36530ee4",
+      "image_sha256": "de284ddb146a26bf05cc6ce4be31f2fe65ed89c9b418c45133abe6e8ed094920",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 59,
+      "example_id": "original_722:fg_811620021784_rgb_20190216_101031",
+      "target": {
+        "product_name": "Ultrafiltered Milk",
+        "brand": "fairlife",
+        "key_attributes": {
+          "size": "1.5 L",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "ultrafiltered milk"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "fairlife’s co-founders"
+          },
+          "size": {
+            "source": "image",
+            "quote": "1.5 L"
+          }
+        }
+      },
+      "note": "Readable product identification in own descriptive copy and fairlife attribution, supported by partial consumer logo. Net volume readable; do not adopt a fat percentage from comparative nutrition rows.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "90e8e97c3d6fd0a284f7c0bad6d114b3a4892e9a0f4b8e7010c1c90fef3f0c01",
+      "image_sha256": "bf67b8eda9410ec6b3c7a44ec3810694650a3b754a95f34c3bd449a03e49596f",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 63,
+      "example_id": "original_722:fg_285332000000_rgb_20190906_111532",
+      "target": {
+        "product_name": "Pork Tenderloin",
+        "brand": "Real Canadian Superstore",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "PORK TENDERLOIN"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "REAL CANADIAN SUPERSTORE"
+          }
+        }
+      },
+      "note": "Retail label name and retailer logo readable; fine net-weight and date digits are not reliable, so omit them instead of guessing.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "172b9e8eb744d09ffb7dfa73a6d4952f5e281b1a5a08afb9573e5b5373f9598c",
+      "image_sha256": "b70339f56f231e8ae8d1a8cf902be49f6233b1a259efbf2b1af04ce3e9f16d99",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 64,
+      "example_id": "original_722:fg_073570130149_rgb_20180831_143443",
+      "target": {
+        "product_name": "French Onion Sour Cream Dip",
+        "brand": "Heluva Good!",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "French Onion\nSour Cream Dip"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "Heluva Good!"
+          }
+        }
+      },
+      "note": "Lid provides full brand and English identity. No supported net package quantity in this selected view; small rim stamp not legible enough for date.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "2ea1d70966380c720c00ec213415df9217f900f386646546d38f879fb5e6052a",
+      "image_sha256": "edfc94629e434638dd76cc0a213a4029cb10329556a88670dab3e817b0ba2123",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 65,
+      "example_id": "original_722:fg_073570130149_rgb_20180914_204356",
+      "target": {
+        "product_name": "French Onion Sour Cream Dip",
+        "brand": "Heluva Good!",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "French Onion\nSour Cream Dip"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "Heluva Good!"
+          }
+        }
+      },
+      "note": "Lid provides full brand and English identity. No supported net package quantity in this selected view; small rim stamp not legible enough for date.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "23fb31afb8cd6871c52af1c6ae87aa4891efea5b817a6a8f8f2b2c3ec0534c44",
+      "image_sha256": "defcc7d554993e21ddf383cd27b5c0ba8449df70aba82d06e90ee52d3a793968",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 66,
+      "example_id": "original_722:fg_073570130149_rgb_20181212_201152",
+      "target": {
+        "product_name": null,
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "low",
+        "guidance": "Show the complete front label so the product name and brand are readable.",
+        "evidence": {}
+      },
+      "note": "Rear nutrition/distributor panel with incomplete front edge. No complete consumer identity, net quantity or date can be established.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "b46df1b25b62f08818d4c86df05351738732239462ce02476bcd773d9c61f23f",
+      "image_sha256": "364ea631a783e439f1b4c2028345b3380c85cf5a86378562540e5c624b2b6e16",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 67,
+      "example_id": "expansion_224:fgnew_059800218627_rgb_20180811_093236",
+      "target": {
+        "product_name": null,
+        "brand": "Nestlé",
+        "key_attributes": {
+          "size": null,
+          "best_by": "BB/MA 2019 MR05"
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "brand": {
+            "source": "image",
+            "quote": "Nestlé"
+          },
+          "best_by": {
+            "source": "image",
+            "quote": "BB/MA 2019 MR05"
+          }
+        }
+      },
+      "note": "Nestlé consumer logo and abbreviated date stamp readable. Kit Kat Bites is a promotion for another product; do not use that as selected identity. Per-bar serving weight is not net package quantity.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "1529ed8e8ebd78864340134490406ade7ef9ca5d50608fa91e905f33e6ec815d",
+      "image_sha256": "e9fa0f5f0fd27a14e88e97b073427ea11ae1b71f0908d59ce8663a365c69ff0a",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 68,
+      "example_id": "expansion_224:fgnew_059800218627_rgb_20181223_075817",
+      "target": {
+        "product_name": null,
+        "brand": "Nestlé",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "brand": {
+            "source": "image",
+            "quote": "Nestlé"
+          }
+        }
+      },
+      "note": "Nestlé logo readable; Kit Kat Minis is a promotional inset and serving weight is not package net weight. Stamp digits unclear.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "6e32c8b09b99d36c18f869f016e9db1aca3e92171661a96796b226c1dd4055a3",
+      "image_sha256": "3f1b02d8252055369e72c5a97100996aa8f57b76871418b9560aa2f19d6d8ab8",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 69,
+      "example_id": "expansion_224:fgnew_059800218627_rgb_20190109_193021",
+      "target": {
+        "product_name": null,
+        "brand": "Nestlé",
+        "key_attributes": {
+          "size": null,
+          "best_by": "BB/MA 2019 AU 16"
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "brand": {
+            "source": "image",
+            "quote": "Nestlé"
+          },
+          "best_by": {
+            "source": "image",
+            "quote": "BB/MA 2019 AU16"
+          }
+        }
+      },
+      "note": "Consumer parent logo and abbreviated date stamp readable. Promotional Minis inset does not identify selected variant or net quantity.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "dab76bd23dd8dcdce35f676279e2ecc63c61a93dc59bd97069d30ecfd8a9a48f",
+      "image_sha256": "2c62fdd8bccffd927cfa70b22693b1e2264af7ba23e9ab81e9dc3bff5bff0b57",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 70,
+      "example_id": "original_722:fg_059800886161_rgb_20180914_203051",
+      "target": {
+        "product_name": null,
+        "brand": "Nestlé",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "brand": {
+            "source": "image",
+            "quote": "Nestlé"
+          }
+        }
+      },
+      "note": "Small consumer logo identifiable in selected crop; do not complete fine-print product variant, weight or date from related views.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "3934b193d8f229fa407a172eee801359c0d82114270597c42fd214943768a49d",
+      "image_sha256": "07f65e4a2c1796783d1dad0ebf9cda29f5ac91032a4ddf7db415bd58d5ae45c5",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 71,
+      "example_id": "original_722:fg_059800886161_rgb_20181014_191753",
+      "target": {
+        "product_name": null,
+        "brand": "Nestlé",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "brand": {
+            "source": "image",
+            "quote": "Nestlé"
+          }
+        }
+      },
+      "note": "Small consumer logo identifiable in selected crop; do not complete fine-print product variant, weight or date from related views.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "e1180816fba9b2b46ee38a964c4c06565b6e6d476407c3f14d99fa3dd1971e59",
+      "image_sha256": "484ce7ac39f9c3b382965982a1645993920004a974971dee4abaac8f91356301",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 76,
+      "example_id": "original_722:fg_743434000337_rgb_20181006_150542",
+      "target": {
+        "product_name": null,
+        "brand": "Lindt & Sprüngli",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "brand": {
+            "source": "image",
+            "quote": "LINDT & SPRÜNGLI"
+          }
+        }
+      },
+      "note": "Prominent consumer header readable; product variant not printed on selected face. Unheaded numeric stamp is not automatically best-by; omit without date-role evidence.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "feb83dc87023ed45c95842eab4e4fd40e2e55b535ec6adcdfcfc8397fad7d394",
+      "image_sha256": "651ed5a677c81d9c2d197333a2815dbde0e2daf65d108bf10a3d9b0696986fd7",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 77,
+      "example_id": "original_722:fg_063100888008_rgb_20181016_213911",
+      "target": {
+        "product_name": null,
+        "brand": "Maple Leaf",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "brand": {
+            "source": "image",
+            "quote": "MAPLE LEAF"
+          }
+        }
+      },
+      "note": "Consumer logo explicit. Do not infer Bacon identity solely from heating directions/ingredient list; no net quantity or date visible.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "24a262bf73d3fa9b87cf5cfcb9713cb7baf45173a0d03b8ea3d6c8d504a1c646",
+      "image_sha256": "a6a323aa8453807fdf835c5c76938f4a0d9ecc1ddb1836a36c933f70d6761d6b",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 93,
+      "example_id": "original_722:fg_066800000282_rgb_20190514_152701",
+      "target": {
+        "product_name": "Skim Milk 0.1%",
+        "brand": "Neilson",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Skim milk 0.1% M.F."
+          },
+          "brand": {
+            "source": "image",
+            "quote": "NEILSON"
+          }
+        }
+      },
+      "note": "Folded lower front still prints skim milk and fat percentage; rear logo readable. Best-before text directs to closure, not a date value.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "d9edfa9e834be26115a08ce47a7bf1bde730bfe2cc23fd4861fb90a61b46e3b0",
+      "image_sha256": "d7bd7aa50c4d2d3bc58676c49a6150d44f827f87a1024ddb924a73e46f3d82aa",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 94,
+      "example_id": "original_722:fg_066800000282_rgb_20190927_214618",
+      "target": {
+        "product_name": "Milk",
+        "brand": "Neilson",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "proudly providing fresh wholesome milk"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "NEILSON"
+          }
+        }
+      },
+      "note": "Own descriptive copy establishes Milk and logo establishes Neilson. Fat variant/front quantity turned away; do not infer from nutritional values.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "8db500299ab845a837011d2ca47d61cdf653ca54f8d393aea2e54d4a043d0f16",
+      "image_sha256": "c94d0808490fcf28d84a9c2a00a4e36bea609179ed312418609b68ea39f0d4ee",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 95,
+      "example_id": "original_722:fg_066800000572_rgb_20190609_085307",
+      "target": {
+        "product_name": "Milk 1%",
+        "brand": "Neilson",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "milk 1% M.F."
+          },
+          "brand": {
+            "source": "image",
+            "quote": "NEILSON"
+          }
+        }
+      },
+      "note": "Folded lower front visibly retains Milk 1%; brand logo readable. No explicit net quantity or closure date in crop.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "78d904973e8fc97d1125833d3801ed13c3b81b49c18c210052aff97e8e031ace",
+      "image_sha256": "24824e6d4cc20d7c434fcd43692151ce5ac6f9d7bf5fe07b4a6ea47f224fd70e",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 108,
+      "example_id": "original_722:fg_066013153638_rgb_20190124_201647",
+      "target": {
+        "product_name": null,
+        "brand": null,
+        "key_attributes": {
+          "size": "500 g",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": "Show the complete front label so the product name and brand are readable.",
+        "evidence": {
+          "size": {
+            "source": "image",
+            "quote": "500 g"
+          }
+        }
+      },
+      "note": "Brand and cottage-cheese wording split across unreadable curved edges. Keep clear net weight; unheaded rim stamp cannot establish date role.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "17826cf1c84b42d85ba0196cbbe105c46a3cddb3dc08424760b4df99fbd747ac",
+      "image_sha256": "574cdec74f9f6bf949ac52e02ea62c0292c73ead52c1a2aaa6564413b9168b98",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 127,
+      "example_id": "original_722:fg_060383069292_rgb_20180917_160616",
+      "target": {
+        "product_name": null,
+        "brand": "PC",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "brand": {
+            "source": "image",
+            "quote": "PC"
+          }
+        }
+      },
+      "note": "PC consumer emblem visible; product identity clipped. Recipe ingredient names are not a substitute for selected product identity.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "cf16a71a2f04916b00c8b4f6d95f75f12ef0a3a9b651d76dfa011a58eeaf4a06",
+      "image_sha256": "76f9bd5089277d2ff8c9e43afe306b2771f1856bdf52bf05c80f9149e2c77cd8",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 141,
+      "example_id": "expansion_224:fgnew_060383195878_rgb_20181006_123340",
+      "target": {
+        "product_name": null,
+        "brand": "PC",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "brand": {
+            "source": "image",
+            "quote": "PC"
+          }
+        }
+      },
+      "note": "Consumer PC emblem visible on rear contact panel. Recipe mentions other products and ingredients; neither establishes selected name. No readable net quantity or actual date.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "c99d6d36a1fd576519011d65ae415b985be0136e62362e17ad5389fa4834506b",
+      "image_sha256": "b327c5a70fd571b4d5ff1fd335904331a9a65557b7a8727566d092dedbb33e64",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 142,
+      "example_id": "expansion_224:fgnew_060383195878_rgb_20181028_100511",
+      "target": {
+        "product_name": null,
+        "brand": "PC",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "brand": {
+            "source": "image",
+            "quote": "PC"
+          }
+        }
+      },
+      "note": "Consumer PC emblem visible on rear contact panel. Recipe mentions other products and ingredients; neither establishes selected name. No readable net quantity or actual date.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "36a4a30a2715074919533d5250d45d76eeaa8d7f80f626b904eeff0b09f533fa",
+      "image_sha256": "b34549f96f90d1ed8ccd9830a1c13880ad91cae5a46925ee140996b45497d11f",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 143,
+      "example_id": "expansion_224:fgnew_060383195878_rgb_20190308_110007",
+      "target": {
+        "product_name": null,
+        "brand": "PC",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "brand": {
+            "source": "image",
+            "quote": "PC"
+          }
+        }
+      },
+      "note": "Readable rear consumer PC emblem; recipe/ingredients do not establish selected variety; serving size is not package quantity.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "1b9928c2f9337fc1493d51c86a60a3118b7b87ceb96511f885818ee0805ee87d",
+      "image_sha256": "ff660242d9f04bccd26bacf963fba14d6665f8a1bb3e4de97ee9166bd79ff2b9",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 146,
+      "example_id": "original_722:fg_060383152215_rgb_20180831_132829",
+      "target": {
+        "product_name": "Plain Skyr Icelandic Style Yogurt 0%",
+        "brand": "PC",
+        "key_attributes": {
+          "size": "500 g",
+          "best_by": "BB/MA 2018 SE 28"
+        },
+        "confidence": "high",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "ICELANDIC STYLE YOGURT\nSKYR\nplain\n0%"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "PC"
+          },
+          "size": {
+            "source": "image",
+            "quote": "500 g"
+          },
+          "best_by": {
+            "source": "image",
+            "quote": "BB/MA 2018 SE 28"
+          }
+        }
+      },
+      "note": "Original-resolution lid establishes all fields, including explicit BB/MA date heading and zero-fat qualifier.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "1d4faa79fa6e5dd2dcce0bd4eeb1ad6d83b83126589d99924713a48b68a671ed",
+      "image_sha256": "acb77a922792f8b0974417545f2d60ab1143635942ef0097f3b56676991fffea",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 151,
+      "example_id": "original_722:fg_062000132419_rgb_20190418_165452",
+      "target": {
+        "product_name": null,
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "low",
+        "guidance": "Show the complete front label so the product name and brand are readable.",
+        "evidence": {}
+      },
+      "note": "Rear ingredients/nutrition face does not establish a readable consumer identity or package quantity. Do not infer Wieners from appearance/ingredients.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "509f3e061cad26825b1e645fb88a621eb5a5dc26db30614859b9aa8d33c60a2b",
+      "image_sha256": "6d26a3fdb48fcda1c32a94b8763d21bce52e4c7d50680042e5ce3f26dac69cca",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 153,
+      "example_id": "expansion_224:fgnew_025293001350_rgb_20190417_131048",
+      "target": {
+        "product_name": "Almond",
+        "brand": "Silk",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Almond"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "Silk"
+          }
+        }
+      },
+      "note": "Full Silk/Almond side identity readable. French chocolate variant is present, but no readable English equivalent; preserve only readable English identity without translation or invented quantity.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "8ecab090017968ff359ed216aa300d210b1a62911de1bc7b69d67cbfe9d7d81e",
+      "image_sha256": "743045692a1b293047c49eb7fc14c771ec57dbbe22a07e064254a385d7b93857",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 154,
+      "example_id": "expansion_224:fgnew_025293001350_rgb_20190622_165142",
+      "target": {
+        "product_name": null,
+        "brand": "Silk",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "brand": {
+            "source": "image",
+            "quote": "Silk"
+          }
+        }
+      },
+      "note": "Complete Silk logo readable on dark shoulder; remaining product wording and quantity are turned away or clipped.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "b5b13dcda6ad79df8823d47a2c1762894fb1c48b03996e629f7d505ba178c09c",
+      "image_sha256": "4271017a4f489280b26ee140a92223169acf33c37573a7da10205dc3f67c49a1",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 161,
+      "example_id": "original_722:fg_209290000000_rgb_20190813_185351",
+      "target": {
+        "product_name": "Honey Maple Ham 17%",
+        "brand": "Ziggy",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "HONEY MAPLE HAM 17%"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "ZIGGY"
+          }
+        }
+      },
+      "note": "Retail sticker retains product and abbreviated brand wording; small net/date digits too uncertain to transcribe. Do not expand retail abbreviations from prior knowledge.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "96fece3b49db9c5e407d468ebd45d39bff2f5fac5c0cd3fc90c73a770dcebefb",
+      "image_sha256": "507eebad4db8a528f78ab13f6e6043eddf3816d9c91dd28482280daf9ba54fb8",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 162,
+      "example_id": "original_722:fg_229901000000_rgb_20190806_180537",
+      "target": {
+        "product_name": "Mortadella",
+        "brand": "San Daniele",
+        "key_attributes": {
+          "size": "0.108 kg",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "SAN DANIELE MORTADELLA"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "SAN DANIELE"
+          },
+          "size": {
+            "source": "image",
+            "quote": "Net weight 0.108 kg"
+          }
+        }
+      },
+      "note": "Readable retail product/brand and net weight. Date on retail label is packed-on, not best-before; exclude it from best_by.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "1db09eafdc7255cb919860811168096de68ff17afcf39800bb0066304ba32863",
+      "image_sha256": "05ef5a86382e3e06ab5d5e8e940e90df568231b72adc8514c4584c0f9dee5115",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 163,
+      "example_id": "original_722:fg_236601000000_rgb_20190827_105502",
+      "target": {
+        "product_name": "Free From Boneless Skinless Chicken Breasts",
+        "brand": "PC",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "FREE FROM\nBoneless Skinless Chicken Breasts"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "PC"
+          }
+        }
+      },
+      "note": "Consumer PC emblem and name readable on front label. Fine weight and plastic date stamp insufficiently clear; do not infer digits.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "92674b0dd1161877dee6b39a59e10c8cc993a7bcc67099da67e00a9ef44a6035",
+      "image_sha256": "e843b05dbcc9d6443d5636012210b5fafca786715ac9234c4f5f6032d8747e31",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 164,
+      "example_id": "original_722:fg_280179000000_rgb_20190915_181952",
+      "target": {
+        "product_name": "Natural Choice Oven Roasted Turkey 21% Meat Protein 0% Fat",
+        "brand": "PC",
+        "key_attributes": {
+          "size": "0.226 kg",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "PC NATURAL CHOICE OVEN ROASTED TURKEY\n21% MEAT PROTEIN 0% FAT"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "PC"
+          },
+          "size": {
+            "source": "image",
+            "quote": "Net weight 0.226 kg"
+          }
+        }
+      },
+      "note": "Retail line identifies PC brand, product and variant; net weight clear. 2019SE15 is packed-on, not best-by.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "5e529b24676e4b29ecc73319cfecd61c2206c961b08c67132120224a0dd064b9",
+      "image_sha256": "824afad8cce397c80fc59c584619925f5a8b1602312d564cd6d34d3b66fa38b3",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 165,
+      "example_id": "original_722:fg_287218000000_rgb_20190719_091441",
+      "target": {
+        "product_name": "Extra Lean Smoked Turkey Breast",
+        "brand": "Ziggy",
+        "key_attributes": {
+          "size": "0.188 kg",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "ZIGGY EXTRA LEAN SMOKED TURKEY BREAST"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "ZIGGY"
+          },
+          "size": {
+            "source": "image",
+            "quote": "Net weight 0.188 kg"
+          }
+        }
+      },
+      "note": "Retail product wording and net quantity clear. Date is marked packed-on, so not a best-by date.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "5a509a4a3f6b8138043681ebb00d275c0671ce39009ee5c61ef495753f5ee4e8",
+      "image_sha256": "052f4fd79f2585ed7576743b8a8fd64a090ee48c6c5b8a6f650171f2854154c9",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 166,
+      "example_id": "original_722:fg_061483051774_rgb_20190118_151524",
+      "target": {
+        "product_name": "Mild Cheddar Cheese",
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "MILD CHEDDAR CHEESE"
+          }
+        }
+      },
+      "note": "Readable English identity at top. Company address is not a consumer logo; serving quantity and unclear vertical date excluded.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "cf923135652f94250d3c808ec530ec968877ce4babf3f333d39fd381db10bc83",
+      "image_sha256": "a22e79edfe0ce0bd7336419f824d63bc879000b3007696c867cd832733aec971",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 168,
+      "example_id": "original_722:fg_061483010535_rgb_20181010_142122",
+      "target": {
+        "product_name": "Smoked Extra Lean Turkey Breast 17% Meat Protein",
+        "brand": "Ziggy’s",
+        "key_attributes": {
+          "size": "300 g",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "TURKEY BREAST\nEXTRA LEAN\nSMOKED\nMEAT PROTEIN 17%"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "Ziggy’s"
+          },
+          "size": {
+            "source": "image",
+            "quote": "300 g"
+          }
+        }
+      },
+      "note": "All identity qualifiers and net quantity readable. Best-before stamp month/day unclear; do not complete from related packages.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "7f785f978053807aef21cd904496d2b1e359b42a5c6e2388635f9696a3d70b2d",
+      "image_sha256": "f2446e1ffd24a797ac1093e1d773ea7c46facef385ec4fa43582d7e986d803dc",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 169,
+      "example_id": "original_722:fg_061483040228_rgb_20190801_211357",
+      "target": {
+        "product_name": "Extra Lean Cooked Ham 16% Meat Protein",
+        "brand": "Ziggy’s",
+        "key_attributes": {
+          "size": "300 g",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "EXTRA LEAN\nHAM\nCOOKED\nMEAT PROTEIN 16%"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "Ziggy’s"
+          },
+          "size": {
+            "source": "image",
+            "quote": "300 g"
+          }
+        }
+      },
+      "note": "Identity and quantity clear; faint stamped month/day are not reliable, so omit date.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "e335568eeda70e40c4ddb31dc67a3eac3b5aa5917d66b43c57bc8dcf7fcaa99d",
+      "image_sha256": "9a873521802ebaed0f70f2aef62db17b9a7e579adbf8816a48ea7f9203c9bf36",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 181,
+      "example_id": "expansion_224:gs_Arla-Ecological-Medium-Fat-Milk_016_train",
+      "target": {
+        "product_name": null,
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "low",
+        "guidance": "Take a closer, sharper photo of the front label without covering the brand.",
+        "evidence": {}
+      },
+      "note": "Original source is only 171 pixels wide; side-panel fine print and logo not readable enough to identify. Do not use dataset filename as evidence.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "0ba4fac39108648cd3eb7529f4b88c860dfce47735910822ca63cf4009e41024",
+      "image_sha256": "36a5321130115d24269f5759f8669088d431d7bf2d8b5cd16cdbf9cc30a60970",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 183,
+      "example_id": "expansion_224:gs_Arla-Lactose-Medium-Fat-Milk_003_test",
+      "target": {
+        "product_name": "Laktosfri Sommarmjölk Mellanmjölk",
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "LAKTOSFRI\nSOMMARMJÖLK\nMELLANMJÖLK"
+          }
+        }
+      },
+      "note": "Preserve visible Swedish lactose-free and milk wording without translation. Small partly covered parent logo, package volume and fat percentage are not reliable.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "9ad0558830b8be0d578ae14f724e8fd4b91b2435157417a9e3dc2aebfc7e7053",
+      "image_sha256": "73d1fccdf5aaa5bfafa7bb36caf36f81a704159162dae44e1b8f970323525a37",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 187,
+      "example_id": "expansion_224:gs_Garant-Ecological-Medium-Fat-Milk_001_train",
+      "target": {
+        "product_name": "Mjölk 1,5%",
+        "brand": "G",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "MJÖLK\n1,5% FETT"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "G"
+          }
+        }
+      },
+      "note": "Milk wording/fat percentage and G logo visible; hand obscures organic/medium-fat wording and complete brand spelling. Do not expand G from filename.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "c1cbf15ac2a0a22945f6464d34fe0c79b41a13c835a22675a7ae60f6287e54ad",
+      "image_sha256": "b86674f0912a97c5f2fd8b3d82e64c79e11efdf90bc03daef79f440cb64a725e",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 188,
+      "example_id": "expansion_224:gs_Garant-Ecological-Medium-Fat-Milk_003_train",
+      "target": {
+        "product_name": "Mjölk 1,5%",
+        "brand": "G",
+        "key_attributes": {
+          "size": "1 liter",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "MJÖLK\n1,5% FETT"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "G"
+          },
+          "size": {
+            "source": "image",
+            "quote": "1 liter"
+          }
+        }
+      },
+      "note": "Retain readable milk, fat percentage, abbreviated logo and bottom volume; covered identity modifiers not completed.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "e7ca484e35f8edd06333577617f855f26598e56d96ec78591d3a7b93cd8d980f",
+      "image_sha256": "aaa0c9cfd3456934dcabba4eaf1752228b7816de60f8dc13dc79a36618143910",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 190,
+      "example_id": "expansion_224:gs_Garant-Ecological-Standard-Milk_010_train",
+      "target": {
+        "product_name": "Ekologisk Mjölk 3,0%",
+        "brand": "G",
+        "key_attributes": {
+          "size": "1 liter",
+          "best_by": null
+        },
+        "confidence": "high",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "EKOLOGISK MJÖLK\n3,0% FETT"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "G"
+          },
+          "size": {
+            "source": "image",
+            "quote": "1 liter"
+          }
+        }
+      },
+      "note": "Swedish organic milk identity, fat percentage, net volume and printed G emblem readable; do not expand brand abbreviation.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "f82e594216c94b030d5d3d74003926ebd2169e23e95087e68e7bac1117749825",
+      "image_sha256": "d30a6f31bac04726041b295df59c208fa9b1a8af6eadbafd162c8659de9b6a9d",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 201,
+      "example_id": "team_336:K087",
+      "target": {
+        "product_name": "Matcha White Chocolate Pistachios",
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "WHITE CHOCOLATE PISTACHIOS\nTASTE THE FLAVOR COMPLEXITY OF MATCHA"
+          }
+        }
+      },
+      "note": "Explicit product heading plus own flavor description supports matcha variant. Made by Terroir Chocolate is maker attribution, not automatically consumer brand; no net quantity/date.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "d1ad259d009a523a52fc32b0bd210f8e4901a21ba56dbf546c8d10d74e6688b6",
+      "image_sha256": "f811390dd6c6a82aab9c9f8fe2f01c2fddcefad736846390362be98b23b7392f",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 202,
+      "example_id": "team_336:K088",
+      "target": {
+        "product_name": "Matcha White Chocolate Pistachios",
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "WHITE CHOCOLATE PISTACHIOS\nTASTE THE FLAVOR COMPLEXITY OF MATCHA"
+          }
+        }
+      },
+      "note": "Explicit product heading plus own flavor description supports matcha variant. Made by Terroir Chocolate is maker attribution, not automatically consumer brand; no net quantity/date.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "ffefedb54af0ade801d713a12836ccb928e092f21ab88c89e6923099284a5e4c",
+      "image_sha256": "2fbac7ee4bfcc0b1c3cf1abaf737bf774d77da56acfcd54951a1f69ab930b318",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 208,
+      "example_id": "team_336:K007",
+      "target": {
+        "product_name": "Organic Yogurt 4.5%",
+        "brand": null,
+        "key_attributes": {
+          "size": "32 oz (906 g)",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "USDA ORGANIC\nYOGURT\n4.5% MILKFAT"
+          },
+          "size": {
+            "source": "image",
+            "quote": "32 OZ (906g)"
+          }
+        }
+      },
+      "note": "Readable yogurt identity, organic certification, fat percentage and quantity; brand is clipped and date extends out of crop. Do not complete them from neighboring views.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "6358bd1a469fb3dc21354712a44180e6ace242b45b1669f9a95a84d8815dae36",
+      "image_sha256": "799b1e36c18bcf03b8fd865da27f672fb9d284fcb7970443d6fd710491607f72",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 210,
+      "example_id": "team_336:K010",
+      "target": {
+        "product_name": "Plain Milk Yogurt A2 4.5%",
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "MILK YOGURT\n4.5% MILKFAT\nA2 PROTEIN\nPLAIN"
+          }
+        }
+      },
+      "note": "Readable type, plain variant, A2 and fat percentage retained; hand covers full brand and organic wording, so do not complete them.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "e611fe6babfc47d1e85463831cb0f654fd0f5c2784a381b284fc68cf6a4386fa",
+      "image_sha256": "456bc28674a643ba4586c6147356eeb7f6eaad6327b1d07c1af29991aa964d96",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 220,
+      "example_id": "team_336:K095",
+      "target": {
+        "product_name": null,
+        "brand": "Brooke Bond",
+        "key_attributes": {
+          "size": "17.5 oz (500 g)",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "brand": {
+            "source": "image",
+            "quote": "Brooke Bond"
+          },
+          "size": {
+            "source": "image",
+            "quote": "Net Wt: 17.5 oz (500 g)"
+          }
+        }
+      },
+      "note": "Visible brand and explicit net weight; no readable Tea identity on this selected face. Serving size 2 g is not package size.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "5e5b47cfc5e2701aeeb1afac36b715acbba9eb3661c6e77d94760f479e94a128",
+      "image_sha256": "72222690256eab9b48b88dc6d280438b66c2cb381ff082d5c8327e87316db71b",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 228,
+      "example_id": "sean_349:R109",
+      "target": {
+        "product_name": "Riz Long Grain",
+        "brand": "Ben’s Original",
+        "key_attributes": {
+          "size": "500 g",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Riz Long Grain"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "Ben’s Original"
+          },
+          "size": {
+            "source": "image",
+            "quote": "500 g"
+          }
+        }
+      },
+      "note": "Retain printed French name, consumer brand and small but readable bottom weight; no translation or category inference.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "21d923de6a234ba34b8ead4deed1e330a2257eb0ca5e455c2808165ec5cea8e7",
+      "image_sha256": "a1a86fc2e83dd155efa7178dd7529626194a466fd9402b8a39021a8cb21e63ac",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 231,
+      "example_id": "sean_349:R183",
+      "target": {
+        "product_name": "Ice Cream",
+        "brand": "Blue Bell",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "ICE CREAM"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "BLUE BELL"
+          }
+        }
+      },
+      "note": "Large identity/brand readable; orange flavor wording too blurred in original low-resolution source to transcribe reliably.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "fe1e49f75f4f2c6f007fd7183080fae04edba51bc401db2585f8f4b2c665e0fe",
+      "image_sha256": "ed8d2fc6884d0edf7aa790401dd704caf70d38036c8cfb8487d7d70a35587ca8",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 235,
+      "example_id": "sean_349:C018",
+      "target": {
+        "product_name": "Yerba Mate Natural Energy Drink",
+        "brand": "BRIO",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "YERBA MATE\nNATURAL ENERGY DRINK"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "BRIO"
+          }
+        }
+      },
+      "note": "Large type and brand readable; tiny flavor wording at bottom not reliable at original resolution, so do not borrow Ginger from another can.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "160be2b0f43728452400dc74c2ff589504fc15a5dbc6c37d09f8f0405796b4e5",
+      "image_sha256": "8a230cbe2b3fa7c0271873ddfcf76d8705aa414dd1212ebb718a7c0efd9b7682",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 242,
+      "example_id": "sean_349:R171",
+      "target": {
+        "product_name": "Farine Pâtissière",
+        "brand": "Diari",
+        "key_attributes": {
+          "size": "1 kg",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Farine Pâtissière"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "DIARI"
+          },
+          "size": {
+            "source": "image",
+            "quote": "1kg"
+          }
+        }
+      },
+      "note": "Readable printed French main identity, consumer logo and boxed bottom quantity; do not translate.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "6e03622bc390a29a4b10c288d14f142c7ef2b7d3fba04615f6caae42556aa1b5",
+      "image_sha256": "5310cc2b64466a323806b50bc93b17be7a580705b1cb3a200d2e08a7ee2f65df",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 243,
+      "example_id": "sean_349:R009",
+      "target": {
+        "product_name": "Professional",
+        "brand": "Dixan",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "PROFESSIONAL"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "Dixan"
+          }
+        }
+      },
+      "note": "Large line name and brand readable; promotional percent discount is not quantity. Tiny net amount not reliable.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "4db4d43cba3f95557026efee190c555867608d1a15f2ae87b635a0b3219dd62d",
+      "image_sha256": "60817dde2ab8f7eb782248a73c60038d83fe386200ceb88c54e1b466169d0ebf",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 253,
+      "example_id": "sean_349:R017",
+      "target": {
+        "product_name": "Rose",
+        "brand": "El Behi",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Rose"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "El Behi"
+          }
+        }
+      },
+      "note": "Readable variant and consumer brand retained. Small volume digits and complete type wording not reliable; no inferred 500 mL.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "c67b9395a6f7c46c285a90e83c463d1f1a58caa09115dcb26b57348159587b71",
+      "image_sha256": "5d1016389868502779b80eae043fd203c53d86622676f5b0d2b0e4353906912f",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 263,
+      "example_id": "sean_349:R181",
+      "target": {
+        "product_name": null,
+        "brand": "Halo Top",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "brand": {
+            "source": "image",
+            "quote": "HALO TOP"
+          }
+        }
+      },
+      "note": "300 is explicitly CALORIES, not grams or package quantity. Brand readable; selected variant/type not readable enough to establish.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "faeee985c880254408af0ae102f2f564843016f4e845587cda580f429fb793e5",
+      "image_sha256": "8fd1b092cf21a31ac909284535105b2ae50c2dafd0fb544bc8b414723797dc89",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 267,
+      "example_id": "sean_349:R012",
+      "target": {
+        "product_name": null,
+        "brand": "tvi",
+        "key_attributes": {
+          "size": "3 L",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "brand": {
+            "source": "image",
+            "quote": "tvi"
+          },
+          "size": {
+            "source": "image",
+            "quote": "3L"
+          }
+        }
+      },
+      "note": "Brand and volume readable; Arabic product wording not confidently transcribed.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "f81fcc2b21a123483e49c910933ecf98f761dbe17f09e47accf02a44eb95306d",
+      "image_sha256": "2a31277cdc44dec5ca1baf203027464e36728be5cc0149abcc822e3d9696894b",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 277,
+      "example_id": "sean_349:R006",
+      "target": {
+        "product_name": "Shampooing Supreme",
+        "brand": "Lilas",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Shampooing SUPREME"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "Lilas"
+          }
+        }
+      },
+      "note": "Readable French product identity; small variant and quantity illegible.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "730d3622601059cf1854ce6d102250220fe10b72b9cf760e35388f298f7450b0",
+      "image_sha256": "9f7d75bcd49dd0f7344e63b20771358f7a4b2cb78591ec50f8d754074aa9911a",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 278,
+      "example_id": "sean_349:R007",
+      "target": {
+        "product_name": "Shampooing Supreme",
+        "brand": "Lilas",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Shampooing SUPREME"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "Lilas"
+          }
+        }
+      },
+      "note": "Readable French product identity; small variant and quantity illegible.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "68220e25d75e6f96efe2c954d6f42a691d6f3d332f4a0dd8d76bfbe015e09f7d",
+      "image_sha256": "a0cfdd6538e09ab935db96db6ce4d39f0d83bd29e433e4516a417ddd7ee2fdf6",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 280,
+      "example_id": "sean_349:R010",
+      "target": {
+        "product_name": "Machine",
+        "brand": "Lilas",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Machine"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "Lilas"
+          }
+        }
+      },
+      "note": "Retain printed machine variant; quantity is too blurred to resolve.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "a6f382276852a06670f0d8516c12ab8ff7c73df10c359e59f6403f4781a6c3b0",
+      "image_sha256": "0441ddcca68038b7a49073cb4984f1d064ca4b293dee63123e764292b323ed1f",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 281,
+      "example_id": "sean_349:R035",
+      "target": {
+        "product_name": "Expert Après-Shampooing Protecteur",
+        "brand": "Lilas",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "EXPERT APRÈS-SHAMPOOING PROTECTEUR"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "Lilas"
+          }
+        }
+      },
+      "note": "Front identity readable; no legible net quantity.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "fab95d07b5deba7d3659858a322273def237f0918ee80b3ba4bc0b2e499f139a",
+      "image_sha256": "5e8bb056e14ff86c0798b9140cc9f1b8c8c2e337ac2238c518aa3c083f6af66b",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 283,
+      "example_id": "sean_349:R189",
+      "target": {
+        "product_name": "Chocolate Chip",
+        "brand": "Lucy’s",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Chocolate Chip"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "Lucy’s"
+          }
+        }
+      },
+      "note": "Printed name and brand legible; bottom quantity blurred.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "0bb5e897fa57fac2b31ef9896d305b30e35126035fb35f749e52049db744c6bb",
+      "image_sha256": "e12947cea25dcd80345a3176d2228c0003b6c0fc65b4673f45be2e32a9566f2e",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 284,
+      "example_id": "sean_349:R122",
+      "target": {
+        "product_name": null,
+        "brand": "m&m’s",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "brand": {
+            "source": "image",
+            "quote": "m&m’s"
+          }
+        }
+      },
+      "note": "Consumer brand clear; product wording clipped and nutrition energy is not net quantity.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "81fe8395e84895c42b87ccfa93621f2f24e6f313741df0f723b0bb018c53441e",
+      "image_sha256": "1fbb4386e56a2f5eefef51b2f4708e3a5a7fb08ea35bae98df8a68bf1abde638",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 304,
+      "example_id": "sean_349:R125",
+      "target": {
+        "product_name": null,
+        "brand": "Reese’s",
+        "key_attributes": {
+          "size": "4 pieces",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "brand": {
+            "source": "image",
+            "quote": "Reese’s"
+          },
+          "size": {
+            "source": "image",
+            "quote": "4"
+          }
+        }
+      },
+      "note": "Prominent brand and four-piece count readable; fine product descriptor unclear.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "11fcb4cc88d70ddd2c2b02064a84ddcde5f5d8f3ea3afdf7a7fb8b077dcc8d90",
+      "image_sha256": "035a054a94b5c1946f8f5d6faf8f278c11d16ea925661e21e85705b2b064cda6",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 305,
+      "example_id": "sean_349:R191",
+      "target": {
+        "product_name": "Double Crunch",
+        "brand": "Ruffles",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "DOUBLE CRUNCH"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "RUFFLES"
+          }
+        }
+      },
+      "note": "Visible English product line retained; smaller flavor and net quantity unreadable.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "c3249ba577bb886322f123dd05f79635bfbf82569436f7fc781e1f17aee7ab56",
+      "image_sha256": "2a05c4660a320c1e3211f7d35c3cd5bde08c2b06695c5814e2f8490495f64720",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 308,
+      "example_id": "sean_349:R107",
+      "note": "Arabic brand text visible but not confidently transcribed; requires language-capable adjudication. Exclude instead of treating readable unfamiliar script as no information.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "9975ec1b1a1d24e9b4acdba334c8ff8fdfebf3296adbd71f9b5ca68df460ed70",
+      "image_sha256": "ed57bb76b38a68dc3cfdca31b739a1ae6872ed63bd00c813cc4b98ec13e33d55",
+      "disposition": "exclude",
+      "independently_human_verified": false
+    },
+    {
+      "number": 310,
+      "example_id": "sean_349:R021",
+      "target": {
+        "product_name": "Cake Chocolat",
+        "brand": "Smart Chef",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Cake Chocolat"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "Smart Chef"
+          }
+        }
+      },
+      "note": "Printed French identity clear; cooking time is not a size.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "40758f56757de53486f5de09fd35584ff3028da92d4e45b8cf99ce2823b4c2e7",
+      "image_sha256": "751a46a0983b2ebb545753bbb9127e5677127045672c2ebe27aa561e9558c811",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 311,
+      "example_id": "sean_349:R022",
+      "target": {
+        "product_name": "Cake Chocolat",
+        "brand": "Smart Chef",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Cake Chocolat"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "Smart Chef"
+          }
+        }
+      },
+      "note": "French product name and brand clear; quantity not readable.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "7deac5e5effec03ff917c22538ca79ebf8d97f9cd6c905dbc033ee8640510946",
+      "image_sha256": "309f03701e003ebda46a96a5043afa5d86b81fec6a2a459b99bc18462f8ba0b1",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 324,
+      "example_id": "sean_349:C014",
+      "target": {
+        "product_name": null,
+        "brand": "al ain",
+        "key_attributes": {
+          "size": "500 ml",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "brand": {
+            "source": "image",
+            "quote": "al ain"
+          },
+          "size": {
+            "source": "image",
+            "quote": "500ml"
+          }
+        }
+      },
+      "note": "Brand and printed volume retained; Plant Bottle is packaging wording, not a water type inferred from appearance.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "b3e08538f3cf4d8887265666e102a09a74f4d6413a61a7a6e20cbeffcc271e70",
+      "image_sha256": "38ee4ed5885cb075745120e2ba8f851b658787dfb4f0b714cd5eaf91f21bd30c",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 326,
+      "example_id": "sean_349:R049",
+      "target": {
+        "product_name": "Confort",
+        "brand": "3ah",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Confort"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "3ah"
+          }
+        }
+      },
+      "note": "Printed brand styling transcribed as shown; tiny count unclear.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "92517acc9af1f5a87f96d0d9d15eed05b2601ae70e59e36386db92ce8bca81de",
+      "image_sha256": "3d618e3a7c46f0efd7baa6819c787f6155bb3f369f04439a37ff46e56eb2c5ae",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 327,
+      "example_id": "sean_349:R052",
+      "target": {
+        "product_name": "Confort",
+        "brand": "3ah",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Confort"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "3ah"
+          }
+        }
+      },
+      "note": "Front line and stylized brand readable; blurred count not asserted.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "0faefaa463cc953449ea8c1722d6ee134f93e486dc3d8ae66e970bde6eed8701",
+      "image_sha256": "c05ae04aa7132568542e1561a14688a147521d3545f462234cbfd1218ed07183",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 328,
+      "example_id": "sean_349:R045",
+      "target": {
+        "product_name": "هريسة",
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "هريسة"
+          }
+        }
+      },
+      "note": "Arabic product word readable; brand cropped and two bottom weights have unclear roles.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "44770b3be3b9b4a37fbd253eb592b1ee4843b672200ad2f3f8d1fb2f8b2f4483",
+      "image_sha256": "0da2a18ca60a64ba7670bdb575508c2aa191c23b20667dbb65ccfb3efd294f70",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 329,
+      "example_id": "sean_349:R140",
+      "target": {
+        "product_name": "هريسة",
+        "brand": "سيكام",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "هريسة"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "سيكام"
+          }
+        }
+      },
+      "note": "Printed Arabic identity transcribed without adding a translation; bottom weight roles unclear.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "d6365edecd4d07c3ca1606e0ec4ac6b530a69769113a087d0faed28f611ee035",
+      "image_sha256": "b4b4595dc0f5a438ae42576b4cbd19ce27da8a3e191404d7c65262b14895cdab",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 330,
+      "example_id": "original_722:sean_phone_IMG_3494",
+      "target": {
+        "product_name": "Ultra",
+        "brand": "Dawn",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "ULTRA"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "DAWN"
+          }
+        }
+      },
+      "note": "Front brand and product line visible; no printed category or volume visible.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "a81c310af0f99b9adb6736dff1803db282ee96ce3a2fcbb12c31eb1153bd81d7",
+      "image_sha256": "9d32e5ef4a9e4d1f76f45fd3d62f5db82d4d2ea32f5300151be7dd9dc75fabd9",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 331,
+      "example_id": "original_722:sean_phone_IMG_3495",
+      "target": {
+        "product_name": "Ultra",
+        "brand": "Dawn",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "ULTRA"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "DAWN"
+          }
+        }
+      },
+      "note": "Retain visible line and brand; do not infer quantity from bottle.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "c88ef15aed72ad01cd0f2a1e40718570a8f7148a86241169f9fda461765eb803",
+      "image_sha256": "15c19b12e2f6fc745a71fc1cd572a3bbad4c80a94b9add21de6cb74a7dcb5fe1",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 332,
+      "example_id": "original_722:sean_phone_IMG_3496",
+      "target": {
+        "product_name": "Ultra",
+        "brand": "Dawn",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "ULTRA"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "DAWN"
+          }
+        }
+      },
+      "note": "Visible product line only; small lower text cannot support size.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "532a810c4922d232a237dcf009c6199073c7a68f512316a4192ed18d8769036d",
+      "image_sha256": "bf38ce3ac3b3140588fac440781cf9cfe3701773e99415276ae497580e15a17b",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 334,
+      "example_id": "original_722:sean_phone_IMG_3477",
+      "target": {
+        "product_name": "Tomato Ketchup",
+        "brand": "Heinz",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "TOMATO KETCHUP"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "HEINZ"
+          }
+        }
+      },
+      "note": "Identity readable despite motion blur; lower quantity illegible.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "1b599713b1cd5582d9e752af1f9b11e76d8ce875bc497c3f895f01d240ea86a0",
+      "image_sha256": "7f7549b181d9111661305f406440ed1be9266e26c88e59f3c871fb2dff7878ae",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 337,
+      "example_id": "original_722:sean_phone_IMG_3529",
+      "target": {
+        "product_name": "Ultra-Filtered Reduced Fat Milk 2% Lactose Free",
+        "brand": "Kirkland Signature",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "ULTRA-FILTERED REDUCED FAT MILK 2% LACTOSE FREE"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "KIRKLAND Signature"
+          }
+        }
+      },
+      "note": "Front identity readable; protein grams and percentage claims are not net quantity; top date lacks a legible role.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "3843036e9a06503e4e10c02426cfd80ebcedaefe8f8d2d86f4c1b3fbe01b48c7",
+      "image_sha256": "f21843e7fe04d8a0a7a210d9e9a90f4fb83caf435e393ab693262190ddfb1567",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 341,
+      "example_id": "original_722:sean_phone_IMG_3575",
+      "target": {
+        "product_name": "Chewy Protein Bars Peanut Butter & Semisweet Chocolate Chip",
+        "brand": "Kirkland Signature",
+        "key_attributes": {
+          "size": "42 bars; 1.41 oz (40 g) each; net wt 59.2 oz (1.68 kg)",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "CHEWY PROTEIN BARS PEANUT BUTTER & SEMISWEET CHOCOLATE CHIP"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "KIRKLAND Signature"
+          },
+          "size": {
+            "source": "image",
+            "quote": "42 BARS; 42 - 1.41 OZ (40 g) BARS; NET WT 59.2 OZ (1.68 kg)"
+          }
+        }
+      },
+      "note": "Package count and net weight retained; 10 g protein is nutritional, not package weight.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "eb9cd55f7310102b5ecd6858c9df531550405861d0df5173c85d02c5ce1d4269",
+      "image_sha256": "e5415472d668be7c85e3ab50c4740e66360fd0765c06a251a76565a2a53a688e",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 342,
+      "example_id": "original_722:sean_phone_IMG_3576",
+      "target": {
+        "product_name": "Chewy Protein Bars Peanut Butter & Semisweet Chocolate Chip",
+        "brand": "Kirkland Signature",
+        "key_attributes": {
+          "size": "42 bars; 1.41 oz (40 g) each; net wt 59.2 oz (1.68 kg)",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "CHEWY PROTEIN BARS PEANUT BUTTER & SEMISWEET CHOCOLATE CHIP"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "KIRKLAND Signature"
+          },
+          "size": {
+            "source": "image",
+            "quote": "42 BARS; 42 - 1.41 OZ (40 g) BARS; NET WT 59.2 OZ (1.68 kg)"
+          }
+        }
+      },
+      "note": "Package count and net weight retained; 10 g protein is nutritional, not package weight.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "5caf142a5e8b5137b1e4a131501b70e7b2fe0e055f9d4e4cdaf605e3b0f13579",
+      "image_sha256": "4c842044893fa25f4b3a321930a645fe9460ed631cb16bf801f5a261a069fd93",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 345,
+      "example_id": "original_722:sean_phone_IMG_3482",
+      "target": {
+        "product_name": "Super Soft Flour Tortillas Soft Taco",
+        "brand": "Mission",
+        "key_attributes": {
+          "size": null,
+          "best_by": "SEP 29 2026"
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "super soft Flour Tortillas SOFT TACO"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "mission"
+          },
+          "best_by": {
+            "source": "image",
+            "quote": "BEST IF USED BY SEP 29 2026"
+          }
+        }
+      },
+      "note": "Date role explicitly printed; count and lower weight clipped so omitted.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "fb3accdb41b54e848947f73c812e87e764921100502b92c394c7fc7c221813f0",
+      "image_sha256": "a7c3eca719f3584900dffb2af4db5ea0e424a68e88a9d6440a6037c1a8546192",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 346,
+      "example_id": "original_722:sean_phone_IMG_3483",
+      "target": {
+        "product_name": "Super Soft Flour Tortillas Soft Taco",
+        "brand": "Mission",
+        "key_attributes": {
+          "size": null,
+          "best_by": "SEP 29 2026"
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Super Soft Flour Tortillas SOFT TACO"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "mission"
+          },
+          "best_by": {
+            "source": "image",
+            "quote": "BEST IF USED BY SEP 29 2026"
+          }
+        }
+      },
+      "note": "Date explicitly marked best if used by; lower net weight partly clipped.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "80f27431a78040b0745182c4ee5e3b1f20ccf98c610ef1eeffa0facae194dac6",
+      "image_sha256": "a04143e743ca1c556a0b9e63de1a57f8ad44d771bd8820ceb27d9937522e7c06",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 348,
+      "example_id": "original_722:sean_phone_IMG_3485",
+      "target": {
+        "product_name": "Flour Tortillas Soft Taco",
+        "brand": "Mission",
+        "key_attributes": {
+          "size": null,
+          "best_by": "SEP 29 2026"
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Flour Tortillas SOFT TACO"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "mission"
+          },
+          "best_by": {
+            "source": "image",
+            "quote": "BEST IF USED BY SEP 29 2026"
+          }
+        }
+      },
+      "note": "Visible name and date retained; Super Soft partly cut off so not completed from another image.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "bf8ec80a35b207b8637754bd74015458cd935a0c6fb077b558b2104f5c35ded1",
+      "image_sha256": "51d292e556f9ad4186781c30dbc621f26e6064ae0027a42ac9d81cafa6813cd6",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 352,
+      "example_id": "original_722:sean_phone_IMG_3498",
+      "target": {
+        "product_name": "Fine Sea Salt",
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "SEA SALT FINE"
+          }
+        }
+      },
+      "note": "Identity readable; curved brand ending and lower weight not reliably visible.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "186e949ff954f51208bf8ffc95194da9336bd3b6bb5bea4b409a86ba839b428e",
+      "image_sha256": "071635afd83eb34f8320620705b007f9135fb9c3116690bd1a756f6fc57a929e",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 353,
+      "example_id": "original_722:sean_phone_IMG_3499",
+      "target": {
+        "product_name": "Fine Sea Salt",
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "SEA SALT FINE"
+          }
+        }
+      },
+      "note": "Brand wraps beyond view; no completed brand or weight from a neighboring frame.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "09b597050cd6c7ea74b212cf1659c2838d23e16c1d9214c17c3db47981923416",
+      "image_sha256": "77cb0d313fd3affab306d4809a7324607edf0216d518ee728e36f64308b3cddc",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 355,
+      "example_id": "sean_349:R202",
+      "target": {
+        "product_name": "Caramel Apple Kit",
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Caramel Apple Kit"
+          }
+        }
+      },
+      "note": "Tiny image supports main name; brand not reliably resolved.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "4e1bc62072f7bb36ff50fb98333eee40af51c8ad085cae840a23cc1aa773b4cc",
+      "image_sha256": "3222395fb01dc9b103a3b55e0d3610c0b22fd7431b793e56271f5235f1c108f6",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 356,
+      "example_id": "sean_349:R106",
+      "target": {
+        "product_name": null,
+        "brand": "Frank’s",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "brand": {
+            "source": "image",
+            "quote": "FRANK’S"
+          }
+        }
+      },
+      "note": "Narrow crop supports brand only, not a specific product inferred from familiarity.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "9b5e86aa933dc4472d9db76f2c16d8e425d671e7f6d0b5b4fa862395e395bb80",
+      "image_sha256": "855491f7f53e2d283ebbc67b3ac4e38a324b85261f4e412384be0331d63741ae",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 357,
+      "example_id": "sean_349:R099",
+      "target": {
+        "product_name": "Croustipa au Chocolat",
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Croustipa au Chocolat"
+          }
+        }
+      },
+      "note": "Printed product line and flavor visible; no separate maker brand asserted.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "7bdd8b3331b9c53972fd864d8643411ec506e7db2ff4c092358a63dd5776ae27",
+      "image_sha256": "2109ef67302a126d21973b9db9b4e01f9a08d4dee0cafe2f8aeb5af518b38b19",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 358,
+      "example_id": "sean_349:R095",
+      "target": {
+        "product_name": "Croustipa",
+        "brand": "Sana",
+        "key_attributes": {
+          "size": "40 pieces",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Croustipa"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "Sana"
+          },
+          "size": {
+            "source": "image",
+            "quote": "40 Pièces"
+          }
+        }
+      },
+      "note": "Visible brand, product line and piece count; tiny blue variant text unreadable.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "51fafb7e4b604294ee618b82beaf99c2b623a501a43d0cdfbf3b20757c58c0c3",
+      "image_sha256": "b822d949157cb2675f8a7b53c49623d1a1b684097b1661239ca8c3e5bd39e964",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 360,
+      "example_id": "sean_349:R030",
+      "target": {
+        "product_name": null,
+        "brand": null,
+        "key_attributes": {
+          "size": "3 rolls",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": "Show the complete front label so the product name and brand are readable.",
+        "evidence": {
+          "size": {
+            "source": "image",
+            "quote": "3"
+          }
+        }
+      },
+      "note": "Roll count is visible with roll icon; no text identity in this narrow crop.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "575da9e2aea646cba99aed6660f2a940224e61ce32a8248e0746fd5967f2296b",
+      "image_sha256": "576f6d1981ec7699923e47c15c7b376f9d2ceed74d62550b9469f61e81d38981",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 361,
+      "example_id": "sean_349:R056",
+      "target": {
+        "product_name": "Fruidoux",
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Fruidoux"
+          }
+        }
+      },
+      "note": "Large scripted product line readable; tiny brand and other fields not reliable.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "3581a1bd3025a01aa5e8dcb155c7e6a26b4206e55cbad627f96e1321415dc0df",
+      "image_sha256": "1a1ce89b7d25c072c8dad82e4fe90ab6983f4ee5a333300fcb3dde9218e35d6d",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 362,
+      "example_id": "sean_349:R101",
+      "target": {
+        "product_name": "Gaufy",
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Gaufy"
+          }
+        }
+      },
+      "note": "Product line clear; oval maker logo not reliably legible, so not expanded.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "512952f758c79f6e40324521123979a8013ec4426ddcd77f5017d499996b51be",
+      "image_sha256": "b971b071673f8e276ff909479819d2e3d67841f5457ae9b668f0f7af5013454a",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 363,
+      "example_id": "sean_349:R092",
+      "target": {
+        "product_name": "Major",
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "MAJOR"
+          }
+        }
+      },
+      "note": "Large product word readable; obscured maker logo and small flavor copy omitted.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "ddebfabe6f374c2e776498506f59bcb0c51647ad878f921367b7e5457bc95f4c",
+      "image_sha256": "09df40da291a2151171cbcbb178ef66ef10ea78d031a3cc8e57df3084e400a05",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 364,
+      "example_id": "sean_349:R051",
+      "target": {
+        "product_name": "Malsouka",
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "malsouka"
+          }
+        }
+      },
+      "note": "Rotated original 180 degrees for inspection; large product word readable, other text not reliable.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "13235ec6b7ecf2cf1a23944b406982a72ad14d6ed98797ac474f23f3a40cba74",
+      "image_sha256": "2504ec44d8d06aea0be92a716902f97c10ffea30f388719f57fe5ee8390de361",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 365,
+      "example_id": "sean_349:R158",
+      "target": {
+        "product_name": "Chocolat à Boire",
+        "brand": "Oppa",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Chocolat à Boire"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "OPPA"
+          }
+        }
+      },
+      "note": "Visible French drink name and consumer brand retained; small quantity unreadable.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "622eb713be150895e8035cc3f7a33fbd8b41d30eddbfe76007528531e15cf0bb",
+      "image_sha256": "04ae01fa069a443c96b6d3bffabc90bdc6181390e4c3d7a88c681f178845a1bd",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 367,
+      "example_id": "sean_349:R100",
+      "target": {
+        "product_name": "Chocolate Flavour Wafers",
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "WAFERS Chocolate Flavour"
+          }
+        }
+      },
+      "note": "Descriptor readable; partially cut maker logo not reconstructed.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "ab10560c66cdeaf6b30e1058ae3144dbaab2fcd8732cd5f9e3f0ffb4495b1207",
+      "image_sha256": "7dbd8b3a758ccd42e3efc01ea8faa7185be12afb22ae5c9c439f624b9b27d589",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 368,
+      "example_id": "sean_349:R054",
+      "target": {
+        "product_name": "Plus",
+        "brand": "فولينا",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Plus"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "فولينا"
+          }
+        }
+      },
+      "note": "Arabic consumer logo and printed Plus line retained without translating brand.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "5806bc81dc152809bdbfadb9b1c89638fa945d5ffd0c932bc84c926ace69c517",
+      "image_sha256": "99e0b08679421bc0742e34e6ca47c31eb2e9a44d8f6682c90aa579cc7e74ed65",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 369,
+      "example_id": "expansion_224:gs_Tropicana-Apple-Juice_007_test",
+      "target": {
+        "product_name": "Pressed Apple",
+        "brand": "Tropicana",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "PRESSED APPLE"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "Tropicana"
+          }
+        }
+      },
+      "note": "Printed English identity retained; volume not visible.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "e87eba2f225dd51d7567ddc38139159c02f50ed8cf12e73e02afe61ce6ccf654",
+      "image_sha256": "4123bc01299af60c2516180a829982f7b64762e3ff020ae2faa04bc8919bc9ea",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 370,
+      "example_id": "expansion_224:gs_Tropicana-Apple-Juice_016_train",
+      "target": {
+        "product_name": "Pressed Apple",
+        "brand": "Tropicana",
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "PRESSED APPLE"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "Tropicana"
+          }
+        }
+      },
+      "note": "English identity readable; lower volume cut off.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "7b50ca076941a318aaccca4c8a63c0b20f1c4d5fc9df328d54f8b6b9375eca90",
+      "image_sha256": "ea7aea98d0381be559deb902558ac8e3a7ce35c4a6f092ef4395a87840cfd02e",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 371,
+      "example_id": "expansion_224:gs_Tropicana-Golden-Grapefruit_003_train",
+      "target": {
+        "product_name": "Golden Grapefruit",
+        "brand": "Tropicana",
+        "key_attributes": {
+          "size": "1 litre",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "GOLDEN GRAPEFRUIT"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "Tropicana"
+          },
+          "size": {
+            "source": "image",
+            "quote": "1 Litre"
+          }
+        }
+      },
+      "note": "Name, brand and printed lower volume readable; no visible best-by stamp.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "8ebcd3be961420ba62c6e9a0a6493f0a22be4714f0c85c83cb559901215f6210",
+      "image_sha256": "c7f9879a8582e6e8df2b2a6cd769fb0affaefc6bce2bbce9cd67a9f70b5c298b",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 372,
+      "example_id": "expansion_224:gs_Tropicana-Golden-Grapefruit_020_train",
+      "target": {
+        "product_name": "Golden Grapefruit",
+        "brand": "Tropicana",
+        "key_attributes": {
+          "size": "1 litre",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "GOLDEN GRAPEFRUIT"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "Tropicana"
+          },
+          "size": {
+            "source": "image",
+            "quote": "1 Litre"
+          }
+        }
+      },
+      "note": "Name, brand and printed lower volume readable; no visible best-by stamp.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "d444e0ab6ab592d58167bb683365ce130873413599a357df6794b5f830d1e9d0",
+      "image_sha256": "603ccaa62dc65e9f17120c211d522bb1af8d63f06d818d1757082ad0855372a7",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 373,
+      "example_id": "expansion_224:gs_Tropicana-Juice-Smooth_009_train",
+      "target": {
+        "product_name": "Smooth",
+        "brand": "Tropicana",
+        "key_attributes": {
+          "size": "1 litre",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "SMOOTH"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "Tropicana"
+          },
+          "size": {
+            "source": "image",
+            "quote": "1 Litre"
+          }
+        }
+      },
+      "note": "Visible product line retained; fruit imagery alone does not supply an unprinted name.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "504a3ecfd91207dcada45d21505f5f4ccd8530f22f4bc3f2cab9a25ceaac0076",
+      "image_sha256": "70943fc58118ae154c2bcc6ac689d51c3ca68c36246b7c31eee072c7e5203b44",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 374,
+      "example_id": "expansion_224:gs_Tropicana-Mandarin-Morning_004_train",
+      "target": {
+        "product_name": "Mandarin Morning",
+        "brand": "Tropicana",
+        "key_attributes": {
+          "size": "1 litre",
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "MANDARIN MORNING"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "Tropicana"
+          },
+          "size": {
+            "source": "image",
+            "quote": "1 Litre"
+          }
+        }
+      },
+      "note": "Printed product line and volume readable; no added fruit blend inferred from pictures.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "a1529acd49cbbb0b763ed5fd6d7ac788235d4cc6c2077283ca0d494a978fe2f2",
+      "image_sha256": "b9bbefb268e0bfb96cf2a7141b3b87b8b54c592c0039feff05814167f76da199",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 381,
+      "example_id": "team_336:K127",
+      "target": {
+        "product_name": "Wasabi",
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "WASABI"
+          }
+        }
+      },
+      "note": "Hand hides full seaweed snack identity and top brand; bottom weight sealed into fold.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "ac74f95cb8a093676b511a75abaa3272a8e2de4b2601d9db958fa5479b6bd9b7",
+      "image_sha256": "979a4583caa45c78b3ada03d2675a2aa6c342c1f84c73f5b8388843c5fdc8aa4",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 384,
+      "example_id": "team_336:K050",
+      "target": {
+        "product_name": null,
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": "NOV 16 2024"
+        },
+        "confidence": "medium",
+        "guidance": "Show the complete front label so the product name and brand are readable.",
+        "evidence": {
+          "best_by": {
+            "source": "image",
+            "quote": "Best By: NOV 16 2024"
+          }
+        }
+      },
+      "note": "Explicit best-by date readable; ingredient list is not a front identity, distributor and corporate ADM mark do not establish a consumer brand.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "d887cdd7515f2848fe658a60c634e4861d0dff4861c90bfc8194e4f8e01d4948",
+      "image_sha256": "6bbb07dcbce5ef2a0244f9b5cf4259aa76308bb1b81c691c37e2b25ef342ff8f",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 394,
+      "example_id": "team_336:H025",
+      "target": {
+        "product_name": "Allergy Medication Diphenhydramine HCl 25 mg",
+        "brand": null,
+        "key_attributes": {
+          "size": null,
+          "best_by": null
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "Allergy Medication Diphenhydramine HCl 25 mg"
+          }
+        }
+      },
+      "note": "Front medicine description readable; branded name is partly cut, quantity clipped, and active strength is not package size.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "60d385e093a0077db0a610c704e23f30c88c15e8237ea195909b0cf65793d708",
+      "image_sha256": "ed710159922f11bf67689bb5bced4a1704c2f8631fe21b93d96236a28b4eaaaf",
+      "disposition": "include",
+      "independently_human_verified": false
+    },
+    {
+      "number": 396,
+      "example_id": "team_336:H027",
+      "target": {
+        "product_name": "Allergy Cetirizine HCl 10 mg",
+        "brand": "Zyrtec",
+        "key_attributes": {
+          "size": "40 tablets",
+          "best_by": "2027/09"
+        },
+        "confidence": "medium",
+        "guidance": null,
+        "evidence": {
+          "product_name": {
+            "source": "image",
+            "quote": "ALLERGY Cetirizine HCl 10 mg"
+          },
+          "brand": {
+            "source": "image",
+            "quote": "ZYRTEC"
+          },
+          "size": {
+            "source": "image",
+            "quote": "40 TABLETS"
+          },
+          "best_by": {
+            "source": "image",
+            "quote": "EXP 2027/09"
+          }
+        }
+      },
+      "note": "Visible front medicine identity, tablet count and explicit side EXP date retained; lot code excluded.",
+      "method": "Assistant original-resolution visual recheck; user authorized autonomous corrections. Not independent human ground truth.",
+      "source_row_sha256": "d0ee22b46f15f31e9104f3e2fb1b105d986ad81672677c867600e4ab91240bf0",
+      "image_sha256": "190e9cb47a9379f226820be2b99110ffe7c12ec925a6be8418f0e8b59fa3e264",
+      "disposition": "include",
+      "independently_human_verified": false
+    }
+  ]
+}

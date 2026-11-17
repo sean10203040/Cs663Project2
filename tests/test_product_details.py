@@ -100,8 +100,32 @@ class ProductDetailsTests(unittest.TestCase):
         self.assertEqual(len(captured["contents"][0].parts), 3)
         config = captured["config"]
         self.assertEqual(config.thinking_config.thinking_level.value, "MINIMAL")
-        self.assertEqual(config.response_mime_type, "application/json")
+        self.assertIsNone(config.response_mime_type)
+        self.assertEqual(config.media_resolution.value, "MEDIA_RESOLUTION_HIGH")
         self.assertTrue(captured["closed"])
+
+    def test_ocr_brand_cannot_match_only_inside_an_unrelated_word(self):
+        reading={**self.reading,"brand":"Silk","evidence":{**self.reading["evidence"],"brand":{"source":"ocr","quote":"Silk"}}}
+        self.assertEqual(self.post(lambda *args:json.dumps(reading),{**self.payload,"ocr_text":"POCARI SWEAT 500 ml SILKY SMOOTH"}).status_code,502)
+
+    def test_tuned_product_sdk_uses_its_region_and_fixed_training_settings(self):
+        captured={}
+        endpoint="projects/fixture/locations/us/endpoints/product-model"
+        class FakeClient:
+            def __init__(inner,**kwargs):captured.update(kwargs);inner.models=inner
+            def generate_content(inner,**kwargs):
+                captured.update(kwargs)
+                return type("Result",(),{"text":json.dumps(self.reading)})()
+            def close(inner):pass
+        with patch.dict(os.environ,{"LABELLENS_TUNED_MODEL":endpoint}),patch("google.genai.Client",FakeClient),TestClient(create_app()) as client:
+            result=client.post("/v1/parse",json={**self.payload,"model_variant":"tuned"},headers=self.headers)
+        self.assertEqual(result.status_code,200,result.text)
+        self.assertEqual(captured["model"],endpoint)
+        self.assertEqual(captured["location"],"us")
+        self.assertEqual(captured["http_options"].base_url,"https://aiplatform.us.rep.googleapis.com")
+        self.assertIsNone(captured["config"].response_schema)
+        self.assertEqual(captured["config"].media_resolution.value,"MEDIA_RESOLUTION_HIGH")
+        self.assertEqual(result.json()["model_location"],"us")
 
     def test_rescan_steps_address_only_missing_fields(self):
         response = self.post(lambda *args: json.dumps(self.reading)).json()
