@@ -93,6 +93,7 @@ public class ReaderFlowTest {
                 activity.findViewById(R.id.full_photo).performClick();
             });
             await(scenario, activity -> ((TextView) activity.findViewById(R.id.result)).getText().toString().contains("POCARI"));
+            await(scenario, activity -> !((TextView) activity.findViewById(R.id.speech_status)).getText().toString().startsWith("Preparing"));
             scenario.onActivity(activity -> {
                 assertTrue(activity.findViewById(R.id.ask_gemini).isEnabled());
                 assertTrue(activity.findViewById(R.id.analyze_details).isEnabled());
@@ -100,6 +101,15 @@ public class ReaderFlowTest {
                 assertEquals("Your base Gemini answer will appear here.", ((TextView) activity.findViewById(R.id.gemini_result)).getText().toString());
                 assertEquals("Your fine-tuned Gemini answer will appear here.", ((TextView) activity.findViewById(R.id.tuned_result)).getText().toString());
                 assertFalse(activity.findViewById(R.id.speak_gemini).isEnabled());
+                if (activity.findViewById(R.id.speak).isEnabled()) {
+                    activity.findViewById(R.id.speak).performClick();
+                    assertTrue(activity.findViewById(R.id.stop_speech).isEnabled());
+                    activity.findViewById(R.id.stop_speech).performClick();
+                    assertFalse(activity.findViewById(R.id.stop_speech).isEnabled());
+                    assertTrue(((TextView)activity.findViewById(R.id.speech_status)).getText().toString().contains("stopped"));
+                } else {
+                    assertEquals(android.view.View.VISIBLE,activity.findViewById(R.id.speech_settings).getVisibility());
+                }
             });
             File created = null;
             for (File dir : scans.listFiles()) if (!before.contains(dir.getName())) created = dir;

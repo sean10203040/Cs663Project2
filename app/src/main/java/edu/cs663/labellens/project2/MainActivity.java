@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.speech.tts.TextToSpeech;
+import android.speech.tts.UtteranceProgressListener;
 import android.text.InputType;
 import android.view.View;
 import android.widget.*;
@@ -60,6 +61,10 @@ public final class MainActivity extends ComponentActivity {
     private Spinner surface, condition, split, geminiImage;
     private Button camera, importPhoto, scan, fullPhoto, corrected, compare, speak, export, cancel, settings, askGemini, speakGemini;
     private ProgressBar progress, geminiProgress;
+    private Button stopReading, speechSettings;
+    private TextView speechStatus;
+    private String lastUtterance = "";
+    private long speechSequence;
     private TextToSpeech tts;
     private boolean busy, cloudBusy, speechReady, connectionLoading = true;
     private volatile boolean closed;
@@ -102,6 +107,17 @@ public final class MainActivity extends ComponentActivity {
         preview = findViewById(R.id.preview); cropPreview = findViewById(R.id.crop_preview);
         status = findViewById(R.id.status); result = findViewById(R.id.result); cropInfo = findViewById(R.id.crop_info);
         progress = findViewById(R.id.progress); geminiProgress = findViewById(R.id.gemini_progress);
+        stopReading = findViewById(R.id.stop_speech); speechStatus = findViewById(R.id.speech_status);
+        speechSettings = findViewById(R.id.speech_settings);
+        stopReading.setOnClickListener(v -> stopSpeech());
+        findViewById(R.id.text_size_settings).setOnClickListener(v ->
+            startActivity(new android.content.Intent(android.provider.Settings.ACTION_DISPLAY_SETTINGS)));
+        speechSettings.setOnClickListener(v -> {
+            try { startActivity(new android.content.Intent("com.android.settings.TTS_SETTINGS")); }
+            catch (android.content.ActivityNotFoundException error) {
+                startActivity(new android.content.Intent(android.provider.Settings.ACTION_ACCESSIBILITY_SETTINGS));
+            }
+        });
         geminiStatus = findViewById(R.id.gemini_status); geminiResult = findViewById(R.id.gemini_result);
         tunedStatus = findViewById(R.id.tuned_status); tunedResult = findViewById(R.id.tuned_result);
         askTuned = findViewById(R.id.ask_tuned); speakTuned = findViewById(R.id.speak_tuned);
@@ -149,7 +165,7 @@ public final class MainActivity extends ComponentActivity {
         exportReviewed.setOnClickListener(v -> exportScan());
         settings.setOnClickListener(v -> backendSettings()); export.setOnClickListener(v -> exportScan());
         cancel.setOnClickListener(v -> {
-            generation++; geminiGeneration++; cloudBusy = false; tts.stop(); setBusy(false);
+            generation++; geminiGeneration++; cloudBusy = false; stopSpeech(); setBusy(false);
             status.setText("Scan cancelled."); geminiStatus.setText("Request cancelled. Local text is still available.");
             tunedStatus.setText("Request cancelled. Local text is still available.");
             tunedDetailsStatus.setText("Request cancelled. You can try again.");
@@ -162,7 +178,16 @@ public final class MainActivity extends ComponentActivity {
             if (code == TextToSpeech.SUCCESS) {
                 int language = tts.setLanguage(Locale.US);
                 speechReady = language != TextToSpeech.LANG_MISSING_DATA && language != TextToSpeech.LANG_NOT_SUPPORTED;
+                tts.setOnUtteranceProgressListener(new UtteranceProgressListener() {
+                    @Override public void onStart(String id) { }
+                    @Override public void onDone(String id) { finishSpeech(id, false); }
+                    @Override public void onError(String id) { finishSpeech(id, true); }
+                    @Override public void onError(String id, int code) { finishSpeech(id, true); }
+                });
             }
+            speechStatus.setText(speechReady ? "Spoken reading is ready. Use a Read aloud button to listen."
+                : "Spoken reading is unavailable. Open Speech settings to install or enable an English voice. Text results are still available.");
+            speechSettings.setVisibility(speechReady ? View.GONE : View.VISIBLE);
             setBusy(busy);
         });
         setBusy(false);
@@ -200,9 +225,11 @@ public final class MainActivity extends ComponentActivity {
 
     private void toggle(int buttonId, int panelId, String show, String hide) {
         Button button = findViewById(buttonId); View panel = findViewById(panelId);
+        ViewCompat.setStateDescription(button, "Collapsed");
         button.setOnClickListener(v -> {
             boolean open = panel.getVisibility() != View.VISIBLE;
             panel.setVisibility(open ? View.VISIBLE : View.GONE); button.setText(open ? hide : show);
+            ViewCompat.setStateDescription(button, open ? "Expanded" : "Collapsed");
         });
     }
 
@@ -231,7 +258,7 @@ public final class MainActivity extends ComponentActivity {
 
     private void loadPhoto(Uri uri) {
         int ticket = ++generation;
-        selectedUri = uri; activeResult = null; resetGemini(); tts.stop(); setBusy(true);
+        selectedUri = uri; activeResult = null; resetGemini(); stopSpeech(); setBusy(true);
         result.setText("Your label text will appear here."); status.setText("Opening photo...");
         cropPreview.setImageDrawable(null); cropPreview.setVisibility(View.GONE); cropInfo.setVisibility(View.GONE);
         worker.execute(() -> {
@@ -257,7 +284,7 @@ public final class MainActivity extends ComponentActivity {
     private void read(String path, boolean comparison) {
         if (busy || selectedUri == null) return;
         int ticket = ++generation;
-        activeResult = null; resetGemini(); tts.stop(); setBusy(true); result.setText("Reading...");
+        activeResult = null; resetGemini(); stopSpeech(); setBusy(true); result.setText("Reading...");
         ScanPipeline.Options options = new ScanPipeline.Options();
         options.path = path; options.compare = comparison; options.contrast = contrast.isChecked();
         options.contextCrop = contextCrop.isChecked(); options.cloud = false;
@@ -280,7 +307,7 @@ public final class MainActivity extends ComponentActivity {
                     cropPreview.setVisibility(View.VISIBLE); cropInfo.setVisibility(View.VISIBLE);
                     cropInfo.setText(String.format(Locale.US, "Text image: %d × %d pixels", reading.crop.getWidth(), reading.crop.getHeight()));
                     result.setText(reading.display);
-                    status.setText(String.format(Locale.US, "Local reading completed in %.2f seconds.", reading.record.optLong("analysis_to_result_ms") / 1000.0));
+                    status.setText(String.format(Locale.US, "Local reading completed in %.2f seconds. Label text and Read aloud are available below.", reading.record.optLong("analysis_to_result_ms") / 1000.0));
                     geminiStatus.setText("Ready when you are. Ask Gemini a question below.");
                     detailsStatus.setText("Ready. Analyze details using this image and its OCR text."); setBusy(false);
                 });
@@ -315,7 +342,7 @@ public final class MainActivity extends ComponentActivity {
         String imageName = full || stage == null ? "source.png" : stage.optString("image", "source.png");
         cloudBusy = true;
         if(model.equals("tuned"))tunedSpeech="";else geminiSpeech="";
-        tts.stop();
+        stopSpeech();
         answerStatus.setText("Asking " + modelLabel + "... Your local text is ready above."); answerResult.setText("Waiting for an answer..."); setBusy(busy);
         cloudWorker.execute(() -> {
             if (closed || ticket != geminiGeneration) return;
@@ -392,7 +419,7 @@ public final class MainActivity extends ComponentActivity {
         Bitmap context = includeContext ? reading.source : null;
         JSONObject stage = reading.record.optJSONObject("paths").optJSONObject(reading.record.optString("primary_path"));
         String imageName = stage == null ? "source.png" : stage.optString("image", "source.png");
-        cloudBusy = true; detailsSpeech = ""; detailsReading = null; detailsCard.setVisibility(View.GONE); tts.stop();
+        cloudBusy = true; detailsSpeech = ""; detailsReading = null; detailsCard.setVisibility(View.GONE); stopSpeech();
         detailsStatus.setText("Analyzing product details... Local text is still available above."); setBusy(busy);
         worker.execute(() -> {
             try {
@@ -497,7 +524,7 @@ public final class MainActivity extends ComponentActivity {
         Bitmap context=includeContext?reading.source:null;
         JSONObject stage=reading.record.optJSONObject("paths").optJSONObject(reading.record.optString("primary_path"));
         String imageName=stage==null?"source.png":stage.optString("image","source.png");
-        cloudBusy=true;tunedDetailsSpeech="";tts.stop();
+        cloudBusy=true;tunedDetailsSpeech="";stopSpeech();
         tunedDetailsCard.setVisibility(View.GONE);tunedDetailsResult.setVisibility(View.VISIBLE);
         tunedDetailsStatus.setText("Checking the product model connection...");tunedDetailsResult.setText("Waiting for product details...");setBusy(busy);
         cloudWorker.execute(()->{
@@ -621,12 +648,15 @@ public final class MainActivity extends ComponentActivity {
         if (connectionLoading) { geminiStatus.setText("Loading your saved connection..."); return; }
         LinearLayout fields = new LinearLayout(this); fields.setOrientation(LinearLayout.VERTICAL);
         int pad = (int) (24 * getResources().getDisplayMetrics().density); fields.setPadding(pad, 0, pad, 0);
-        EditText url = new EditText(this); url.setHint("HTTPS backend URL"); url.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_URI); url.setText(endpoint); fields.addView(url);
+        EditText url = new EditText(this); url.setHint("HTTPS backend URL"); url.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_URI); url.setText(endpoint);
+        TextView urlLabel = new TextView(this); urlLabel.setText("HTTPS backend URL"); AccessibleUi.label(urlLabel, url); fields.addView(urlLabel); fields.addView(url);
         TextView help = new TextView(this); help.setText("Paste the application token from APP_CONNECTION.txt. This app saves it encrypted on this device."); fields.addView(help);
         EditText secret = new EditText(this); secret.setHint("Application token"); secret.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-        secret.setSaveEnabled(false); secret.setImportantForAutofill(View.IMPORTANT_FOR_AUTOFILL_NO); secret.setText(token); fields.addView(secret);
+        secret.setSaveEnabled(false); secret.setImportantForAutofill(View.IMPORTANT_FOR_AUTOFILL_NO); secret.setText(token);
+        TextView tokenLabel = new TextView(this); tokenLabel.setText("Application token"); AccessibleUi.label(tokenLabel, secret); fields.addView(tokenLabel); fields.addView(secret);
         TextView modelHelp = new TextView(this); modelHelp.setText("Use Ask base Gemini or Ask fine-tuned Gemini on the main screen to choose the question-answer model."); fields.addView(modelHelp);
-        AlertDialog dialog = new AlertDialog.Builder(this).setTitle("Gemini connection").setView(fields)
+        ScrollView scroll = new ScrollView(this); scroll.addView(fields);
+        AlertDialog dialog = new AlertDialog.Builder(this).setTitle("Gemini connection").setView(scroll)
             .setNegativeButton("Cancel", null).setNeutralButton("Forget token", null).setPositiveButton("Save", null).create();
         dialog.show();
         dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> {
@@ -691,7 +721,41 @@ public final class MainActivity extends ComponentActivity {
     }
 
     private void say(String text) {
-        if (!closed && speechReady && text != null && !text.isEmpty()) tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, "user-reading");
+        if (closed || !speechReady || text == null || text.trim().isEmpty()) return;
+        stopSpeech();
+        java.util.List<String> chunks = SpeechText.chunks(text, TextToSpeech.getMaxSpeechInputLength());
+        String prefix = "label-reading-" + (++speechSequence) + "-";
+        lastUtterance = prefix + (chunks.size() - 1);
+        // Avoid a second screen-reader announcement over the requested speech.
+        speechStatus.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_NONE);
+        stopReading.setEnabled(true); speechStatus.setText("Reading aloud. Use Stop reading aloud to stop.");
+        for (int i = 0; i < chunks.size(); i++) {
+            if (tts.speak(chunks.get(i), i == 0 ? TextToSpeech.QUEUE_FLUSH : TextToSpeech.QUEUE_ADD, null, prefix + i) == TextToSpeech.ERROR) {
+                stopSpeech(); speechStatus.setText("Spoken reading could not start. Check Speech settings and try again.");
+                speechSettings.setVisibility(View.VISIBLE); break;
+            }
+        }
+    }
+
+    private void stopSpeech() {
+        boolean wasSpeaking = !lastUtterance.isEmpty();
+        lastUtterance = "";
+        if (tts != null) tts.stop();
+        if (stopReading != null) stopReading.setEnabled(false);
+        if (speechStatus != null) speechStatus.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_POLITE);
+        if (wasSpeaking && speechStatus != null && speechReady && !closed) speechStatus.setText("Spoken reading stopped. Use a Read aloud button to listen again.");
+    }
+
+    private void finishSpeech(String id, boolean failed) {
+        runOnUiThread(() -> {
+            if (closed || !id.startsWith("label-reading-") || lastUtterance.isEmpty()) return;
+            String activePrefix = lastUtterance.substring(0, lastUtterance.lastIndexOf('-') + 1);
+            if (!id.startsWith(activePrefix) || (!failed && !id.equals(lastUtterance))) return;
+            lastUtterance = ""; stopReading.setEnabled(false);
+            speechStatus.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_POLITE);
+            if (failed) { tts.stop(); speechSettings.setVisibility(View.VISIBLE); }
+            speechStatus.setText(failed ? "Spoken reading failed. Check Speech settings. Text results are still available." : "Spoken reading finished.");
+        });
     }
 
     private void setBusy(boolean value) {
@@ -720,8 +784,7 @@ public final class MainActivity extends ComponentActivity {
     }
 
     private void fill(Spinner spinner, String[] values) {
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, values);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); spinner.setAdapter(adapter);
+        AccessibleUi.fill(spinner, values);
     }
 
     @Override protected void onSaveInstanceState(Bundle state) {

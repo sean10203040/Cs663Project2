@@ -16,11 +16,10 @@ public final class ProductReviewDialog {
         TextView title=new TextView(activity);title.setText(label);layout.addView(title);
         EditText input=new EditText(activity);input.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_FLAG_MULTI_LINE);
         input.setFilters(new android.text.InputFilter[]{new android.text.InputFilter.LengthFilter(limit)});
-        input.setText(value);input.setContentDescription(label);layout.addView(input);return input;
+        input.setText(value);AccessibleUi.label(title,input);layout.addView(input);return input;
     }
     private static Spinner choices(Activity activity,LinearLayout layout,String[] values) {
-        Spinner spinner=new Spinner(activity);ArrayAdapter<String> adapter=new ArrayAdapter<>(activity,android.R.layout.simple_spinner_item,values);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);spinner.setAdapter(adapter);layout.addView(spinner);return spinner;
+        Spinner spinner=new Spinner(activity);AccessibleUi.fill(spinner,values);layout.addView(spinner);return spinner;
     }
     public static void show(Activity activity,JSONObject prediction,JSONObject previous,String ocr,String group,String split,
                             android.graphics.Bitmap crop,android.graphics.Bitmap context,Saved callback) throws Exception {
@@ -39,20 +38,23 @@ public final class ProductReviewDialog {
             JSONObject support=draft.getJSONObject("evidence").optJSONObject(KEYS[i]);
             quotes[i]=edit(activity,fields,LABELS[i]+" supporting text",support==null?"":support.optString("quote"),500);
             sources[i]=choices(activity,fields,new String[]{"Read from photo","Exact OCR quote"});
-            sources[i].setContentDescription(LABELS[i]+" evidence source");
+            TextView sourceLabel=new TextView(activity);sourceLabel.setText(LABELS[i]+" evidence source");
+            fields.addView(sourceLabel,fields.indexOfChild(sources[i]));AccessibleUi.label(sourceLabel,sources[i]);
             sources[i].setSelection(support!=null&&"ocr".equals(support.optString("source"))?1:0);
         }
         EditText guidance=edit(activity,fields,"Guidance for missing details",draft.isNull("guidance")?"":draft.optString("guidance"),1000);
         TextView certaintyLabel=new TextView(activity);certaintyLabel.setText("Reading certainty (subjective, not an accuracy score)");fields.addView(certaintyLabel);
         Spinner certainty=choices(activity,fields,new String[]{"Low","Medium","High"});
+        AccessibleUi.label(certaintyLabel,certainty);
         certainty.setSelection("high".equals(draft.optString("confidence"))?2:"medium".equals(draft.optString("confidence"))?1:0);
         EditText productGroup=edit(activity,fields,"Product group ID (same product across all photos)",previous==null?group:previous.optString("product_group",group),100);
         TextView splitLabel=new TextView(activity);splitLabel.setText("Dataset split");fields.addView(splitLabel);
         Spinner dataset=choices(activity,fields,new String[]{"Development / not assigned","Training","Validation","Final test"});
+        AccessibleUi.label(splitLabel,dataset);
         String chosen=previous==null?split:previous.optString("split",split);
         dataset.setSelection("train".equals(chosen)?1:"validation".equals(chosen)?2:"test".equals(chosen)?3:0);
-        CheckBox checked=new CheckBox(activity);checked.setText("I checked every value and supporting quote against this photo");fields.addView(checked);
-        TextView error=new TextView(activity);error.setTextColor(0xffa02020);fields.addView(error);
+        CheckBox checked=new CheckBox(activity);checked.setText("I checked every value and supporting quote against this photo");checked.setMinHeight(AccessibleUi.dp(activity,48));fields.addView(checked);
+        TextView error=new TextView(activity);error.setTextColor(0xffa02020);error.setAccessibilityLiveRegion(android.view.View.ACCESSIBILITY_LIVE_REGION_POLITE);fields.addView(error);
         ScrollView scroll=new ScrollView(activity);scroll.addView(fields);
         AlertDialog dialog=new AlertDialog.Builder(activity).setTitle("Review product details").setView(scroll)
             .setNegativeButton("Cancel",null).setPositiveButton("Save checked reference",null).create();dialog.show();

@@ -14,7 +14,7 @@
         android:label="LabelLens 2"
         android:supportsRtl="true"
         android:theme="@style/Theme.LabelLens">
-        <activity android:name=".MainActivity" android:exported="true">
+        <activity android:name=".MainActivity" android:exported="true" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

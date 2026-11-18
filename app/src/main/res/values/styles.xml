@@ -6,5 +6,9 @@
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowLightNavigationBar">true</item>
         <item name="android:windowBackground">#F4F7F5</item>
+        <item name="android:textViewStyle">@style/Widget.LabelLens.ReadableText</item>
+    </style>
+    <style name="Widget.LabelLens.ReadableText" parent="android:style/Widget.TextView">
+        <item name="android:textSize">16sp</item>
     </style>
 </resources>
